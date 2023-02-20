@@ -28,6 +28,8 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 - Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
 - ...and much more!
 
+![](Screenshots/page-gallery.png)
+
 # Coming Soon
 - [ ] Fixes to mobile
 - [ ] Style Settings Support
