@@ -15,7 +15,7 @@ When you are using **Big and Bold**, the note pane takes up as much space on the
 # A Unified Experience
 Almost every element in Obsidian has been styled for you. Even **Dataview tables**, **Page Gallery** cards, and **Database Folder** tables are reworked with care to give you *the best*, unified Obsidian experience.
 ## Some Components with Special Styles
-- Lists: bulleted lists and numbered lists' marking change colors with every indentation level to help you keep track of ideas in an outline.
+- Lists: bulleted lists and numbered lists' markings change colors with every indentation level to help you keep track of ideas in an outline.
 - Tables: clean and spacious. Also consistent with **Dataview** tables.
 - Page Gallery cards
 - Tags: #note, #to-do, #reminder, #important, and a few other tags automatically gain emoji prefixes. Keep track of your reminders!
