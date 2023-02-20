@@ -25,6 +25,10 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 - Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
 - ...and much more!
 
+# Coming Soon
+- [ ] Fixes to mobile
+- [ ] Style Settings Support
+
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus on my homework. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
 
