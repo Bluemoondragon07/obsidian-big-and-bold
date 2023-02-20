@@ -14,7 +14,7 @@ When you are using **Big and Bold**, the note pane takes up as much space on the
 
 # A Unified Experience
 
-![](Screenshots/light-and-dark-big-and-bold.png)
+![](Screenshots/page-gallery.png)
 
 Almost every element in Obsidian has been styled for you. Even **Dataview tables**, **Page Gallery** cards, and **Database Folder** tables are reworked with care to give you *the best*, unified Obsidian experience.
 ## Some Components with Special Styles
@@ -28,8 +28,15 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 - Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
 - ...and much more!
 
+## Other Features
 
-![](Screenshots/page-gallery.png)
+### Float Images
+> Use the alt `right` or `left` to float an image into the corresponding position.
+#### Example
+```markdown
+![right](sky.png)
+![left](forest.png)
+```
 
 
 
@@ -42,4 +49,4 @@ I'm not a theme developer, just a 15-year-old who likes messing around with CSS 
 
 > ## It's also under Creative Commons, so do whatever you want with it!
 
-
+![](Screenshots/light-and-dark-big-and-bold.png)
