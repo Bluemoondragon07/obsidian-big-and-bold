@@ -18,8 +18,8 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 - Lists: bulleted lists and numbered lists' markings change colors with every indentation level to help you keep track of ideas in an outline.
 - Tables: clean and spacious. Also consistent with **Dataview** tables.
 - Page Gallery cards
-- Tags: #note, #to-do, #reminder, #important, and a few other tags automatically gain emoji prefixes. Keep track of your reminders!
-- Sidebar: Panel-like folders and subfolders with icons that change with each level--from book to pages to bookmark. Designed simply to look as not-Obsidian as possible (I'm not that creative).
+- Tags: `#note`, `#to-do`, `#reminder`, `#important`, and a few other tags automatically gain emoji icons. Keep track of your reminders!
+- Sidebar: Panel-like folders and subfolders with icons that change with each level - from book to pages to bookmark. Designed simply to look as not-Obsidian as possible (I'm not that creative).
 - Files: Some notes gain special icons depending on what words they have in their file location (`Adventures of Darrel Wiki/Darrel.md` gets a little `🌐` Wiki icon).
 - Callouts: Tweaked some colors and svg icons. Also, the quote/cite callout floats to the right and has fancy drop caps.
 - Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
