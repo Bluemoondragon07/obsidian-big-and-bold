@@ -38,8 +38,21 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 ![left](forest.png)
 ```
 
+### Drop Caps
+> `[!quote]` and `[!cite]` callouts automatically contain them, but drop caps can also be inserted anywhere on the page using <div> elements.
 
+```markdown
+# Chapter 1
+  
+<div class=drop-cap> It had just rained in the town of E-Ville.
+  The sidewalks shimmered with droplets throughout the foggy streets.
+  The streetlamps glared haughtily.
+  And the air stank of malicous intent...coming from the back window of Micah's house. </div>
+```
+The result is a drop cap on the first letter of the first paragraph contained within the `<div>`.
 
+ ![](Screenshots/light-and-dark-big-and-bold.png)
+  
 # Coming Soon
 - [ ] Fixes to mobile
 - [ ] Style Settings Support
@@ -49,4 +62,3 @@ I'm not a theme developer, just a 15-year-old who likes messing around with CSS 
 
 > ## It's also under Creative Commons, so do whatever you want with it!
 
-![](Screenshots/light-and-dark-big-and-bold.png)
