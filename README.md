@@ -28,6 +28,6 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
 
-> # It's also under Creative Commons, so do whatever you want with it!
+> ## It's also under Creative Commons, so do whatever you want with it!
 
 
