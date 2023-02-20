@@ -1,2 +1,1 @@
-# obsidian-big-and-bold
-A bold theme designed in the style of a WYSIWYG Editor, created for maximum focus and a modern look.
+**Big and Bold** was designed to imitate WYSIWYG editors and maximize focus. It draws inspiration from several apps including Microsoft Word, Anytype, and Notion.
