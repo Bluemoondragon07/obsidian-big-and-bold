@@ -5,7 +5,7 @@
 # What You See is What You Get.
 My first goal for **Big and Bold** was to make Obsidian look as not-Obsidian as possible. I probably could have pushed it much further, but the main way I decided to execute this was by imitating a WYSIWYG editor.
 
-Paragraphs in live preview and reading mode are spaced in exactly the same way. Whether you press `Enter` once or twice, a properly spaced paragraph, indentical to all other paragraphs, will be created (although you still need to press `Enter` twice to indent).
+Paragraphs in live preview and reading mode are spaced in exactly the same way. Whether you press `Enter` once or twice, a properly spaced paragraph, identical to all other paragraphs, will be created (although you still need to press `Enter` twice to indent).
 
 No inconsistencies, no surprises with paragraphs. Just keep writing and focus on writing.
 
