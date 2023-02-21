@@ -655,12 +655,12 @@ b, strong, .cm-strong {
 }
 /* ----- HEADINGS ----- */
 body {
-    --h1-font: 'Merriweather Sans', 'Book Antiqua';
-    --h2-font: 'Merriweather Sans', 'Book Antiqua';
-    --h3-font: 'Merriweather Sans', 'Book Antiqua';
-    --h4-font: 'Merriweather Sans', 'Book Antiqua';
-    --h5-font: 'Merriweather Sans', 'Book Antiqua';
-    --h6-font: 'Merriweather Sans', 'Book Antiqua';
+    --h1-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --h2-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --h3-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --h4-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --h5-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --h6-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
     --h1-size: 2.2em;
     --h2-size: 1.87em;
     --h3-size: 1.57em;
@@ -693,28 +693,7 @@ body {
 }
 
 
-li.task-list-item:first-child {
-margin: 2em auto 0.5em auto;
-}
 
-li.task-list-item {
-    display: flexbox;
-    border: 1px solid var(--background-modifier-border);
-    border-radius: var(--radius-s);
-    --indentation-guide-color:transparent; 
-    background-color: var(--background-secondary-alt);
-    padding: 2em 2.5em;
-    line-height: 3em;
-    margin: 0.5em auto;
-    overflow: hidden;
-}
-li.task-list-item  li {
-    margin-bottom: 0.5em;
-}
-li.task-list-item p {
-    padding: 0.4em;
-    margin-bottom: 0px;
-}
 input[type=checkbox]:after {
     content: "";
     top: -1.3px;
@@ -759,15 +738,17 @@ input[type=checkbox]:hover {
 
 
 
+
+
 /* --- RAINBOW LIST COLORS --- */
 li {
     line-height: 2em;
     --list-marker-color: var(--color-cyan);
 }
-li li {
+li li, .cm-list-2 {
     --list-marker-color: var(--color-blue);
 }
-li li li {
+li li li, .cm-list-3 {
     --list-marker-color: var(--color-purple);
 }
 li li li li  {
@@ -800,6 +781,21 @@ li:hover .list-bullet:after {
     text-align: center;
     font-size: 2.5em;
   }
+
+  /* --- CUSTOM TITLE ICONS --- */
+  .icon .inline-title::first-letter {
+    font-size: 1em;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-l);
+    margin-right: 0.3em;
+    padding: 15px;
+    font-family: 'Noto Color Emoji';
+    background-color: var(--background-secondary-alt);
+    box-shadow: var(--shadow-ui) inset, var(--shadow-ui);
+  }
+.icon .inline-title {
+    margin-bottom: 0.5em;
+}
 
 /* ----- BLOCKQUOTES ----- */
 
@@ -934,6 +930,7 @@ a.tag {
 }
 
 /* CUSTOM TAG ICONS */
+
 a.tag[href*="#note"]::before {
     content: '📝';
     display: inline;
@@ -986,6 +983,30 @@ a.tag[href*="plan"]::before
     display: inline;
     padding: 0px 4px 0px 0px;
 }
+a.tag[href*="trash"]::before,
+a.tag[href*="rubbish"]::before,
+a.tag[href*="scrapped"]::before
+ {
+    content: '🗑️';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="place"]::before,
+a.tag[href*="region"]::before,
+a.tag[href*="locale"]::before,
+a.tag[href*="location"]::before
+ {
+    content: '🏞️';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="magic"]::before,
+a.tag[href*="tip"]::before
+ {
+    content: '✨';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
 
 /* ------- LINKS ------- */
 body {
@@ -1016,7 +1037,7 @@ color: var(--color-accent-2);
 text-decoration: underline var(--color-accent-1) 2px;
 }
 
- .internal-link::before, .external-link::before {
+ .internal-link::before, .external-link::before, .cm-underline::before {
     content: "🡥";
     margin-right: 0.3em;
     display: inline-block;
@@ -1024,6 +1045,15 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-weight: 500;
     text-decoration: none;
     font-family: inherit, 'Noto Sans Symbols 2';
+}
+.internal-link.is-unresolved::before, .is-unresolved .cm-underline::before {
+    content: "＋";
+    margin-right: 0.1em;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Noto Sans Symbols 2', inherit;
 }
 .internal-link:hover::before, .external-link:hover::before {
     font-weight: 900;
@@ -1116,6 +1146,7 @@ background-color: var(--background-secondary-alt);
 }
 
 /* DATAVIEW */
+
 .dataview.inline-field * {
 background-color: transparent;
 padding: 0px;
@@ -1133,7 +1164,7 @@ padding: 0px;
     font-weight: 100;
     color: var(--text-normal);
     padding: 0px 4px;
-    font-family: 'Noto Emoji';
+    font-family: 'Noto Sans Symbols', 'Noto Emoji';
 }
 .dataview.inline-field-value {
     font-family: inherit;
@@ -1273,6 +1304,9 @@ box-shadow: var(--shadow-ui);
     white-space: initial;
     margin-top: 8px;
 }
+.page-gallery__field a.tag {
+    font-size: 0.85em;
+}
 .page-gallery__field:first-child {
 margin-top: 10px;
 }
@@ -1295,6 +1329,23 @@ width: 80%;
     color: var(--text-normal);
     text-decoration: none;
 }
+
+/* ------ FOLDER NOTE OVERVIEW -------- */
+.theme-light .alx-folderv .ant-card-bordered, .theme-dark .alx-folderv .ant-card-bordered {
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: var(--shadow-ui);
+    border-radius: var(--radius-s);
+    background-color: var(--background-secondary-alt);
+}
+.ant-tag > * {
+    border: none !important;
+}
+.ant-tag {
+    border-radius: var(--radius-s) !important;
+}
+
+
+
 
 /* ----- GENERAL CODE BLOCKS ------ */
 
