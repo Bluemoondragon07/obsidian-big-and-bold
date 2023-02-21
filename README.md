@@ -55,7 +55,7 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 ```
 The result is a drop cap on the first letter of the first paragraph contained within the `<div>`.
 
-![](drop-cap.png)
+![](Screenshots/drop-cap.png)
 
 ### Note Title Icons
 > Display the first character in a note title as an icon.
