@@ -40,7 +40,7 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 ```
 
 ### Drop Caps
-> `[!quote]` and `[!cite]` callouts automatically contain them, but drop caps can also be inserted anywhere on the page using <div> elements.
+> `[!quote]` and `[!cite]` callouts automatically contain them, but drop caps can also be inserted anywhere on the page using `<div>` elements.
 
 ```markdown
 # Chapter 1
