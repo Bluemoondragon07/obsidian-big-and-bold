@@ -6,13 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap');
 
 body {
     --font-default: 'Nunito Sans', 'Noto Color Emoji', sans-serif;
-    --divider-width: 1px;
+    --bold-font: inherit;
+    --font-monospace: 'DM Mono', monospace;
     --ribbon-background: transparent;
     --ribbon-background-collapsed: transparent;
-    --file-line-width: 900px;
+    --file-line-width: 1000px;
     --shadow-ui: 0px 1px 2px rgba(0, 0, 0, 0.028),
     0px 3.4px 6.7px rgba(0, 0, 0, .042);
 }
@@ -321,10 +324,10 @@ transition: .25s;
 /* ------ SETTINGS ------ */
 .setting-item {
     border: solid 1px var(--background-modifier-border);
-    border-radius: var(--radius-s);
-    margin:10px;
-    padding: 10px;
-    box-shadow: 2px 1px 4px rgb(0 0 0 / 7%);
+    border-radius: 0.6em;
+    margin: 15px 0px;
+    padding: 15px;
+    font-family: var(--h1-font);
 }
 .vertical-tab-nav-item.is-active {
     box-shadow: var(--input-shadow); 
@@ -337,14 +340,14 @@ transition: .25s;
 .setting-item-heading:first-child {
     border-top: none;
 }
-
 .setting-item-description {
 color: var(--text-muted);
 font-style: italic;
+font-family: var(--font-default);
 }
 
 .setting-item-heading .setting-item-name {
-    font-size: var(--h1-size);
+    font-size: var(--h2-size);
     font-family: var(--h1-font);
     text-transform: capitalize;
 }
@@ -359,6 +362,7 @@ box-shadow: none;
     font-family: var(--h1-font);
     padding-left: 2px;
     color: var(--text-normal);
+    text-align: center;
 }
 .vertical-tab-nav-item {
     color: var(--text-muted);
@@ -390,12 +394,11 @@ border-bottom: none;
 .modal-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.559), black);
 }
-.vertical-tab-header-group {
+.vertical-tab-header-group-items:not(.is-mobile) {
     background-color: var(--background-secondary-alt);
-    margin-bottom: 20px;
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-m);
-    padding: 1em;
+    padding: 0.5em 1em 0.5em 1em;
 }
 .vertical-tab-header {
     background-color: var(--background-primary);
@@ -416,7 +419,9 @@ border-bottom: none;
 .community-modal-search-results {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     padding: var(--size-4-3);
-    background-color: var(--background-secondary-alt);
+}
+.community-modal-search-results-wrapper {
+    border: none;
 }
 .community-item-name {
     font-size: var(--font-ui-medium);
@@ -501,6 +506,22 @@ transition: opacity .1s, max-width .1s !important;
     --accent-l: 35% !important;
 }
 .theme-light {
+    --color-red-rgb: 255, 77, 58;
+    --color-red: #ff4d3a;
+    --color-green-rgb: 125, 207, 43;
+    --color-green: #7dcf2b;
+    --color-orange-rgb: 246, 156, 0;
+    --color-orange: #f69c00;
+    --color-yellow-rgb: 232, 201, 0;
+    --color-yellow: #e8c900;
+    --color-cyan-rgb: 0, 206, 203;
+    --color-cyan: #00cecb;
+    --color-blue-rgb:0, 155, 227;
+    --color-blue: #009be3;
+    --color-purple-rgb: 180, 90, 245;
+    --color-purple: #b45af5;
+    --color-pink-rgb: 230, 106, 180;
+    --color-pink: #e66ab4;
     --color-base-00: #ffffff;
     --color-base-05: #fcfcfc;
     --color-base-10: #fafafa;
@@ -511,7 +532,7 @@ transition: opacity .1s, max-width .1s !important;
     --color-base-40: #d7d7d7;
     --color-base-50: #878787;
     --color-base-60: #939393;
-    --color-base-70: #5a5a5a;
+    --color-base-70: #7f7f7f;
     --color-base-100: #252525;
     --text-highlight-bg: rgba(255, 208, 0, 0.4);
     --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
@@ -588,16 +609,18 @@ transition: opacity .1s, max-width .1s !important;
 
   /* ---------- TYPOGRAPHY ---------- */
 
-  /* ---- PARAGRAPHS --- */
+  /* ---- PARAGRAPHS and DROP CAPS --- */
   p {
     line-height: 2em;
     text-indent: 0.25in;
   }
-
+ 
+/* --- DROP CAPS for QUOTE CALLOUTS and CUSTOM DIV CLASS --- */
  .callout[data-callout="quote"]:first-of-type:first-letter,
- .callout[data-callout="cite"]:first-of-type:first-letter {
+ .callout[data-callout="cite"]:first-of-type:first-letter,
+ .drop-cap:first-of-type:first-letter {
     float: left;
-    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 70px;
     line-height: 50px;
     padding-top: 4px;
@@ -605,11 +628,12 @@ transition: opacity .1s, max-width .1s !important;
     display: block;
   }
 
-/* make exception for database plug-in regarding text indent */
+/* make exception for database plug-in and links regarding text indent */
 .database-plugin__tbody * {
     text-indent: 0px !important;
 }
 
+/* -- MAKE PARAGRAPH and LINE SPACING EVEN IN READING AND EDIT MODES */
 .markdown-preview-view br, .markdown-source-view br {
     content: '';
     display: block;
@@ -618,13 +642,17 @@ transition: opacity .1s, max-width .1s !important;
 
 .markdown-source-view.mod-cm6 .cm-line {
     padding-top: 10px !important;
-    padding-bottom: 10px !important;
+    line-height: 2em !important;
 }
+
 /* paragraphs in callouts and blockquotes */
 .callout p, .markdown-rendered blockquote p {
     text-indent: 0px;
 }
-
+/* -------- BOLD TEXT ------- */
+b, strong, .cm-strong {
+    font-family: var(--bold-font);
+}
 /* ----- HEADINGS ----- */
 body {
     --h1-font: 'Merriweather Sans', 'Book Antiqua';
@@ -639,7 +667,10 @@ body {
     --h4-size: 1.35em;
 }
 .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6, .cm-s-obsidian .HyperMD-header {
-    margin: 2em 0px 0.5em 0px;
+    margin: 2em 0px 0.8em 0px;
+}
+.cm-s-obsidian .HyperMD-header {
+    line-height: 2.5em;
 }
 .markdown-rendered h1, .HyperMD-header-1 {
     text-align: center;
@@ -799,7 +830,7 @@ body {
     --callout-bug: var(--color-pink-rgb);
     --callout-summary: var(--color-green-rgb);
     --callout-tip: var(--color-yellow-rgb);
-    --callout-question: var(--color-blue-rgb);
+    --callout-question: var(--color-yellow-rgb);
     --callout-error: var(--color-orange-rgb);
 }
 .callout-icon {
@@ -813,8 +844,10 @@ body {
     width:min-content;
     min-width: 60%;
     background-color: var(--background-secondary-alt);
-    margin: 1em auto;
+    margin: 1.5em auto;
 }
+
+
 .callout-content p {
     margin: auto;
     display: block;
@@ -826,6 +859,7 @@ body {
     margin: auto;
     width: fit-content;
     font-size: var(--h6-size);
+    font-weight: var(--font-normal);
 }
 .callout-title {
     padding: 12px;
@@ -868,12 +902,12 @@ body {
     height:flex;
     width: flex;
     display: flexbox;
-    
 }
 
 .callout[data-callout="quote"] .callout-title-inner, .callout[data-callout="cite"] .callout-title-inner {
 margin: 0px;
 }
+
 /* ------- TAGS -------- */
 
 /* reverse tag styling in database folder plugin */
@@ -986,9 +1020,10 @@ text-decoration: underline var(--color-accent-1) 2px;
     content: "🡥";
     margin-right: 0.3em;
     display: inline-block;
-    font-size: 0.8em;
-    font-weight: 600;
+    font-size: 0.85em;
+    font-weight: 500;
     text-decoration: none;
+    font-family: inherit, 'Noto Sans Symbols 2';
 }
 .internal-link:hover::before, .external-link:hover::before {
     font-weight: 900;
@@ -1007,14 +1042,15 @@ text-decoration: underline var(--color-accent-1) 2px;
 
 /* ------ HIGHLIGHTS ------ */
 .theme-light, .theme-dark {
-    --text-highlight-bg: rgba(var(--color-cyan-rgb), 0.3);
+    --text-highlight-bg: rgba(255, 200, 0, 0.459);
 }
 .cm-s-obsidian span.cm-formatting-highlight,
   .cm-s-obsidian span.cm-highlight,
   .markdown-rendered mark {
-    padding: 2px 0.4em;
-    border-radius: var(--radius-s);
+    padding: 3px 0.4em;
+    border-radius: 6px;
     font-family: var(--h1-font);
+    
  }
 
 /* ------ BACKLINKS ----- */
@@ -1046,7 +1082,7 @@ text-decoration: underline var(--color-accent-1) 2px;
 
 hr {
 border-width: 1px !important;
-margin: 1em 0px;
+margin: 1.5em 0px;
 }
 
 /* ----- FRONTMATTER and DATAVIEW ----- */
@@ -1113,15 +1149,38 @@ padding: 0px;
     margin: 4em auto;
     display: block;
     max-width: 85%;
-    transition: transform .25s;
+    transition: .25s;
 }
 
+.view-content img {
+width: 80%;
+border-radius: var(--radius-s);
+    box-shadow: var(--shadow-s);
+    margin: 1.2em auto;
+    display: block;
+    max-width: 85%;
+    transition: .25s;
+}
 .markdown-rendered img:hover {
     box-shadow: var(--shadow-ui);
     transform: scale(1.1);
 }
 
-
+/* -- CUSTOM IMAGE ALTS --- */
+.markdown-rendered img[alt*="right"] {
+    display: flexbox;
+    float: right;
+    clear:right;
+    max-width: 40%;
+    margin-left: 1.5em;
+}
+.markdown-rendered img[alt*="left"] {
+    display: flexbox;
+    float: left;
+    clear:left;
+    max-width: 40%;
+    margin-right: 1.5em;
+}
 
 /* ----- TABLES ------ */
 body {
@@ -1140,7 +1199,7 @@ tbody {
     background-color: var(--background-secondary) !important;
 }
 table {
-    max-width: 100%;
+    max-width: 95%;
     min-width: 50%;
     width: fit-content;
     margin: 2em auto;
@@ -1235,4 +1294,22 @@ width: 80%;
     filter: none;
     color: var(--text-normal);
     text-decoration: none;
+}
+
+/* ----- GENERAL CODE BLOCKS ------ */
+
+.markdown-rendered pre {
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: var(--shadow-ui);
+    padding: 2em;
+}
+
+.cm-s-obsidian .HyperMD-codeblock * {
+    margin: 0px !important;
+    padding: 0px !important;
+    line-height: 1em !important;
+}
+
+.markdown-rendered code {
+   color: var(--text-normal);
 }
