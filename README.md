@@ -57,10 +57,10 @@ The result is a drop cap on the first letter of the first paragraph contained wi
 - [ ] Fixes to mobile
 - [ ] Style Settings Support
   
-![](Screenshots/light-and-dark-big-and-bold.png)
 
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus on my homework. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
 
 > ## It's also under Creative Commons, so do whatever you want with it!
 
+![](Screenshots/light-and-dark-big-and-bold.png)
