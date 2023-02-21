@@ -14,9 +14,10 @@ When you are using **Big and Bold**, the note pane takes up as much space on the
 
 # A Unified Experience
 
+Almost every element in Obsidian has been styled for you. Even **Dataview tables**, **Page Gallery** cards, and **Database Folder** tables are reworked with care to give you *the best*, most unified Obsidian experience.
+
 ![](Screenshots/page-gallery.png)
 
-Almost every element in Obsidian has been styled for you. Even **Dataview tables**, **Page Gallery** cards, and **Database Folder** tables are reworked with care to give you *the best*, unified Obsidian experience.
 ## Some Components with Special Styles
 - Lists: bulleted lists and numbered lists' markings change colors with every indentation level to help you keep track of ideas in an outline.
 - Tables: clean and spacious. Also consistent with **Dataview** tables.
@@ -51,11 +52,12 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 ```
 The result is a drop cap on the first letter of the first paragraph contained within the `<div>`.
 
- ![](Screenshots/light-and-dark-big-and-bold.png)
   
 # Coming Soon
 - [ ] Fixes to mobile
 - [ ] Style Settings Support
+  
+![](Screenshots/light-and-dark-big-and-bold.png)
 
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus on my homework. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
