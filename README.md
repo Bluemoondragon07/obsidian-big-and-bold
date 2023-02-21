@@ -33,11 +33,14 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 
 ### Float Images
 > Use the alt `right` or `left` to float an image into the corresponding position.
+
+
 #### Example
 ```markdown
 ![right](sky.png)
 ![left](forest.png)
 ```
+![](Screenshots/floating-images.png)
 
 ### Drop Caps
 > `[!quote]` and `[!cite]` callouts automatically contain them, but drop caps can also be inserted anywhere on the page using `<div>` elements.
@@ -51,6 +54,8 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
   And the air stank of malicous intent...coming from the back window of Micah's house. </div>
 ```
 The result is a drop cap on the first letter of the first paragraph contained within the `<div>`.
+
+![](drop-cap.png)
 
 ### Note Title Icons
 > Display the first character in a note title as an icon.
