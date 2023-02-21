@@ -52,7 +52,13 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 ```
 The result is a drop cap on the first letter of the first paragraph contained within the `<div>`.
 
-  
+### Note Title Icons
+> Display the first character in a note title as an icon.
+
+![](Screenshots/icon.png)
+
+Put `cssClass: icon` in a note's frontmatter to display the first character in the title as an icon. Recommended for notes in which the first character is an emoji.
+
 # Coming Soon
 - [ ] Fixes to mobile
 - [ ] Style Settings Support
