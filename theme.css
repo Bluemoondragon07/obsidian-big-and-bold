@@ -1056,7 +1056,16 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-size: 0.85em;
     font-weight: 500;
     text-decoration: none;
-    font-family: inherit, 'Noto Sans Symbols 2';
+    font-family: 'Noto Sans Symbols 2', inherit;
+}
+.is-mobile .internal-link::before, .is-mobile .external-link::before, .is-mobile .cm-underline::before {
+    content: "🡥";
+    margin-right: 0.3em;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Noto Sans Symbols 2';
 }
 .internal-link.is-unresolved::before, .is-unresolved .cm-underline::before {
     content: "＋";
@@ -1410,7 +1419,7 @@ body.is-phone .view-action:nth-last-of-type(4) {
     width: 56px;
     height: 56px;
     border-radius: var(--radius-m);
-    top: calc(100vh - 44px - 42px - 16px);
+    top: calc(100vh - 68px - 64px - 16px);
 }
 
 
