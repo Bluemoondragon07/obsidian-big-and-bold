@@ -3,19 +3,23 @@
 
 /* ------ FONTS --------- */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=Koh+Santepheap:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Oleo+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&display=swap');
 
-body {
-    --font-default: 'Nunito Sans', 'Noto Color Emoji', sans-serif;
+body { 
+    --font-main: 'Nunito Sans';
+    --font-default: var(--font-main), 'Noto Color Emoji', sans-serif;
     --bold-font: inherit;
     --font-monospace: 'DM Mono', monospace;
     --ribbon-background: transparent;
     --ribbon-background-collapsed: transparent;
-    --file-line-width: 1000px;
+    --file-line-width: 1100px;
     --shadow-ui: 0px 1px 2px rgba(0, 0, 0, 0.028),
     0px 3.4px 6.7px rgba(0, 0, 0, .042);
 }
@@ -62,10 +66,11 @@ body {
 }
 
 .nav-folder.mod-root > .nav-folder-title .nav-folder-title-content:before {
-    content: "💎";
+    content: var(--vault-icon);
     font-size: inherit;
     font-weight: 500;
     color: var(--color-accent-2);
+    font-family: var(--vault-font)
 }
 
 .nav-folder.mod-root > .nav-folder-title {
@@ -240,6 +245,10 @@ border-bottom: 1px solid var(--background-modifier-border);
 border-radius: var(--radius-s);
 margin: 7px 0px;
 width: 98%;
+background-color: var(--panel-child);
+}
+.nav-folder.mod-root .nav-folder .nav-folder .nav-file {
+    background-color: var(--panel-child);
 }
 
 
@@ -276,12 +285,6 @@ padding-right: 600;
 
 body {
     --nav-indentation-guide-width: 0px;
-    --modal-max-width: 100%;
-    --modal-width: 100%;
-    --modal-height: 100%;
-    --modal-max-width-narrow: 75%;
-    --modal-radius: 0px;
-    --modal-max-height: 100;
     --radius-s: 7px;
     --radius-m: 14px;
     --radius-l: 19px;
@@ -296,6 +299,19 @@ body {
     --tab-text-color-focused-active-current: var(--color-accent-1);
     --tab-divider-color: transparent;
     --tab-outline-width: 0.8px;
+}
+.full-screen-modal {
+    --modal-max-width: 100%;
+    --modal-width: 100%;
+    --modal-height: 100%;
+    --modal-max-width-narrow: 75%;
+    --modal-radius: 0px;
+    --modal-max-height: 100;
+}
+
+/* notices  */
+.notice {
+background-color: var(--color-accent-1) !important;
 }
 
 /* fix tab spacing */
@@ -327,7 +343,9 @@ transition: .25s;
     border-radius: 0.6em;
     margin: 15px 0px;
     padding: 15px;
-    font-family: var(--h1-font);
+}
+.is-phone .setting-item {
+    border-radius: 0px !important;
 }
 .vertical-tab-nav-item.is-active {
     box-shadow: var(--input-shadow); 
@@ -348,6 +366,7 @@ font-family: var(--font-default);
 
 .setting-item-heading .setting-item-name {
     font-size: var(--h2-size);
+    font-weight: var(--font-bold);
     font-family: var(--h1-font);
     text-transform: capitalize;
 }
@@ -437,6 +456,9 @@ body {
 .community-item {
     box-shadow: var(--shadow-ui);
 }
+.is-phone .community-item {
+    box-shadow: none;
+}
 
 
 
@@ -498,14 +520,40 @@ transition: opacity .1s, max-width .1s !important;
     border-width: 0px !important;
 }
 
+/* ---------- ULTRA FOCUS ---------- */
+.ultra-focus {
+    --file-line-width: 1150px;
+}
+.ultra-focus .workspace-ribbon.is-collapsed {
+    display: none;
+}
+/* hide titlebar */
+.ultra-focus .view-header {
+    opacity: 0;
+   height: 1px;
+   transition: height 0.1s, opacity 0.25s;
+   }
+.ultra-focus .view-header:hover {
+       opacity: 1;
+      height:var(--header-height);
+}
+/* remove tabs */
+.ultra-focus .workspace-tab-header-container {
+display: none;
+}
 
-/* --------------- COLOR SCHEME -------------------- */
+/* --------------- COLOR SCHEMES -------------------- */
+
+/* --------- ORIGINAL -------- */
 .theme-light, .theme-dark {
+    --vault-icon: '💎';
+    --vault-font: 'Noto Emoji';
     --accent-h: 181 !important;
     --accent-s: 100% !important;
     --accent-l: 35% !important;
+    --panel-child: var(--background-primary-alt);
 }
-.theme-light {
+.theme-light, .is-mobile.theme-light {
     --color-red-rgb: 255, 77, 58;
     --color-red: #ff4d3a;
     --color-green-rgb: 125, 207, 43;
@@ -524,7 +572,7 @@ transition: opacity .1s, max-width .1s !important;
     --color-pink: #e66ab4;
     --color-base-00: #ffffff;
     --color-base-05: #fcfcfc;
-    --color-base-10: #fafafa;
+    --color-base-10: #fdfdfd;
     --color-base-20: #f6f6f6;
     --color-base-25: #efefef;
     --color-base-30: #9f9f9f66;
@@ -539,9 +587,8 @@ transition: opacity .1s, max-width .1s !important;
     --color-accent-3: hsl(calc(var(--accent-h) + 35), var(--accent-s), calc(var(--accent-l) + 12%));
     --color-accent-1: hsl(calc(var(--accent-h) - 4), var(--accent-s), calc(var(--accent-l) - 2%));
     --color-accent-2: hsl(calc(var(--accent-h) + 2), calc(var(--accent-s) + 5%), calc(var(--accent-l) + 4%));
-    --workspace-background: linear-gradient(0deg, rgb(255, 208, 120), rgb(177, 226, 233));
   }
-  .theme-dark {
+  .theme-dark, .is-mobile.theme-dark {
     color-scheme: dark;
     --highlight-mix-blend-mode: lighten;
     --mono-rgb-0: 0, 0, 0;
@@ -563,10 +610,10 @@ transition: opacity .1s, max-width .1s !important;
     --color-pink-rgb: 230, 106, 180;
     --color-pink: #e66ab4;
     --color-base-00: #1b1f25;
-    --color-base-10: #22282d;
-    --color-base-20: #28313b;
+    --color-base-10: #272e34;
+    --color-base-20: #20272f;
     --color-base-25: #3b454f;
-    --color-base-30: #21242c;
+    --color-base-30: #21252c;
     --color-base-35: #3d464e;
     --color-base-40: rgb(63, 79, 93);
     --color-base-50: rgb(113, 132, 146);
@@ -588,16 +635,6 @@ transition: opacity .1s, max-width .1s !important;
     --text-highlight-bg: rgba(255, 208, 0, 0.4);
     --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
-    --input-shadow: inset 0 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.09),
-          0 2px 4px 0 rgba(0,0,0,.15),
-          0 1px 1.5px 0 rgba(0,0,0,.1),
-          0 1px 2px 0 rgba(0,0,0,.2),
-          0 0 0 0 transparent;
-    --input-shadow-hover: inset 0 0.5px 1px 0.5px rgba(255, 255, 255, 0.16),
-          0 2px 3px 0 rgba(0,0,0,.3),
-          0 1px 1.5px 0 rgba(0,0,0,.2),
-          0 1px 2px 0 rgba(0,0,0,.4),
-          0 0 0 0 transparent;
     --shadow-s: 0px 1px 2px rgba(0, 0, 0, 0.121),
           0px 3.4px 6.7px rgba(0, 0, 0, 0.179),
           0px 15px 30px rgba(0, 0, 0, 0.3);
@@ -607,20 +644,181 @@ transition: opacity .1s, max-width .1s !important;
     --background-modifier-border: rgba(239, 246, 255, 0.11);
   }
 
-  /* ---------- TYPOGRAPHY ---------- */
+ /* --------- MATCHA THEME --------- */
+.theme-matcha {
+    --vault-icon: '🍵';
+    --accent-h: 85 !important;
+    --accent-s: 55% !important;
+    --accent-l: 55% !important;
+    --color-red-rgb:  211, 130, 101;
+    --color-red: #d38265;
+    --color-green-rgb: 151, 203, 77;
+    --color-green: #97cb4d;
+    --color-orange-rgb: 174, 141, 80;
+    --color-orange: #ae8d50;
+    --color-yellow-rgb: 202, 204, 67;
+    --color-yellow: #cacc43;
+    --color-cyan-rgb: 107, 192, 138;
+    --color-cyan: #6bc08a;
+    --color-blue-rgb:124, 198, 185;
+    --color-blue: #7cc6b9;
+    --color-purple-rgb: 130, 159, 181;
+    --color-purple: #829fb5;
+    --color-pink-rgb: 189, 144, 169;
+    --color-pink: #bd90a9;
+}
+ .theme-matcha.theme-light {
+    --color-base-05: hsl(90, 57%, 97%);
+    --color-base-00: hsl(96, 100%, 99%);
+    --color-base-10: #e9f3df;
+    --color-base-20: #e9f4db;
+    --color-base-25: #e1edd3;
+    --color-base-30: #6c983f37;
+    --color-base-35: #d1ddc6;
+    --color-base-40: #c8d9c1;
+    --color-base-50: #80907a;
+    --color-base-60: #849b81;
+    --color-base-70: #6c826c;
+    --color-base-100: #272d28;
+    --panel-child: hsla(88, 100%, 97%, 0.162);
+ }
+.theme-matcha.theme-dark {
+    --color-base-00: #20251b;
+    --color-base-10: #2e3427;
+    --color-base-20: #292f20;
+    --color-base-25: #494f3b;
+    --color-base-30: #252c21;
+    --color-base-35: #575e52;
+    --color-base-40: rgb(94, 106, 90);
+    --color-base-50: rgb(140, 151, 133);
+    --color-base-60: rgb(167, 179, 162);
+    --color-base-70: #b8c7b6;
+    --color-base-100: #dee7d7;
+}
+
+/* -------- TROPICAL THEME --------- */
+.theme-tropical {
+    --vault-icon: '🌺';
+    --accent-h: 16 !important;
+    --accent-s: 100% !important;
+    --accent-l: 66% !important;
+    --color-cyan-rgb:  255, 99, 99;
+    --color-cyan: #ff6363;
+    --color-pink-rgb: 30, 177, 69;
+    --color-pink: #1eb145;
+    --color-blue-rgb: 255, 152, 78;
+    --color-blue: #ff984e;
+    --color-purple-rgb: 243, 198, 0;
+    --color-purple: #f3c600;
+    --color-red-rgb: 0, 220, 190;
+    --color-red: #00dcbe;
+    --color-orange-rgb:64, 188, 255;
+    --color-oranged: #40bcff;
+    --color-yellow-rgb: 198, 113, 234;
+    --color-yellow: #c671ea;
+    --color-green-rgb: 255, 91, 135;
+    --color-green: #ff5b87;
+}
+ .theme-tropical.theme-light {
+    --color-base-05: hsl(44, 100%, 92%);
+    --color-base-00: hsl(51, 100%, 95%);
+    --color-base-10: #ffe9cd;
+    --color-base-20: #ffdcc0;
+    --color-base-25: #d3edea;
+    --color-base-30: #7a2b0034;
+    --color-base-35: #dac6dd;
+    --color-base-40: #d9c1ca;
+    --color-base-50: #7a8c90;
+    --color-base-60: #818b9b;
+    --color-base-70: #6c6e82;
+    --color-base-100: #27282d;
+    --panel-child: hsla(340, 100%, 97%, 0.162);
+ }
+.theme-tropical.theme-dark {
+    --color-base-00: #251b1b;
+    --color-base-10: #4a353d;
+    --color-base-20: #2f202c;
+    --color-base-25: #4d3b4f;
+    --color-base-30: #2d222c;
+    --color-base-35: #54525e;
+    --color-base-40: rgb(90, 92, 106);
+    --color-base-50: rgb(133, 151, 149);
+    --color-base-60: rgb(176, 179, 162);
+    --color-base-70: #c7c4b6;
+    --color-base-100: #e7ded7;
+}
+
+.theme-average {
+    --vault-icon: '🐁';
+    --font-default: 'Nunito Sans', 'Noto Emoji', sans-serif; 
+    --accent-h: 210 !important;
+    --accent-s: 5% !important;
+    --accent-l: 60% !important;
+    --color-cyan-rgb:  110, 110, 110;
+    --color-cyan: #6e6e6e;
+    --color-pink-rgb: 110, 110, 110;
+    --color-pink: #6e6e6e;
+    --color-blue-rgb: 110, 110, 110;
+    --color-blue: #6e6e6e;
+    --color-purple-rgb: 110, 110, 110;
+    --color-purple: #6e6e6e;
+    --color-red-rgb: 110, 110, 110;
+    --color-red: #6e6e6e;
+    --color-orange-rgb:110, 110, 110;
+    --color-oranged: #6e6e6e;
+    --color-yellow-rgb: 110, 110, 110;
+    --color-yellow: #6e6e6e;
+    --color-green-rgb: 110, 110, 110;
+    --color-green: #6e6e6e;
+}
+ .theme-average.theme-light {
+    --color-base-05: hsl(0, 0%, 95%);
+    --color-base-00: hsl(0, 0%, 96%);
+    --color-base-10: #eeeeee;
+    --color-base-20: #dddddd;
+    --color-base-25: #f1f1f1;
+    --color-base-30: #cecece;
+    --color-base-35: #dedede;
+    --color-base-40: #c0c0c0;
+    --color-base-50: #949494;
+    --color-base-60: #9d9d9d;
+    --color-base-70: #7f7f7f;
+    --color-base-100: #2d2d2d;
+    --panel-child: hsla(0, 0%, 100%, 0.162);
+ }
+.theme-average.theme-dark {
+    --color-base-00: #363636;
+    --color-base-10: #5a5a5a;
+    --color-base-20: #505050;
+    --color-base-25: #606060;
+    --color-base-30: #494949;
+    --color-base-35: #656565;
+    --color-base-40: rgb(112, 112, 112);
+    --color-base-50: rgb(150, 150, 150);
+    --color-base-60: rgb(174, 174, 174);
+    --color-base-70: #bbbbbb;
+    --color-base-100: #dddddd;
+}
+
+
+  /* -------------- TYPOGRAPHY ------------- */
 
   /* ---- PARAGRAPHS and DROP CAPS --- */
   p {
     line-height: 2em;
     text-indent: 0.25in;
   }
+
+.view-content > * {
+    font-weight: var(--font-normal);
+}
  
 /* --- DROP CAPS for QUOTE CALLOUTS and CUSTOM DIV CLASS --- */
  .callout[data-callout="quote"]:first-of-type:first-letter,
  .callout[data-callout="cite"]:first-of-type:first-letter,
  .drop-cap:first-of-type:first-letter {
     float: left;
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Merriweather', Georgia, Times, 'Times New Roman', serif;
     font-size: 70px;
     line-height: 50px;
     padding-top: 4px;
@@ -655,16 +853,25 @@ b, strong, .cm-strong {
 }
 /* ----- HEADINGS ----- */
 body {
-    --h1-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
-    --h2-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
-    --h3-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
-    --h4-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
-    --h5-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
-    --h6-font: 'Merriweather Sans', 'Book Antiqua', 'Noto Color Emoji';
+    --heading-font: 'Merriweather Sans', 'Book Antiqua', var(--font-default);
+    --heading-font-2: var(--heading-font), var(--font-default); 
+    --h1-font: var(--heading-font-2);
+    --h2-font: var(--heading-font-2);
+    --h3-font: var(--heading-font-2);
+    --h4-font: var(--heading-font-2);
+    --h5-font: var(--heading-font-2);
+    --h6-font: var(--heading-font-2);
     --h1-size: 2.2em;
     --h2-size: 1.87em;
     --h3-size: 1.57em;
     --h4-size: 1.35em;
+    --heading-weight: 700;
+    --h1-weight: var(--heading-weight);
+    --h2-weight: var(--heading-weight);
+    --h3-weight: var(--heading-weight);
+    --h4-weight: var(--heading-weight);
+    --h5-weight: var(--heading-weight);
+    --h6-weight: var(--heading-weight);
 }
 .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6, .cm-s-obsidian .HyperMD-header {
     margin: 2em 0px 0.8em 0px;
@@ -777,9 +984,12 @@ li:hover .list-bullet:after {
     transition: .1s;
 }
   /* ----- INLINE TITLE ----- */
+  body {
+    --inline-title-size: 2.5em;
+  }
   .inline-title {
     text-align: center;
-    font-size: 2.5em;
+    font-size: var(--inline-title-size);
   }
 
   /* --- CUSTOM TITLE ICONS --- */
@@ -789,12 +999,14 @@ li:hover .list-bullet:after {
     border-radius: var(--radius-l);
     margin-right: 0.3em;
     padding: 15px;
-    font-family: 'Noto Color Emoji';
+    font-family: inherit;
+    font-weight: 500;
     background-color: var(--background-secondary-alt);
     box-shadow: var(--shadow-ui) inset, var(--shadow-ui);
   }
 .icon .inline-title {
     margin-bottom: 0.5em;
+    line-height: 2em;
 }
 
 /* ----- BLOCKQUOTES ----- */
@@ -1025,6 +1237,7 @@ text-indent: 0px !important;
 a {
     transition: .25s !important;
     font-family: var(--h1-font);
+    font-weight: var(--font-normal);
 }
 
  .markdown-source-view.mod-cm6 .cm-underline {
@@ -1044,16 +1257,24 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-size: 0.85em;
     font-weight: 500;
     text-decoration: none;
-    font-family: inherit, 'Noto Sans Symbols 2';
+    font-family: 'Noto Sans Symbols 2', inherit;
+}
+.is-mobile .internal-link::before, .is-mobile .external-link::before, .is-mobile .cm-underline::before {
+    content: "🡭";
+    margin-right: 0.3em;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Noto Sans Symbols 2';
 }
 .internal-link.is-unresolved::before, .is-unresolved .cm-underline::before {
     content: "＋";
-    margin-right: 0.1em;
+    margin-right: 0.25em;
     display: inline-block;
-    font-size: inherit;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
-    font-family: 'Noto Sans Symbols 2', inherit;
+    font-family: 'Noto Sans JP';
 }
 .internal-link:hover::before, .external-link:hover::before {
     font-weight: 900;
@@ -1071,8 +1292,13 @@ text-decoration: underline var(--color-accent-1) 2px;
 }
 
 /* ------ HIGHLIGHTS ------ */
-.theme-light, .theme-dark {
+.theme-light {
     --text-highlight-bg: rgba(255, 200, 0, 0.459);
+    --highlight-text: var(--text-normal);
+}
+.theme-dark {
+    --text-highlight-bg: rgba(var(--color-cyan-rgb), 0.725);
+    --highlight-text: white;
 }
 .cm-s-obsidian span.cm-formatting-highlight,
   .cm-s-obsidian span.cm-highlight,
@@ -1080,6 +1306,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     padding: 3px 0.4em;
     border-radius: 6px;
     font-family: var(--h1-font);
+    color: var(--highlight-text);
     
  }
 
@@ -1164,7 +1391,7 @@ padding: 0px;
     font-weight: 100;
     color: var(--text-normal);
     padding: 0px 4px;
-    font-family: 'Noto Sans Symbols', 'Noto Emoji';
+    font-family: 'Noto Sans Symbols 2', 'Noto Emoji';
 }
 .dataview.inline-field-value {
     font-family: inherit;
@@ -1174,17 +1401,29 @@ padding: 0px;
 /* ---------- EMBEDS and OTHER ELEMENTS ---------- */
 
 /* ------ IMAGES ------ */
- .view-content .markdown-rendered img {
-    border-radius: var(--radius-s);
-    box-shadow: var(--shadow-s);
-    margin: 4em auto;
+body {
+    --img-align: 0px;
+}
+.img-center {
+    --img-align: auto;
+}
+.img-adjust .view-content .markdown-rendered img {
+    width: 80%;
     display: block;
     max-width: 85%;
+ }
+
+.view-content .markdown-rendered img {
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-s);
+    display: block;
+    margin: 4em var(--img-align);
     transition: .25s;
 }
-
+.img-adjust .view-content img {
+    max-width: 85%;
+}
 .view-content img {
-width: 80%;
 border-radius: var(--radius-s);
     box-shadow: var(--shadow-s);
     margin: 1.2em auto;
@@ -1261,6 +1500,20 @@ table > tbody > tr > td:hover {
     margin: 2em auto;
     box-shadow: var(--shadow-s);
 }
+
+
+/* ---------- ACTIVE LINE -------------- */
+.highlight-active-line .cm-active.cm-line {
+    background-color: var(--background-secondary);
+    border-radius: var(--radius-s);
+    opacity: 1 !important;
+    padding-left: 1em;
+}
+
+.ultra-focus.highlight-active-line .cm-contentContainer .cm-line, .ultra-focus.highlight-active-line .cm-contentContainer img {
+   opacity: 0.3;
+}
+
 /* --------------- PLUG-INS AND CODE BLOCKS ------------ */
 
 /* -------- PAGE GALLERY --------- */
@@ -1344,9 +1597,6 @@ width: 80%;
     border-radius: var(--radius-s) !important;
 }
 
-
-
-
 /* ----- GENERAL CODE BLOCKS ------ */
 
 .markdown-rendered pre {
@@ -1364,3 +1614,331 @@ width: 80%;
 .markdown-rendered code {
    color: var(--text-normal);
 }
+
+/* -------- MOBILE TWEAKS ----------- */
+
+/* ------- SIDEBAR -------- */
+.workspace-drawer-active-tab-header {
+    font-weight: var(--h1-weight);
+    font-family: var(--h1-font);
+    background-color: var(--background-secondary-alt);
+    padding: 10px;
+    margin: 0.2em 0.8em;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+}
+.workspace-drawer-header-switcher {
+    font-family: var(--h1-font);
+}
+
+
+/* ---- EDIT NOTE BUTTON ----- */
+/* -- From Material Flat theme --- */
+body.is-phone .view-action:nth-last-of-type(4) {
+    color: black;
+    background-color: var(--color-accent-2);
+    display: flex;
+    padding: 0px;
+    margin: 0;
+    margin: 16px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: calc(100% - 44px - 16px);
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-m);
+    top: calc(100vh - 48px - 44px - 16px);
+}
+
+
+.mobile-navbar {
+background-color: var(--background-secondary-alt);
+border-top: 1px solid var(--background-modifier-border);
+box-shadow: var(--background-modifier-box-shadow) 0px 0px 15px 0px;
+}
+
+/* make callouts more readable */
+.is-phone .callout {
+    width: 100%;
+}
+.is-phone .callout[data-callout="quote"], .is-phone .callout[data-callout="cite"] {
+    font-size: 0.75em;
+}
+
+.is-mobile {
+  --icon-l-stroke-width: 1.3px;
+  --icon-opacity: 1;
+  --input-shadow: var(--shadow-ui);
+  --input-font-weight: var(--font-medium);
+  --input-border-width: 1px;
+  --mobile-sidebar-max-width: 500px;
+  --nav-item-color: var(--text-normal);
+  --keyboard-background: var(--background-secondary-alt);
+}
+
+.mobile-toolbar-options-container {
+    border: 1px var(--background-modifier-border) solid;
+    margin: 0.4em;
+    border-radius: var(--radius-s);
+    width: 97%;
+    background-color: var(--background-secondary-alt);
+    box-shadow: var(--shadow-ui);
+}
+.mobile-toolbar {
+    box-shadow: var(--shadow-ui) inset;
+    border-top: 1px solid var(--background-modifier-border);
+}
+.is-phone .prompt {
+    width: 80%;
+    height: 80%;
+    border-radius: var(--radius-m);
+}
+
+/* hide sidebar button */
+.is-phone .view-header .view-action[aria-label="Expand"] {
+    display: none;
+}
+
+/* fix modal settings items */
+.is-phone .modal.mod-settings .vertical-tab-nav-item {
+    background-color: transparent;
+}
+
+/* fix image scaling */
+.is-mobile img {
+    width: 100%;
+    min-width: unset;
+}
+
+/* bring tabs back */
+
+.is-phone .workspace-tab-header-container {
+    display: flex;
+    padding: 0px 3px !important;
+}
+.is-phone .workspace-tab-header.is-active.mod-active {
+    width: fit-content;
+    height: fit-content;
+    padding: 1%;
+}
+.is-phone .workspace-tab-header-inner * {
+font-size: 0.85em;
+padding: 0px;
+}
+.is-phone .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
+    display: flex;
+}
+.is-phone .workspace-tab-header .workspace-tab-header-inner-close-button {
+    display: none;
+}
+.is-phone .sidebar-toggle-button {
+    display: none;
+}
+.is-phone .workspace-tab-header-container {
+    margin-bottom: 0px;
+}
+
+/* --------------------- STYLE SETTINGS ------------------------*/
+
+/* @settings
+
+name: Big & Bold
+id: big-and-bold-theme
+settings:
+    -
+        id: theme-select
+        title: Color Schemes
+        type: class-select
+        allowEmpty: false
+        default: theme-default
+        options:
+            -
+                label: 💎 Default
+                value: theme-default
+            -
+                label: 🍵 Matcha
+                value: theme-matcha
+            -
+                label: 🌺 Tropical
+                value: theme-tropical
+            -
+                label: 🐀 Dull
+                value: theme-average
+    -
+        id: editor-heading
+        title: Editor
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: highlight-active-line
+        title: Highlight Active Line
+        type: class-toggle
+        default: false
+    -
+        id: ultra-focus
+        title: Enable Full Focus
+        type: class-toggle
+        description: Completely remove tabs and the sidebar, and hide the note titlebar until hover. The note takes up the entire screen. I recommend setting hotkeys for the sidebars before enabling this option.
+        default: false
+    -
+        id: typography-heading
+        title: Typography
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: heading-font
+        title: Heading Font
+        description: This font effects headings and links.
+        type: variable-select
+        allowEmpty: false
+        default: 'Merriweather Sans'
+        options:
+            - 'Merriweather Sans'
+            - 'Merriweather'
+            - 'EB Garamond'
+            - 'Koh Santepheap'
+            - 'Monsterrat'
+            - 'Oleo Script'
+            - 'Figtree'
+            - 'Poppins'
+            - 'Roboto'
+            - 'Rubik'
+            - 'Tilt Warp'
+            - 'Fira Code'
+            - 'Fira Sans Condensed'
+            - 'Martian Mono'
+            - 'DM Mono'
+            - 'Nunito'
+            - 'Nunito Sans'
+            - 'Tajawal'
+    -
+        id: heading-weight
+        title: Heading Weight
+        type: variable-select
+        allowEmpty: false
+        default: '700'
+        options: 
+            -
+                label: Light
+                value: 300
+            -
+                label: Normal
+                value: 400
+            -
+                label: Medium
+                value: 500
+            -
+                label: Semi Bold
+                value: 600
+            -
+                label: Bold
+                value: 700
+            -
+                label: Extra Bold
+                value: 800
+    -
+        id: inline-title-size
+        title: Inline Title Size
+        type: variable-select
+        allowEmpty: false
+        default: 2.5em
+        options:
+            - 
+                label: Small
+                value: 2em
+            -
+                label: Medium
+                value: 2.5em
+            - 
+                label: Large
+                value: 3.8em
+            - 
+                label: Huge
+                value: 4.4em
+
+    -
+        id: font-main
+        title: Main Font
+        description: This font is used for much of the interface and makes up most of a note's body.
+        type: variable-select
+        allowEmpty: false
+        default: 'Nunito Sans'
+        options: 
+            - 'Nunito Sans'
+            - 'Nunito'
+            - 'Figtree'
+            - 'Poppins'
+            - 'Roboto'
+            - 'Rubik'
+            - 'Koh Santepheap'
+            - 'Monsterrat'
+            - 'Oleo Script'
+            - 'Fira Code'
+            - 'Fira Sans Condensed'
+            - 'Martian Mono'
+            - 'DM Mono'
+            - 'Tajawal'
+            - 'Merriweather'
+            - 'Merriweather Sans'
+            - 'EB Garamond'
+            - 'Tilt Warp'
+    -
+        id: font-normal
+        title: Main Font Weight
+        type: variable-select
+        allowEmpty: false
+        default: '400'
+        options: 
+            -
+                label: Light
+                value: 300
+            -
+                label: Normal
+                value: 400
+            -
+                label: Medium
+                value: 500
+            -
+                label: Semi Bold
+                value: 600
+            -
+                label: Bold
+                value: 700
+            -
+                label: Extra Bold
+                value: 800
+    -
+        id: img-heading
+        title: Images
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: img-adjust
+        title: Adjust Image Size
+        description: Automatically adjust the size of images to 80%.
+        type: class-toggle
+        default: true
+    -
+        id: img-center
+        title: Center Images
+        type: class-toggle
+        default: true
+    -
+        id: modals-heading
+        title: Modals
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: full-screen-modal
+        title: Full-Screen Modals
+        description: Show settings and Community Modals in full-screen.
+        type: class-toggle
+        default: true
+
+*/
