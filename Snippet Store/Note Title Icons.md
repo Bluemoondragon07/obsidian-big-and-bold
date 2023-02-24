@@ -1,4 +1,5 @@
 # Note Title Icons
+
 ![](Screenshots/icon.png)
 
 This snippet enables you to use icons with any theme! It also comes with customization options you can access with the Style Settings plug-in.
@@ -126,5 +127,6 @@ settings:
         title: Remove Icon Border
         type: class-toggle
         default: false
+*/
 
 ```
