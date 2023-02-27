@@ -5,10 +5,16 @@
 This snippet enables you to use icons with any theme! It also comes with customization options you can access with the Style Settings plug-in.
 
 ```css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+
 body {
     --icon-emoji: 'Noto Color Emoji';
     --icon-shadow: var(--shadow-ui) inset, var(--shadow-ui);
     --icon-background: var(--background-secondary-alt);
+    --shadow-ui: 0px 1px 2px rgba(0, 0, 0, 0.028),
+    0px 3.4px 6.7px rgba(0, 0, 0, .042);
   }
   .icon .inline-title::first-letter {
     font-size: 1em;
@@ -91,9 +97,6 @@ settings:
             -
                 label: Transparent
                 value: transparent
-            -
-                label: Lighter
-                value: var(--panel-child)
             -
                 label: Pale
                 value: var(--background-secondary-alt)
