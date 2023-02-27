@@ -14,7 +14,8 @@
 
 body { 
     --font-main: 'Nunito Sans';
-    --font-default: var(--font-main), 'Noto Color Emoji', sans-serif;
+    --font-emoji: 'Noto Color Emoji';
+    --font-default: var(--font-main), var(--font-emoji), sans-serif;
     --bold-font: inherit;
     --font-monospace: 'DM Mono', monospace;
     --ribbon-background: transparent;
@@ -79,9 +80,10 @@ body {
 }
 .nav-folder.mod-root > .nav-folder-title:hover {
     font-size: var(--h2-size);
-    padding: 6px;
-    color: var(--text-normal);
+    padding: 0px 6px;
+    margin-bottom: 8px;
     transition: .25s;
+    transform: none;
 }
 
 /* ----- FOLDERS -----*/
@@ -95,7 +97,9 @@ color: var(--link-color);
 }
 
 /* --- FILES --- */
-
+body {
+    --file-emoji: 'Noto Emoji';
+}
 .nav-file-title {
     font-weight: var(--font-light);
     border-radius: 0px;
@@ -123,11 +127,14 @@ color: var(--link-color);
     border-left: 3px var(--interactive-accent) solid;
 }
 
+.remove-file-icons .nav-file-title:before {
+    display: none;
+}
 .nav-file-title:before {
 content: "📄";
 padding-right: 8px;
 font-size: 1.2em;
-font-family: 'Noto Emoji';
+font-family: var(--file-emoji);
 }
 
 /* -- SPECIAL FILE ICONS -- */
@@ -255,27 +262,131 @@ background-color: var(--panel-child);
 
 /* -- FOLDER ICONS -- */
 
+.remove-folder-icons .nav-folder .nav-folder-title-content:before {
+    display: none;
+}
+
+/* icon sets */
+body {
+    --folder-emoji: 'Noto Emoji';
+    --folder-1: var(--normal-folder-1);
+    --folder-1-open: var(--normal-folder-1-open);
+    --folder-2: var(--normal-folder-2);
+    --folder-2-open: var(--normal-folder-2-open);
+    --folder-3: var(--normal-folder-3);
+    --folder-3-open: var(--normal-folder-3-open);
+}
+.folder-custom {
+    --custom-folder-1-open: "🌟";
+    --custom-folder-1: "⭐";
+    --custom-folder-2-open: "🌷";
+    --custom-folder-2: "🌺";
+    --custom-folder-3: "🐱";
+    --custom-folder-3-open: "😸";
+}
+.folder-custom {
+    --folder-1: var(--custom-folder-1);
+    --folder-1-open: var(--custom-folder-1-open);
+    --folder-2: var(--custom-folder-2);
+    --folder-2-open: var(--custom-folder-2-open);
+    --folder-3: var(--custom-folder-3);
+    --folder-3-open: var(--custom-folder-3-open);
+}
+
+body, .folder-notebooks {
+    --folder-icon-size: 1.6em;
+    --normal-folder-1-open: "📖";
+    --normal-folder-1: "📒";
+    --normal-folder-2-open: "📑";
+    --normal-folder-2: "📑";
+    --normal-folder-3: "🔖";
+    --normalfolder-3-open: "🔖";
+}
+
+.folder-folders {
+    --normal-folder-1: "📁";
+    --normal-folder-1-open: "📂";
+    --normal-folder-2: "📁";
+    --normal-folder-2-open: "📂";
+    --normal-folder-3: "📁";
+    --normal-folder-3-open: "📂";
+}
+
+.folder-navigator {
+    --normal-folder-1-open: "🌐";
+    --normal-folder-1: "🌍";
+    --normal-folder-2: "🧭";
+    --normal-folder-2-open: "🗺️";
+    --normal-folder-3: "🏝️";
+    --normal-folder-3-open: "📌";
+}
+.folder-folders-2 {
+    --normal-folder-1-open: "🗃️";
+    --normal-folder-1: "🗄️";
+    --normal-folder-2: "🗂️";
+    --normal-folder-2-open: "🗂️";
+    --normal-folder-3: "📁";
+    --normal-folder-3-open: "📂";
+}
+
+.folder-library {
+    --normal-folder-1: "📚";
+    --normal-folder-1-open: "📚";
+    --normal-folder-2: "📕";
+    --normal-folder-2-open: "📖";
+    --normal-folder-3: "📑";
+    --normal-folder-3-open: "🔖";
+}
+
+.folder-garden {
+    --normal-folder-1: "🌱";
+    --normal-folder-1-open: "🌳";
+    --normal-folder-2: "🌷";
+    --normal-folder-2-open: "🌺";
+    --normal-folder-3: "🌹";
+    --normal-folder-3-open: "💐";
+}
+
+
+
+/* 1st folder level */
 .nav-folder .nav-folder-title-content:before {
-    content: "📖"; 
+    content: var(--folder-1-open); 
     padding-right: 8px;
-    font-family: 'Noto Emoji';
-    font-size: 1.6em;
+    font-family: var(--folder-emoji);
+    font-size: var(--folder-icon-size);
     display: inline-block;
     color: inherit;
 }
+
 .nav-folder.is-collapsed .nav-folder-title-content:before {
-content: "📒" ;    
+content: var(--folder-1);    
 padding-right: 600;
 }
+
+
+/* 2nd folder level */
 .nav-folder.mod-root .nav-folder .nav-folder .nav-folder-title-content:before {
-    content: "📑"; 
+    content: var(--folder-2-open); 
 }
+.nav-folder.mod-root .nav-folder .nav-folder.is-collapsed .nav-folder-title-content:before {
+    content: var(--folder-2); 
+}
+
+
+
+/* 3rd folder level */
 .nav-folder.mod-root .nav-folder .nav-folder .nav-folder .nav-folder-title-content:before {
-    content: "🔖"; 
+    content: var(--folder-3-open); 
 }
+.nav-folder.mod-root .nav-folder .nav-folder .nav-folder.is-collapsed .nav-folder-title-content:before {
+    content: var(--folder-3); 
+}
+
 .nav-folder-collapse-indicator {
     display: none;
 }
+
 
 
 
@@ -366,7 +477,7 @@ font-family: var(--font-default);
 
 .setting-item-heading .setting-item-name {
     font-size: var(--h2-size);
-    font-weight: var(--font-bold);
+    font-weight: var(--h1-weight);
     font-family: var(--h1-font);
     text-transform: capitalize;
 }
@@ -413,11 +524,14 @@ border-bottom: none;
 .modal-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.559), black);
 }
-.vertical-tab-header-group-items:not(.is-mobile) {
+.vertical-tab-header-group-items  {
     background-color: var(--background-secondary-alt);
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-m);
     padding: 0.5em 1em 0.5em 1em;
+}
+.is-mobile .vertical-tab-header-group-items {
+    padding: 0.5em 0px;
 }
 .vertical-tab-header {
     background-color: var(--background-primary);
@@ -460,7 +574,49 @@ body {
     box-shadow: none;
 }
 
+/* style settings */
+.style-settings-heading[data-id="big-and-bold-theme"] .style-settings-collapse-indicator::after {
+    content: var(--vault-icon);
+}
+.style-settings-heading[data-level="2"] {
+    font-size: 0.85em;
+}
+.style-settings-heading[data-level="3"] {
+    font-size: 0.7em;
+}
+.style-settings-heading[data-level="4"] {
+    font-size: 0.6em;
+}
+.style-settings-container {
+    border: 1px var(--background-modifier-border) solid;
+    border-radius: var(--radius-m);
+    padding: 0px 1em;
+    margin-bottom: 1em;
+    margin-top: 0px;
+}
+.style-settings-container .style-settings-container {
+    margin-left: 2em;
+}
+.style-settings-container .style-settings-container .style-settings-container {
+    margin-left: 2.7em;
+}
+.style-settings-container .setting-item {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0px;  
+}
+.style-settings-container .setting-item:last-child {
+    border-bottom: none;
+}
 
+/* hide certain settings without certain classes */
+.style-settings-heading[data-id="custom-folders-heading"] {
+    display: none;
+}
+.folder-custom .style-settings-heading[data-id="custom-folders-heading"] {
+    display: block;
+}
 
 /* ------ HIDE NOTE TITLE HEADER ----- */
 .view-header-title {
@@ -496,7 +652,6 @@ font-size: var(--h6-size);
     gap: 8px;
     opacity: 1;
     height: auto;
-    transition-delay: .2s;
 }
 .clickable-icon.nav-action-button {
     padding: 7px;
@@ -555,21 +710,21 @@ display: none;
 }
 .theme-light, .is-mobile.theme-light {
     --color-red-rgb: 255, 77, 58;
-    --color-red: #ff4d3a;
+    --color-red: #df6f63;
     --color-green-rgb: 125, 207, 43;
     --color-green: #7dcf2b;
     --color-orange-rgb: 246, 156, 0;
-    --color-orange: #f69c00;
+    --color-orange: #e69c1c;
     --color-yellow-rgb: 232, 201, 0;
     --color-yellow: #e8c900;
     --color-cyan-rgb: 0, 206, 203;
-    --color-cyan: #00cecb;
+    --color-cyan: #1fb1ae;
     --color-blue-rgb:0, 155, 227;
-    --color-blue: #009be3;
+    --color-blue: #1592cc;
     --color-purple-rgb: 180, 90, 245;
-    --color-purple: #b45af5;
+    --color-purple: #9d6ac1;
     --color-pink-rgb: 230, 106, 180;
-    --color-pink: #e66ab4;
+    --color-pink: #d06fa9;
     --color-base-00: #ffffff;
     --color-base-05: #fcfcfc;
     --color-base-10: #fdfdfd;
@@ -651,21 +806,21 @@ display: none;
     --accent-s: 55% !important;
     --accent-l: 55% !important;
     --color-red-rgb:  211, 130, 101;
-    --color-red: #d38265;
+    --color-red: #c56c4b;
     --color-green-rgb: 151, 203, 77;
     --color-green: #97cb4d;
     --color-orange-rgb: 174, 141, 80;
-    --color-orange: #ae8d50;
+    --color-orange: #c28e2e;
     --color-yellow-rgb: 202, 204, 67;
     --color-yellow: #cacc43;
     --color-cyan-rgb: 107, 192, 138;
-    --color-cyan: #6bc08a;
+    --color-cyan: #359c5b;
     --color-blue-rgb:124, 198, 185;
-    --color-blue: #7cc6b9;
+    --color-blue: #3bb8a1;
     --color-purple-rgb: 130, 159, 181;
-    --color-purple: #829fb5;
+    --color-purple: #5084ad;
     --color-pink-rgb: 189, 144, 169;
-    --color-pink: #bd90a9;
+    --color-pink: #ab618a;
 }
  .theme-matcha.theme-light {
     --color-base-05: hsl(90, 57%, 97%);
@@ -680,7 +835,7 @@ display: none;
     --color-base-60: #849b81;
     --color-base-70: #6c826c;
     --color-base-100: #272d28;
-    --panel-child: hsla(88, 100%, 97%, 0.162);
+    --panel-child: hsl(90, 80%, 97.5%);
  }
 .theme-matcha.theme-dark {
     --color-base-00: #20251b;
@@ -696,6 +851,60 @@ display: none;
     --color-base-100: #dee7d7;
 }
 
+ /* --------- Library THEME --------- */
+ .theme-library {
+    --vault-icon: '📚';
+    --accent-h: 21 !important;
+    --accent-s: 43% !important;
+    --accent-l: 57% !important;
+    --color-cyan-rgb:  211, 130, 101;
+    --color-cyan: #c56c4b;
+    --color-pink-rgb: 151, 203, 77;
+    --color-pink: #93ab70;
+    --color-blue-rgb: 174, 141, 80;
+    --color-blue: #c2762e;
+    --color-purple-rgb: 202, 204, 67;
+    --color-purple: #cc9c43;
+    --color-red-rgb: 107, 192, 138;
+    --color-red: #61945f;
+    --color-orange-rgb:124, 198, 185;
+    --color-orange: #6eada1;
+    --color-yellow-rgb: 130, 159, 181;
+    --color-yellow: #5084ad;
+    --color-green-rgb: 189, 144, 169;
+    --color-green: #ab618a;
+}
+ .theme-library.theme-light {
+    --color-base-00: hsl(32, 48%, 95%);
+    --color-base-05: #f8f1e8;
+    --color-base-10: #f7efe5;
+    --color-base-20: #eee2c6;
+    --color-base-25: #eadbc4;
+    --color-base-30: #6c390537;
+    --color-base-35: #c2ab87;
+    --color-base-40: #b69781;
+    --color-base-50: #9f8465;
+    --color-base-60: #8d6b4e;
+    --color-base-70: #7a6141;
+    --color-base-100: #49392d;
+    --panel-child: rgb(250, 243, 233);
+ }
+.theme-library.theme-dark {
+    --color-base-00: #3b342d;
+    --color-base-10: #4a433a;
+    --color-base-20: #463c32;
+    --color-base-25: #5a5246;
+    --color-base-30: #423b32;
+    --color-base-35: #695f51;
+    --color-base-40: #776751;
+    --color-base-50: #c0b4a4;
+    --color-base-60: #dfd2c2;
+    --color-base-70: #eee4d8;
+    --color-base-100: #fdf9f4;
+    --panel-child: #4f4537;
+}
+
+
 /* -------- TROPICAL THEME --------- */
 .theme-tropical {
     --vault-icon: '🌺';
@@ -707,13 +916,13 @@ display: none;
     --color-pink-rgb: 30, 177, 69;
     --color-pink: #1eb145;
     --color-blue-rgb: 255, 152, 78;
-    --color-blue: #ff984e;
+    --color-blue: #ee7c2a;
     --color-purple-rgb: 243, 198, 0;
-    --color-purple: #f3c600;
+    --color-purple: #de9f00;
     --color-red-rgb: 0, 220, 190;
-    --color-red: #00dcbe;
+    --color-red: #00b59d;
     --color-orange-rgb:64, 188, 255;
-    --color-oranged: #40bcff;
+    --color-orange: #2a9ad6;
     --color-yellow-rgb: 198, 113, 234;
     --color-yellow: #c671ea;
     --color-green-rgb: 255, 91, 135;
@@ -731,8 +940,8 @@ display: none;
     --color-base-50: #7a8c90;
     --color-base-60: #818b9b;
     --color-base-70: #6c6e82;
-    --color-base-100: #27282d;
-    --panel-child: hsla(340, 100%, 97%, 0.162);
+    --color-base-100: #43475c;
+    --panel-child: hsl(42, 100%, 92.5%);
  }
 .theme-tropical.theme-dark {
     --color-base-00: #251b1b;
@@ -748,28 +957,29 @@ display: none;
     --color-base-100: #e7ded7;
 }
 
+
+/* ------- GRAYSCALE THEME --------- */
 .theme-average {
     --vault-icon: '🐁';
-    --font-default: 'Nunito Sans', 'Noto Emoji', sans-serif; 
     --accent-h: 210 !important;
     --accent-s: 5% !important;
     --accent-l: 60% !important;
-    --color-cyan-rgb:  110, 110, 110;
-    --color-cyan: #6e6e6e;
-    --color-pink-rgb: 110, 110, 110;
-    --color-pink: #6e6e6e;
-    --color-blue-rgb: 110, 110, 110;
-    --color-blue: #6e6e6e;
-    --color-purple-rgb: 110, 110, 110;
-    --color-purple: #6e6e6e;
-    --color-red-rgb: 110, 110, 110;
-    --color-red: #6e6e6e;
-    --color-orange-rgb:110, 110, 110;
-    --color-oranged: #6e6e6e;
-    --color-yellow-rgb: 110, 110, 110;
-    --color-yellow: #6e6e6e;
-    --color-green-rgb: 110, 110, 110;
-    --color-green: #6e6e6e;
+    --color-cyan-rgb:  171, 114, 93;
+    --color-cyan: #ab725d;
+    --color-pink-rgb: 140, 156, 118;
+    --color-pink: #8c9c76;
+    --color-blue-rgb: 177, 156, 117;
+    --color-blue: #b19c75;
+    --color-purple-rgb: 172, 173, 111;
+    --color-purple: #acad6f;
+    --color-red-rgb: 94, 129, 107;
+    --color-red: #5e816b;
+    --color-orange-rgb:126, 173, 165;
+    --color-orange: #7eada5;
+    --color-yellow-rgb: 116, 137, 153;
+    --color-yellow: #748999;
+    --color-green-rgb: 135, 105, 122;
+    --color-green: #87697a;
 }
  .theme-average.theme-light {
     --color-base-05: hsl(0, 0%, 95%);
@@ -788,16 +998,17 @@ display: none;
  }
 .theme-average.theme-dark {
     --color-base-00: #363636;
-    --color-base-10: #5a5a5a;
+    --color-base-10: #535353;
     --color-base-20: #505050;
-    --color-base-25: #606060;
-    --color-base-30: #494949;
-    --color-base-35: #656565;
+    --color-base-25: #565656;
+    --color-base-30: #3e3e3e;
+    --color-base-35: #585858;
     --color-base-40: rgb(112, 112, 112);
     --color-base-50: rgb(150, 150, 150);
     --color-base-60: rgb(174, 174, 174);
     --color-base-70: #bbbbbb;
     --color-base-100: #dddddd;
+    --panel-child: rgb(73, 73, 73);
 }
 
 
@@ -880,8 +1091,20 @@ body {
     line-height: 2.5em;
 }
 .markdown-rendered h1, .HyperMD-header-1 {
-    text-align: center;
+   text-align: center;
 }
+
+/* colorful headings class */
+
+.colorful-headings {
+--h1-color: var(--color-cyan);
+--h2-color: var(--color-blue);
+--h3-color: var(--color-purple);
+--h4-color: var(--color-pink);
+--h5-color: var(--color-red);
+--h6-color: var(--color-orange);
+}
+
 /* ---------- LISTS ---------- */
 body {
     --list-bullet-size: 0.45em;
@@ -990,25 +1213,51 @@ li:hover .list-bullet:after {
   .inline-title {
     text-align: center;
     font-size: var(--inline-title-size);
+    color: var(--text-normal);
   }
 
   /* --- CUSTOM TITLE ICONS --- */
+  body {
+    --icon-emoji: 'Noto Color Emoji';
+    --icon-shadow: var(--shadow-ui) inset, var(--shadow-ui);
+    --icon-background: var(--background-secondary-alt);
+  }
   .icon .inline-title::first-letter {
     font-size: 1em;
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-l);
     margin-right: 0.3em;
+    height: auto;
     padding: 15px;
-    font-family: inherit;
+    font-family: var(--icon-emoji);
     font-weight: 500;
-    background-color: var(--background-secondary-alt);
-    box-shadow: var(--shadow-ui) inset, var(--shadow-ui);
+    background-color: var(--icon-background);
+    box-shadow: var(--icon-shadow);
   }
 .icon .inline-title {
     margin-bottom: 0.5em;
     line-height: 2em;
 }
 
+
+/* icon options */
+
+.icon-square .icon .inline-title::first-letter {
+    border-radius: 12px;
+}
+.icon-circle .icon .inline-title::first-letter {
+    border-radius: 100px;
+    padding: 18px;
+}
+.icon-bordered .icon .inline-title::first-letter {
+    border-radius: 100px;
+    border-width: 2px;
+    border-color: var(--text-normal);
+    padding: 18px;
+}
+.icon-no-border .icon .inline-title::first-letter {
+   border: none;
+}
 /* ----- BLOCKQUOTES ----- */
 
 .markdown-rendered blockquote {
@@ -1220,6 +1469,18 @@ a.tag[href*="tip"]::before
     padding: 0px 4px 0px 0px;
 }
 
+a.tag[href*="done"]::before,
+a.tag[href*="complete"]::before
+ {
+    content: '🎉';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+
+.hide-tag-icons a.tag::before {
+    display: none;
+}
+
 /* ------- LINKS ------- */
 body {
     --link-unresolved-color: var(--text-faint);
@@ -1283,6 +1544,11 @@ text-decoration: underline var(--color-accent-1) 2px;
 .page-gallery__fallback::before,
 .page-gallery__image::before,
 .database-plugin__tbody *::before  {
+    display: none;
+}
+.is-mobile .page-gallery__fallback::before,
+.is-mobile .page-gallery__image::before,
+.is-mobile .database-plugin__tbody *::before  {
     display: none;
 }
 /* remove external link image */
@@ -1366,7 +1632,7 @@ background-color: var(--background-secondary-alt);
  
 }
 .frontmatter-container .frontmatter-section {
- background-color: var(--background-primary);
+ background-color: var(--panel-child);
  padding: 10px;
  border: 1px solid var(--background-modifier-border);
  border-radius: var(--radius-s);
@@ -1416,7 +1682,6 @@ body {
 .view-content .markdown-rendered img {
     border-radius: var(--radius-s);
     box-shadow: var(--shadow-s);
-    display: block;
     margin: 4em var(--img-align);
     transition: .25s;
 }
@@ -1424,11 +1689,9 @@ body {
     max-width: 85%;
 }
 .view-content img {
-border-radius: var(--radius-s);
+    border-radius: var(--radius-s);
     box-shadow: var(--shadow-s);
-    margin: 1.2em auto;
-    display: block;
-    max-width: 85%;
+    margin: 1.2em var(--img-align);
     transition: .25s;
 }
 .markdown-rendered img:hover {
@@ -1633,13 +1896,12 @@ width: 80%;
 
 
 /* ---- EDIT NOTE BUTTON ----- */
-/* -- From Material Flat theme --- */
-body.is-phone .view-action:nth-last-of-type(4) {
+/* scrapped code based on Material Flat. */
+/* body.is-phone .view-action:nth-last-of-type(4) {
     color: black;
-    background-color: var(--color-accent-2);
+    background-color: var(--background-secondary-alt);
     display: flex;
     padding: 0px;
-    margin: 0;
     margin: 16px;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -1649,9 +1911,11 @@ body.is-phone .view-action:nth-last-of-type(4) {
     width: 56px;
     height: 56px;
     border-radius: var(--radius-m);
-    top: calc(100vh - 48px - 44px - 16px);
+    box-shadow: var(--shadow-ui) inset, var(--shadow-ui);
+    top: calc(100vh - 68px - 64px - 16px);
+    z-index: 10;
 }
-
+*/
 
 .mobile-navbar {
 background-color: var(--background-secondary-alt);
@@ -1764,8 +2028,11 @@ settings:
                 label: 🌺 Tropical
                 value: theme-tropical
             -
-                label: 🐀 Dull
+                label: 🐀 Mousy
                 value: theme-average
+            -
+                label: 📚 Library
+                value: theme-library
     -
         id: editor-heading
         title: Editor
@@ -1784,6 +2051,130 @@ settings:
         description: Completely remove tabs and the sidebar, and hide the note titlebar until hover. The note takes up the entire screen. I recommend setting hotkeys for the sidebars before enabling this option.
         default: false
     -
+        id: workspace-heading
+        title: Workspace
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: files-heading
+        title: Files
+        type: heading
+        level: 3
+        collapsed: true  
+    -
+        id: remove-file-icons
+        title: Remove File Icons
+        description: Remove the note icons in the file explorer.
+        type: class-toggle
+        default: false
+    -
+        id: file-emoji
+        title: File Emoji 
+        type: variable-select
+        allowEmpty: false
+        default: 'Noto Emoji'
+        options:
+            - 'Noto Emoji'
+            - 'Noto Color Emoji'
+    -
+        id: folders-heading
+        title: Folders
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: remove-folder-icons
+        title: Remove Folder Icons
+        description: Remove the folder icons in the file explorer. 
+        type: class-toggle
+        default: false
+    -
+        id: folder-icon-size
+        title: Folder Icon Size
+        type: variable-number-slider
+        default: 1.6
+        min: 1.25
+        max: 1.75
+        step: 0.01
+        format: em
+    -
+        id: folder-emoji
+        title: Folder Emoji 
+        type: variable-select
+        allowEmpty: false
+        default: 'Noto Emoji'
+        options:
+            - 'Noto Emoji'
+            - 'Noto Color Emoji'
+    -
+        id: folder-style
+        title: Folder Style
+        type: class-select
+        allowEmpty: false
+        default: folder-notebooks
+        options:
+            -
+                label: Notebooks
+                value: folder-notebooks
+            -
+                label: Library
+                value: folder-library
+            -
+                label: Simple Folders
+                value: folder-folders
+            -
+                label: Nested Folders
+                value: folder-folders-2
+            -   
+                label: Navigator
+                value: folder-navigator
+            -
+                label: Garden
+                value: folder-garden
+            -
+                label: Custom
+                value: folder-custom
+    -
+        id: custom-folders-heading
+        title: Custom Folders
+        type: heading
+        level: 4
+        collapsed: true
+    -
+        id: custom-folder-1
+        title: Level 1 Emoji
+        description: "This is the emoji that will be displayed on a level 1 folder. You must wrap the emoji in quotes, like this: '⭐'"
+        type: variable-text
+        default: "'⭐'"
+    -
+        id: custom-folder-1-open
+        title: Level 1 Emoji - Open
+        description: This is the emoji that will be displayed on a level 1 folder when it is open. 
+        type: variable-text
+        default: "'🌟'"
+    -
+        id: custom-folder-2
+        title: Level 2 Emoji
+        default: "'🌷'"
+        type: variable-text
+    -
+        id: custom-folder-2-open
+        title: Level 2 Emoji - Open
+        default: "'🌺'"
+        type: variable-text
+    -
+        id: custom-folder-3
+        title: Level 3 Emoji
+        default: "'🐱'"
+        type: variable-text
+    -
+        id: custom-folder-3-open
+        title: Level 3 Emoji - Open
+        default: "'😸'"
+        type: variable-text
+    -
+    
         id: typography-heading
         title: Typography
         type: heading
@@ -1792,7 +2183,7 @@ settings:
     -
         id: heading-font
         title: Heading Font
-        description: This font effects headings and links.
+        description: This font effects headings, links, and highlighted text.
         type: variable-select
         allowEmpty: false
         default: 'Merriweather Sans'
@@ -1800,6 +2191,7 @@ settings:
             - 'Merriweather Sans'
             - 'Merriweather'
             - 'EB Garamond'
+            - 'Avenir Next'
             - 'Koh Santepheap'
             - 'Monsterrat'
             - 'Oleo Script'
@@ -1815,6 +2207,8 @@ settings:
             - 'Nunito'
             - 'Nunito Sans'
             - 'Tajawal'
+            - 'Inter'
+            - 'Source Code Pro'
     -
         id: heading-weight
         title: Heading Weight
@@ -1840,6 +2234,11 @@ settings:
             -
                 label: Extra Bold
                 value: 800
+    -
+        id: colorful-headings
+        title: Colorful Headings
+        type: class-toggle
+        default: false
     -
         id: inline-title-size
         title: Inline Title Size
@@ -1870,6 +2269,7 @@ settings:
         options: 
             - 'Nunito Sans'
             - 'Nunito'
+            - 'Avenir Next'
             - 'Figtree'
             - 'Poppins'
             - 'Roboto'
@@ -1886,6 +2286,8 @@ settings:
             - 'Merriweather Sans'
             - 'EB Garamond'
             - 'Tilt Warp'
+            - 'Inter'
+            - 'Source Code Pro'
     -
         id: font-normal
         title: Main Font Weight
@@ -1912,6 +2314,16 @@ settings:
                 label: Extra Bold
                 value: 800
     -
+        id: font-emoji
+        title: Emoji Style
+        description: Choose how emojis will appear in the body of a note.
+        type: variable-select
+        allowEmpty: false
+        default: 'Noto Color Emoji'
+        options:
+            - 'Noto Color Emoji'
+            - 'Noto Emoji'
+    -
         id: img-heading
         title: Images
         type: heading
@@ -1928,6 +2340,98 @@ settings:
         title: Center Images
         type: class-toggle
         default: true
+    -
+        id: tags-heading
+        title: Tags
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: hide-tag-icons
+        title: Hide Special Tag Icons
+        type: class-toggle
+        default: false
+    -
+        id: icons-heading
+        title: Icons
+        description: Customize note title icons created using the `icon` css class.
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: icon-style
+        title: Icon Style
+        type: class-select
+        allowEmpty: false
+        default: icon-default
+        options:
+            -
+                label: Round
+                value: icon-default
+            -
+                label: Square
+                value: icon-square
+            -
+                label: Circle
+                value: icon-circle
+            -
+                label: Outlined Circle
+                value: icon-bordered
+    -
+        id: icon-emoji
+        title: Icon Emoji Style
+        type: variable-select
+        allowEmpty: false
+        default: 'Noto Color Emoji'
+        options:
+            - 'Noto Color Emoji'
+            - 'Noto Emoji'
+    -
+        id: icon-background
+        title: Icon Background
+        type: variable-select
+        allowEmpty: false
+        default: var(--background-secondary-alt)
+        options:
+            -
+                label: Transparent
+                value: transparent
+            -
+                label: Lighter
+                value: var(--panel-child)
+            -
+                label: Pale
+                value: var(--background-secondary-alt)
+            -
+                label: Medium
+                value: var(--background-secondary)
+            -
+                label: Accent
+                value: var(--color-accent-2)
+    -
+        id: icon-shadow
+        title: Enable Icon Shadow
+        type: variable-select
+        allowEmpty: false
+        default: var(--shadow-ui) inset, var(--shadow-ui);
+        options:
+            - 
+                label: Inset and Outset
+                value: var(--shadow-ui) inset, var(--shadow-ui);
+            -
+                label: Outset
+                value: var(--shadow-ui)
+            -
+                label: Inset
+                value: var(--shadow-ui) inset
+            -
+                label: None
+                value: none
+    -
+        id: icon-no-border
+        title: Remove Icon Border
+        type: class-toggle
+        default: false
     -
         id: modals-heading
         title: Modals
