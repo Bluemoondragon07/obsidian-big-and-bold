@@ -51,7 +51,7 @@ body {
 /* @settings
 
 name: Note Title Icons
-id: note-title-icons
+id: icons-heading
 settings:
     -
         id: icon-style
