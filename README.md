@@ -20,12 +20,8 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 
 ## Some Components with Special Styles
 * Lists: bulleted lists and numbered lists' markings change colors with every indentation level to help you keep track of ideas in an outline.
-* Tables: clean and spacious. Also consistent with **Dataview** tables.
-* Page Gallery cards
 * Tags: `#note`, `#to-do`, `#reminder`, `#important`, and a few other tags automatically gain emoji icons. Keep track of your reminders!
-* Sidebar: Panel-like folders and subfolders with icons that change with each level - from books to pages to bookmarks. Designed this way simply to look as not-Obsidian as possible (I'm not that creative).
 * Files: Some notes gain special icons depending on what words they have in their file location (`Adventures of Darrel Wiki/Darrel.md` gets a little `🌐` Wiki icon).
-* Callouts: Tweaked some colors and svg icons. Also, the quote/cite callout floats to the right and has fancy drop caps.
 * Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
 * ...and much more!
 
@@ -64,9 +60,8 @@ The result is a drop cap on the first letter of the first paragraph contained wi
 
 Put `cssClass: icon` in a note's frontmatter to display the first character in the title as an icon. Recommended for notes in which the first character is an emoji.
 
-# Coming Soon
-- [x] Fixes to mobile
-- [x] Style Settings Support 
+# Style Settings
+Download the Style Settings plug-in to unlock a plethora of customization options!
 
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus on my homework. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
