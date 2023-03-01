@@ -71,7 +71,13 @@ body {
     font-size: inherit;
     font-weight: 500;
     color: var(--color-accent-2);
-    font-family: var(--vault-font)
+    font-family: var(--vault-font);
+}
+.remove-vault-icon .nav-folder.mod-root > .nav-folder-title .nav-folder-title-content:before {
+    display: none;
+}
+.nav-folder.mod-root > .nav-folder-title .nav-folder-title-content {
+    font-family: var(--h1-font);
 }
 
 .nav-folder.mod-root > .nav-folder-title {
@@ -90,11 +96,12 @@ body {
 
 /* --- ALX FOLDER NOTE LINKS --- */
 .nav-folder.alx-folder-with-note>.nav-folder-title>.nav-folder-title-content {
-text-decoration-line: var(--link-decoration);
-text-decoration-color: var(--link-color);
-text-decoration-thickness: var(--link-decoration-thickness);
-color: var(--link-color);
+    text-decoration: underline var(--background-modifier-border) 1.5px;
+    text-underline-offset: 0.19em;
+    text-indent: 0px !important;
+    color: inherit;
 }
+
 
 /* --- FILES --- */
 body {
@@ -200,12 +207,14 @@ display: none;
 
 
 /* --- FOLDERS --- */
-
+body {
+    --folder-padding: 4px;
+}
 /* make folders look like panels */
 .nav-folder.mod-root .nav-folder {
     border: 1px solid var(--background-modifier-border);
     width: 100%;
-    padding: 4px;
+    padding: var(--folder-padding) calc(var(--folder-padding) / 2);
     margin-bottom: -1px;
     background-color: var(--background-secondary-alt);
 }
@@ -236,15 +245,17 @@ border-bottom: 1px solid var(--background-modifier-border);
 } 
 
 .nav-folder-title:not(.is-mobile):hover {
-    padding: 7.5px;
+    padding: 7px;
     font-size: 0.925em;
     transition: .1s;
+    font-family: var(--h1-font);
 }
 .nav-folder-title {
         padding: 7px;
         font-size: 0.9em;
         background-color: transparent !important; /* remove usual hover background for folders */
         transition: .1s;
+        font-family: var(--h1-font);
 }
 
 /* subfolder panel style */
@@ -262,7 +273,7 @@ background-color: var(--panel-child);
 
 /* -- FOLDER ICONS -- */
 
-.remove-folder-icons .nav-folder .nav-folder-title-content:before {
+.remove-folder-icons .nav-folder .nav-folder-title-content:not(.nav-folder.mod-root > .nav-folder-title .nav-folder-title-content):before {
     display: none;
 }
 
@@ -478,6 +489,7 @@ font-family: var(--font-default);
 .setting-item-heading .setting-item-name {
     font-size: var(--h2-size);
     font-weight: var(--h1-weight);
+    color: var(--h1-color);
     font-family: var(--h1-font);
     text-transform: capitalize;
 }
@@ -490,8 +502,9 @@ box-shadow: none;
 .vertical-tab-header-group-title {
     font-size: var(--h2-size);
     font-family: var(--h1-font);
+    font-weight: var(--h1-weight);
     padding-left: 2px;
-    color: var(--text-normal);
+    color: var(--h1-color);
     text-align: center;
 }
 .vertical-tab-nav-item {
@@ -578,14 +591,26 @@ body {
 .style-settings-heading[data-id="big-and-bold-theme"] .style-settings-collapse-indicator::after {
     content: var(--vault-icon);
 }
-.style-settings-heading[data-level="2"] {
-    font-size: 0.85em;
+
+.style-settings-heading[data-level="2"] .setting-item-name {
+    font-size: var(--h3-size);
+    color: var(--h2-color) !important;
 }
-.style-settings-heading[data-level="3"] {
-    font-size: 0.7em;
+.style-settings-heading[data-level="3"] .setting-item-name {
+    font-size: var(--h4-size);
+    color: var(--h3-color);
 }
-.style-settings-heading[data-level="4"] {
-    font-size: 0.6em;
+.style-settings-heading[data-level="4"] .setting-item-name {
+    font-size: var(--h5-size);
+    color: var(--h4-color);
+}
+.style-settings-heading[data-level="5"] .setting-item-name {
+    font-size: var(--h6-size);
+    color: var(--h5-color);
+}
+.style-settings-heading[data-level="6"] .setting-item-name {
+    font-size: var(--h6-size);
+    color: var(--h6-color);
 }
 .style-settings-container {
     border: 1px var(--background-modifier-border) solid;
@@ -764,16 +789,16 @@ display: none;
     --color-purple: #b45af5;
     --color-pink-rgb: 230, 106, 180;
     --color-pink: #e66ab4;
-    --color-base-00: #1b1f25;
-    --color-base-10: #272e34;
-    --color-base-20: #20272f;
-    --color-base-25: #3b454f;
-    --color-base-30: #21252c;
-    --color-base-35: #3d464e;
-    --color-base-40: rgb(63, 79, 93);
-    --color-base-50: rgb(113, 132, 146);
-    --color-base-60: rgb(136, 150, 164);
-    --color-base-70: #9bacb8;
+    --color-base-00: hsl(216, 16%, 13%);
+    --color-base-10: hsl(216, 17%, 14%);
+    --color-base-20: hsl(216, 19%, 16%);
+    --color-base-25: hsl(216, 20%, 20%);
+    --color-base-30: hsl(218, 18%, 15%);
+    --color-base-35: hsl(218, 19%, 27%);
+    --color-base-40: hsl(218, 19%, 31%);
+    --color-base-50: hsl(219, 13%, 51%);
+    --color-base-60: hsl(219, 16%, 59%);
+    --color-base-70: hsl(220, 17%, 66%);
     --color-base-100: #c8d4e6;
     --color-accent-hsl: var(--accent-h),
               var(--accent-s),
@@ -796,7 +821,7 @@ display: none;
     --shadow-l: 0px 1.8px 7.3px rgba(0, 0, 0, 0.071),
           0px 6.3px 24.7px rgba(0, 0, 0, 0.112),
           0px 30px 90px rgba(0, 0, 0, 0.2);
-    --background-modifier-border: rgba(239, 246, 255, 0.11);
+    --background-modifier-border: var(--color-base-25);
   }
 
  /* --------- MATCHA THEME --------- */
@@ -875,10 +900,10 @@ display: none;
     --color-green: #ab618a;
 }
  .theme-library.theme-light {
-    --color-base-00: hsl(32, 48%, 95%);
-    --color-base-05: #f8f1e8;
-    --color-base-10: #f7efe5;
-    --color-base-20: #eee2c6;
+    --color-base-00: hsl(43, 54%, 95%);
+    --color-base-05: hsl(43, 54%, 93%);
+    --color-base-10: hsl(42, 55%, 89%);
+    --color-base-20: hsl(42, 54%, 85%);
     --color-base-25: #eadbc4;
     --color-base-30: #6c390537;
     --color-base-35: #c2ab87;
@@ -887,7 +912,7 @@ display: none;
     --color-base-60: #8d6b4e;
     --color-base-70: #7a6141;
     --color-base-100: #49392d;
-    --panel-child: rgb(250, 243, 233);
+    --panel-child: hsl(43, 50%, 94.15%);
  }
 .theme-library.theme-dark {
     --color-base-00: #3b342d;
@@ -958,67 +983,149 @@ display: none;
 }
 
 
-/* ------- GRAYSCALE THEME --------- */
-.theme-average {
-    --vault-icon: '🐁';
+/* ------- NORD THEME --------- */
+.theme-nord {
+    --vault-icon: '❄️';
     --accent-h: 210 !important;
-    --accent-s: 5% !important;
-    --accent-l: 60% !important;
-    --color-cyan-rgb:  171, 114, 93;
-    --color-cyan: #ab725d;
-    --color-pink-rgb: 140, 156, 118;
-    --color-pink: #8c9c76;
-    --color-blue-rgb: 177, 156, 117;
-    --color-blue: #b19c75;
-    --color-purple-rgb: 172, 173, 111;
-    --color-purple: #acad6f;
-    --color-red-rgb: 94, 129, 107;
-    --color-red: #5e816b;
-    --color-orange-rgb:126, 173, 165;
-    --color-orange: #7eada5;
-    --color-yellow-rgb: 116, 137, 153;
-    --color-yellow: #748999;
-    --color-green-rgb: 135, 105, 122;
-    --color-green: #87697a;
+    --accent-s: 44% !important;
+    --accent-l: 59% !important;
+    --color-red-rgb: 191, 97, 106;
+    --color-red: #bb5a64;
+    --color-green-rgb: 163, 190, 140;
+    --color-green: #90b174;
+    --color-orange-rgb: 208, 135, 112;
+    --color-orange: #cf7b62;
+    --color-yellow-rgb: 235, 203, 139;
+    --color-yellow: #ebcb8b;
+    --color-cyan-rgb: 136, 192, 208;
+    --color-cyan: #67b4c9;
+    --color-blue-rgb: 129, 161, 193;
+    --color-blue: #6997c4;
+    --color-purple-rgb: 94, 129, 172;
+    --color-purple: #5e81AC;
+    --color-pink-rgb: 180, 142, 173;
+    --color-pink: #aa7aa1;
 }
- .theme-average.theme-light {
-    --color-base-05: hsl(0, 0%, 95%);
-    --color-base-00: hsl(0, 0%, 96%);
-    --color-base-10: #eeeeee;
-    --color-base-20: #dddddd;
-    --color-base-25: #f1f1f1;
-    --color-base-30: #cecece;
-    --color-base-35: #dedede;
-    --color-base-40: #c0c0c0;
-    --color-base-50: #949494;
-    --color-base-60: #9d9d9d;
-    --color-base-70: #7f7f7f;
-    --color-base-100: #2d2d2d;
-    --panel-child: hsla(0, 0%, 100%, 0.162);
+.theme-nord.theme-light {
+    --color-base-00: hsl(208, 44%, 96%);
+    --color-base-05: hsl(208, 46%, 95%);
+    --color-base-10: hsl(208, 48%, 93%);
+    --color-base-20: hsl(208, 48%, 91%);
+    --color-base-25: hsl(208, 47%, 88%);
+    --color-base-30: hsl(208, 30%, 85%);
+    --color-base-35: hsl(209, 45%, 81%);
+    --color-base-40: hsl(210, 40%, 77%);
+    --color-base-50: hsl(210, 30%, 61%);
+    --color-base-60: hsl(210, 27%, 62%);
+    --color-base-70: hsl(210, 22%, 53%);
+    --color-base-100: hsl(210, 30%, 18%);
+  }
+  .theme-nord.theme-dark {
+    --color-red-rgb: 191, 97, 106;
+    --color-red: #BF616A;
+    --color-green-rgb: 163, 190, 140;
+    --color-green: #A3be8c;
+    --color-orange-rgb: 208, 135, 112;
+    --color-orange: #d08770;
+    --color-yellow-rgb: 235, 203, 139;
+    --color-yellow: #ebcb8b;
+    --color-cyan-rgb: 136, 192, 208;
+    --color-cyan: #88c0d0;
+    --color-blue-rgb: 129, 161, 193;
+    --color-blue: #81a1c1;
+    --color-purple-rgb: 94, 129, 172;
+    --color-purple: #5e81AC;
+    --color-pink-rgb: 180, 142, 173;
+    --color-pink: #b48ead;
+    --color-base-00: hsl(220, 21%, 22%); 
+    --color-base-05: hsl(220, 21%, 23%); 
+    --color-base-10:hsl(220, 21%, 25%); 
+     --color-base-20: hsl(220, 22%, 28%); 
+    --color-base-25: hsl(220, 22%, 31%); 
+    --color-base-30: hsl(220, 21%, 24%); 
+    --color-base-35: hsl(220, 21%, 34%); 
+    --color-base-40: hsl(220, 21%, 37%); 
+    --color-base-50: hsl(220, 21%, 60%); 
+    --color-base-60: hsl(220, 22%, 42%); 
+    --color-base-60: hsl(220, 23%, 65%); 
+    --color-base-70: hsl(220, 24%, 70%); 
+    --color-base-100: hsl(220, 24%, 95%); 
+  }
+
+  /* --------- SPECTRE THEME --------- */
+ .theme-spectre {
+    --vault-icon: '☄️';
+    --accent-h: 340 !important;
+    --accent-s: 79% !important;
+    --accent-l: 65% !important;
+    --color-red-rgb: 236, 93, 141;
+    --color-red: #ec5d8d;
+    --color-green-rgb: 179, 181, 78;
+    --color-green: #b3b54e;
+    --color-orange-rgb: 226, 102, 86;
+    --color-orange: #e26656;
+    --color-yellow-rgb: 233, 142, 67;
+    --color-yellow: #e98e43;
+    --color-cyan-rgb:107, 187, 139;
+    --color-cyan: #6fc08f;
+    --color-blue-rgb: 93, 193, 181;
+    --color-blue: #5dc1b5;
+    --color-purple-rgb: 193, 112, 197;
+    --color-purple: #c170c5;
+    --color-pink-rgb: 226, 103, 167;
+    --color-pink: #e267a7;
+  
+}
+ .theme-spectre.theme-light {
+    color-scheme: dark;
+    --highlight-mix-blend-mode: lighten;
+    --color-base-00: hsl(253, 10%, 25%);
+    --color-base-05: hsl(254, 10%, 27%);
+    --color-base-10: hsl(254, 10%, 30%);
+    --color-base-20: hsl(255, 10%, 33%);
+    --color-base-25: hsl(256, 11%, 36%);
+    --color-base-30: hsl(253, 10%, 34%);
+    --color-base-35: hsl(260, 13%, 42%);
+    --color-base-40: hsl(263, 12%, 45%);
+    --color-base-50: hsl(264, 11%, 60%);
+    --color-base-60: hsl(266, 11%, 70%);
+    --color-base-70: hsl(268, 11%, 81%);
+    --color-base-100: hsl(269, 11%, 93%);
+    -background-modifier-form-field: var(--color-base-25);
+    --interactive-normal: var(--color-base-30);
+    --interactive-hover: var(--color-base-35);
+    --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+    --background-modifier-cover: rgba(10, 10, 10, 0.4);
+    --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
  }
-.theme-average.theme-dark {
-    --color-base-00: #363636;
-    --color-base-10: #535353;
-    --color-base-20: #505050;
-    --color-base-25: #565656;
-    --color-base-30: #3e3e3e;
-    --color-base-35: #585858;
-    --color-base-40: rgb(112, 112, 112);
-    --color-base-50: rgb(150, 150, 150);
-    --color-base-60: rgb(174, 174, 174);
-    --color-base-70: #bbbbbb;
-    --color-base-100: #dddddd;
-    --panel-child: rgb(73, 73, 73);
+.theme-spectre.theme-dark {
+    --color-base-00: hsl(283, 13%, 10%);
+    --color-base-10: hsl(282, 14%, 10.5%);
+    --color-base-20: hsl(281, 15%, 11.2%);
+    --color-base-25: hsl(280, 16%, 16%);
+    --color-base-30: hsl(279, 16%, 12.5%);
+    --color-base-35: hsl(278, 16%, 13%);
+    --color-base-40: hsl(278, 16%, 15%);
+    --color-base-50: hsl(278, 12%, 46%);
+    --color-base-60: hsl(278, 11%, 45%);
+    --color-base-70: hsl(277, 11%, 42%);
+    --color-base-100: hsl(277, 11%, 80%);
+    --panel-child: hsl(278, 16%, 14%);
 }
 
 
   /* -------------- TYPOGRAPHY ------------- */
 
   /* ---- PARAGRAPHS and DROP CAPS --- */
+  body {
+    --custom-line-height: 2em;
+  }
   p {
-    line-height: 2em;
+    line-height: var(--custom-line-height);
     text-indent: 0.25in;
   }
+
+  
 
 .view-content > * {
     font-weight: var(--font-normal);
@@ -1043,15 +1150,15 @@ display: none;
 }
 
 /* -- MAKE PARAGRAPH and LINE SPACING EVEN IN READING AND EDIT MODES */
-.markdown-preview-view br, .markdown-source-view br {
+.markdown-preview-view br, .markdown-source-view, br {
     content: '';
     display: block;
-    margin-top: 10px;
+    margin-top: calc(var(--custom-line-height) / 2);
 }
 
 .markdown-source-view.mod-cm6 .cm-line {
-    padding-top: 10px !important;
-    line-height: 2em !important;
+    padding: calc(var(--custom-line-height) / 2) 0px calc(var(--custom-line-height) / 2) 0px;
+    line-height: var(--custom-line-height) !important;
 }
 
 /* paragraphs in callouts and blockquotes */
@@ -1072,10 +1179,6 @@ body {
     --h4-font: var(--heading-font-2);
     --h5-font: var(--heading-font-2);
     --h6-font: var(--heading-font-2);
-    --h1-size: 2.2em;
-    --h2-size: 1.87em;
-    --h3-size: 1.57em;
-    --h4-size: 1.35em;
     --heading-weight: 700;
     --h1-weight: var(--heading-weight);
     --h2-weight: var(--heading-weight);
@@ -1084,8 +1187,52 @@ body {
     --h5-weight: var(--heading-weight);
     --h6-weight: var(--heading-weight);
 }
+body, .headings-medium {
+    --h1-size: 2.2em;
+    --h2-size: 1.87em;
+    --h3-size: 1.57em;
+    --h4-size: 1.35em;
+    --h5-size: 1.3em;
+    --h6-size: 1.1em;
+}
+.headings-small {
+    --h1-size: 1.75em;
+    --h2-size: 1.55em;
+    --h3-size: 1.45em;
+    --h4-size: 1.3em;
+    --h5-size: 1.25em;
+    --h6-size: 1.05em;
+}
+.headings-tiny {
+    --h1-size: 1.5em;
+    --h2-size: 1.4em;
+    --h3-size: 1.3em;
+    --h4-size: 1.2em;
+    --h5-size: 1.1em;
+    --h6-size: 1em;
+}
+.headings-large {
+    --h1-size: 2.5em;
+    --h2-size: 2.2em;
+    --h3-size: 1.87em;
+    --h4-size: 1.57em;
+    --h5-size: 1.35em;
+    --h6-size: 1.3em;
+}
+.headings-huge {
+    --h1-size: 2.8em;
+    --h2-size: 2.35em;
+    --h3-size: 2em;
+    --h4-size: 1.75em;
+    --h5-size: 1.5em;
+    --h6-size: 1.25em;
+}
+
 .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6, .cm-s-obsidian .HyperMD-header {
-    margin: 2em 0px 0.8em 0px;
+    margin: var(--custom-line-height) 0px calc(var(--custom-line-height) * 0.4) 0px;
+}
+.cm-s-obsidian .HyperMD-header {
+    padding: var(--custom-line-height) 0px 0px 0px !important;
 }
 .cm-s-obsidian .HyperMD-header {
     line-height: 2.5em;
@@ -1103,6 +1250,22 @@ body {
 --h4-color: var(--color-pink);
 --h5-color: var(--color-red);
 --h6-color: var(--color-orange);
+}
+.colorful-headings.theme-nord {
+    --h1-color: var(--color-purple);
+    --h2-color: var(--color-blue);
+    --h3-color: var(--color-cyan);
+    --h4-color: var(--color-green);
+    --h5-color: var(--color-orange);
+    --h6-color: var(--color-red);
+}
+.colorful-headings.theme-spectre {
+--h1-color: var(--color-red);
+--h2-color: var(--color-orange);
+--h3-color: var(--color-yellow);
+--h4-color: var(--color-green);
+--h5-color: var(--color-cyan);
+--h6-color: var(--color-blue);
 }
 
 /* ---------- LISTS ---------- */
@@ -1301,7 +1464,7 @@ body {
     width:min-content;
     min-width: 60%;
     background-color: var(--background-secondary-alt);
-    margin: 1.5em auto;
+    margin: calc(var(--custom-line-height) * 1.5) auto;
 }
 
 
@@ -1486,6 +1649,7 @@ body {
     --link-unresolved-color: var(--text-faint);
     --link-unresolved-decoration-color: var(--background-modifier-border-hover);
 }
+/* --- ALX FOLDER NOTE LINKS --- */
 
 /* style links to look similar to Notion */
 .internal-link, .external-link {
@@ -1498,7 +1662,6 @@ text-indent: 0px !important;
 a {
     transition: .25s !important;
     font-family: var(--h1-font);
-    font-weight: var(--font-normal);
 }
 
  .markdown-source-view.mod-cm6 .cm-underline {
@@ -1579,6 +1742,7 @@ text-decoration: underline var(--color-accent-1) 2px;
 /* ------ BACKLINKS ----- */
 .embedded-backlinks .backlink-pane > .tree-item-self {
     font-size: var(--h1-size);
+    color: var(--h1-color);
     font-weight: var(--h1-weight);
     font-family: var(--h1-font);
     width: fit-content;
@@ -1666,6 +1830,15 @@ padding: 0px;
 
 /* ---------- EMBEDS and OTHER ELEMENTS ---------- */
 
+/* ----- EMBEDS ----- */
+body {
+    --embed-border-left: none;
+}
+.markdown-embed {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 /* ------ IMAGES ------ */
 body {
     --img-align: 0px;
@@ -1673,26 +1846,26 @@ body {
 .img-center {
     --img-align: auto;
 }
-.img-adjust .view-content .markdown-rendered img {
+.img-adjust .view-content .markdown-rendered img:not([width]) {
     width: 80%;
-    display: block;
     max-width: 85%;
  }
 
 .view-content .markdown-rendered img {
     border-radius: var(--radius-s);
     box-shadow: var(--shadow-s);
-    margin: 4em var(--img-align);
+    margin: calc(var(--custom-line-height) * 1.5) var(--img-align);
     transition: .25s;
 }
 .img-adjust .view-content img {
     max-width: 85%;
 }
-.view-content img {
+.view-content img  {
     border-radius: var(--radius-s);
     box-shadow: var(--shadow-s);
     margin: 1.2em var(--img-align);
     transition: .25s;
+    display: block;
 }
 .markdown-rendered img:hover {
     box-shadow: var(--shadow-ui);
@@ -1735,7 +1908,7 @@ table {
     max-width: 95%;
     min-width: 50%;
     width: fit-content;
-    margin: 2em auto;
+    margin: calc(var(--custom-line-height) * 1.5) auto;
     box-shadow: var(--shadow-s);
 }
 table > tbody > tr > td {
@@ -1770,7 +1943,11 @@ table > tbody > tr > td:hover {
     background-color: var(--background-secondary);
     border-radius: var(--radius-s);
     opacity: 1 !important;
-    padding-left: 1em;
+    max-height: unset;
+    min-height: 2em;
+}
+.highlight-active-line .cm-active.cm-line:not(.HyperMD-list-line) {
+    padding: 5px 0px 0px 10px !important;
 }
 
 .ultra-focus.highlight-active-line .cm-contentContainer .cm-line, .ultra-focus.highlight-active-line .cm-contentContainer img {
@@ -1813,6 +1990,9 @@ box-shadow: var(--shadow-ui);
     min-width: 12em;
     background-color: var(--background-secondary-alt);
     box-shadow: var(--shadow-ui);
+}
+.page-gallery-flexgrow  .page-gallery__tile {
+max-width: unset;
 }
 .page-gallery__field {
     text-shadow: none;
@@ -1889,6 +2069,7 @@ width: 80%;
     margin: 0.2em 0.8em;
     border: 1px solid var(--background-modifier-border);
     border-radius: var(--radius-s);
+    
 }
 .workspace-drawer-header-switcher {
     font-family: var(--h1-font);
@@ -2028,11 +2209,14 @@ settings:
                 label: 🌺 Tropical
                 value: theme-tropical
             -
-                label: 🐀 Mousy
-                value: theme-average
+                label: ❄️ Nord
+                value: theme-nord
             -
                 label: 📚 Library
                 value: theme-library
+            -
+                label: ☄️ Spectre
+                value: theme-spectre
     -
         id: editor-heading
         title: Editor
@@ -2043,13 +2227,15 @@ settings:
         id: highlight-active-line
         title: Highlight Active Line
         type: class-toggle
+        addCommand: true
         default: false
     -
         id: ultra-focus
-        title: Enable Full Focus
+        title: Full Focus
         type: class-toggle
         description: Completely remove tabs and the sidebar, and hide the note titlebar until hover. The note takes up the entire screen. I recommend setting hotkeys for the sidebars before enabling this option.
         default: false
+        addCommand: true
     -
         id: workspace-heading
         title: Workspace
@@ -2090,6 +2276,12 @@ settings:
         type: class-toggle
         default: false
     -
+        id: remove-vault-icon
+        title: Remove Vault Icon
+        description: Remove the vault icon in the file explorer.
+        type: class-toggle
+        default: false
+    -
         id: folder-icon-size
         title: Folder Icon Size
         type: variable-number-slider
@@ -2098,6 +2290,14 @@ settings:
         max: 1.75
         step: 0.01
         format: em
+    -
+        id: folder-padding
+        title: Folder Padding
+        type: variable-number-slider
+        default: 4
+        min: 0
+        max: 17
+        format: px
     -
         id: folder-emoji
         title: Folder Emoji 
@@ -2181,6 +2381,12 @@ settings:
         level: 2
         collapsed: true
     -
+        id: headings-heading
+        title: Headings and Titles
+        type: heading
+        level: 3
+        collapsed: true
+    -
         id: heading-font
         title: Heading Font
         description: This font effects headings, links, and highlighted text.
@@ -2237,8 +2443,30 @@ settings:
     -
         id: colorful-headings
         title: Colorful Headings
+        addCommand: true
         type: class-toggle
         default: false
+    -
+        id: headings-size
+        title: Heading Size
+        type: class-select
+        default: headings-medium
+        options:
+            -
+                label: Tiny
+                value: headings-tiny
+            -
+                label: Small
+                value: headings-small
+            -
+                label: Medium
+                value: headings-medium
+            -
+                label: Large
+                value: headings-large
+            -
+                label: Huge
+                value: headings-huge
     -
         id: inline-title-size
         title: Inline Title Size
@@ -2259,6 +2487,12 @@ settings:
                 label: Huge
                 value: 4.4em
 
+    -
+        id: main-text-heading
+        title: Main Text
+        type: heading
+        level: 3
+        collapsed: true
     -
         id: font-main
         title: Main Font
@@ -2324,6 +2558,16 @@ settings:
             - 'Noto Color Emoji'
             - 'Noto Emoji'
     -
+        id: custom-line-height
+        title: Line Height
+        description: Control the line spacing in the body of a note.
+        type: variable-number-slider
+        default: 2
+        format: em
+        min: 1.5
+        max: 3
+        step: 0.1
+    -
         id: img-heading
         title: Images
         type: heading
@@ -2334,6 +2578,7 @@ settings:
         title: Adjust Image Size
         description: Automatically adjust the size of images to 80%.
         type: class-toggle
+        addCommand: true
         default: true
     -
         id: img-center
@@ -2444,5 +2689,23 @@ settings:
         description: Show settings and Community Modals in full-screen.
         type: class-toggle
         default: true
+    -
+        id: plugins-heading
+        title: Plug-Ins
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: page-gallery-heading
+        title: Page Gallery
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: page-gallery-flexgrow
+        title: Flexgrow for Tiles
+        description: When turned on, tile widths will increase to fill empty gaps.
+        type: class-toggle
+        default: false
 
 */
