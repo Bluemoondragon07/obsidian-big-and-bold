@@ -12,6 +12,11 @@ body {
     --custom-line-height: 2em; /* Experiment with different line heights */
   }
 
+p {
+    line-height: var(--custom-line-height) !important;
+
+}
+
 .markdown-preview-view br, .markdown-source-view, br {
     content: '';
     display: block;
@@ -26,9 +31,10 @@ body {
 
 /* ---- HEADINGS ------ */
 .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6 {
-    margin: var(--custom-line-height) 0px calc(var(--custom-line-height) * 0.4) 0px;
+    margin: var(--custom-line-height) 0px calc(var(--custom-line-height) * 0.4) 0px !important;
 }
 .cm-s-obsidian .HyperMD-header {
     padding: var(--custom-line-height) 0px 0px 0px !important;
 }
+
 ```
