@@ -65,10 +65,8 @@ The result is a drop cap on the first letter of the first paragraph contained wi
 Put `cssClass: icon` in a note's frontmatter to display the first character in the title as an icon. Recommended for notes in which the first character is an emoji.
 
 # Coming Soon
-- [ ] Fixes to mobile
-- [x] Style Settings Support
-  - [ ] More Options to Control the Degree of Minimalism
-  - [ ] Might go crazy with color schemes again. 
+- [x] Fixes to mobile
+- [x] Style Settings Support 
 
 # Warning
 I'm not a theme developer, just a 15-year-old who likes messing around with CSS instead of doing my homework. But this time it's worth it, because it will help me focus on my homework. Anyway, I'm not a professional, so expect some issues here and there. Don't be shy to submit a pull request or an issue to help me improve this theme! 
