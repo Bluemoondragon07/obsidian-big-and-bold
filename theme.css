@@ -2157,34 +2157,6 @@ box-shadow: var(--background-modifier-box-shadow) 0px 0px 15px 0px;
     min-width: unset;
 }
 
-/* bring tabs back */
-
-.is-phone .workspace-tab-header-container {
-    display: flex;
-    padding: 0px 3px !important;
-}
-.is-phone .workspace-tab-header.is-active.mod-active {
-    width: fit-content;
-    height: fit-content;
-    padding: 1%;
-}
-.is-phone .workspace-tab-header-inner * {
-font-size: 0.85em;
-padding: 0px;
-}
-.is-phone .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
-    display: flex;
-}
-.is-phone .workspace-tab-header .workspace-tab-header-inner-close-button {
-    display: none;
-}
-.is-phone .sidebar-toggle-button {
-    display: none;
-}
-.is-phone .workspace-tab-header-container {
-    margin-bottom: 0px;
-}
-
 /* --------------------- STYLE SETTINGS ------------------------*/
 
 /* @settings
