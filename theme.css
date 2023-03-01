@@ -62,7 +62,7 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
 
 /* ---- VAULT NAME ---- */
 body {
-    --vault-name-font-size: var(--h2-size);
+    --vault-name-font-size: var(--h3-size);
     --vault-name-font-weight: var(--h2-weight);
 }
 
@@ -900,7 +900,7 @@ display: none;
     --color-green: #ab618a;
 }
  .theme-library.theme-light {
-    --color-base-00: hsl(43, 54%, 95%);
+    --color-base-00: hsl(43, 58%, 95%);
     --color-base-05: hsl(43, 54%, 93%);
     --color-base-10: hsl(42, 55%, 89%);
     --color-base-20: hsl(42, 54%, 85%);
@@ -1112,7 +1112,16 @@ display: none;
     --color-base-100: hsl(277, 11%, 80%);
     --panel-child: hsl(278, 16%, 14%);
 }
-
+/* image filter for dark mode */
+.theme-dark img, .theme-dark .page-gallery__image  {
+    filter: brightness(78%);
+}
+.theme-light img, .theme-light .page-gallery__image  {
+    filter: contrast(108%) saturate(120%);
+}
+.theme-library img, .theme-library .page-gallery__image  {
+    filter: sepia(15%) contrast(95%);
+}
 
   /* -------------- TYPOGRAPHY ------------- */
 
@@ -1157,7 +1166,7 @@ display: none;
 }
 
 .markdown-source-view.mod-cm6 .cm-line {
-    padding: calc(var(--custom-line-height) / 2) 0px calc(var(--custom-line-height) / 2) 0px;
+    padding: calc(var(--custom-line-height) / 3) 0px calc(var(--custom-line-height) / 3) 0px;
     line-height: var(--custom-line-height) !important;
 }
 
@@ -1893,7 +1902,7 @@ body {
     --table-background: var(--background-secondary-alt);
     --table-border-width: 1px;
     --table-header-weight: normal;
-    --table-header-font: 'Merriweather Sans';
+    --table-header-font: var(--h1-font);
 }
 tbody {
     padding: 10px !important;
