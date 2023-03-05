@@ -311,7 +311,7 @@ body, .folder-notebooks {
     --normal-folder-2-open: "📑";
     --normal-folder-2: "📑";
     --normal-folder-3: "🔖";
-    --normalfolder-3-open: "🔖";
+    --normal-folder-3-open: "🔖";
 }
 
 .folder-folders {
@@ -2189,6 +2189,12 @@ box-shadow: none !important;
     --shadow-s: none;
     --shadow-l: none;
 }
+
+/* --------------- CANVAS ------------- */
+.canvas-node-content.markdown-embed {
+    margin: 0px !important;
+}
+
 /* --------------------- STYLE SETTINGS ------------------------*/
 
 /* @settings
