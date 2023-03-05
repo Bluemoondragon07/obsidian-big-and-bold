@@ -1019,6 +1019,7 @@ display: none;
     --color-base-60: hsl(210, 27%, 62%);
     --color-base-70: hsl(210, 22%, 53%);
     --color-base-100: hsl(210, 30%, 18%);
+    --panel-child: hsl(208, 45%, 95.8%);
   }
   .theme-nord.theme-dark {
     --color-red-rgb: 191, 97, 106;
@@ -1050,6 +1051,7 @@ display: none;
     --color-base-60: hsl(220, 23%, 65%); 
     --color-base-70: hsl(220, 24%, 70%); 
     --color-base-100: hsl(220, 24%, 95%); 
+    --panel-child: hsl(220, 20.8%, 25.5%); 
   }
 
   /* --------- SPECTRE THEME --------- */
@@ -1117,7 +1119,7 @@ display: none;
     filter: brightness(78%);
 }
 .theme-light img, .theme-light .page-gallery__image  {
-    filter: contrast(108%) saturate(120%);
+    filter: contrast(104%) saturate(105%);
 }
 .theme-library img, .theme-library .page-gallery__image  {
     filter: sepia(15%) contrast(95%);
@@ -2166,6 +2168,27 @@ box-shadow: var(--background-modifier-box-shadow) 0px 0px 15px 0px;
     min-width: unset;
 }
 
+/* ----------------- WINDOW FRAME -------------- */
+
+.titlebar-button-container.mod-right {
+    background-color:transparent !important;
+    color: var(--text-faint) !important;
+}
+/* ------- BANNER PLUG-IN FIXES ------ */
+.banner-image {
+min-width: 100%;
+max-width: unset;
+transform: scale(1) !important;
+border-radius: 0px !important;
+box-shadow: none !important;
+}
+
+/* -------- TURN OFF SHADOWS OPTION --------- */
+.no-shadows {
+    --shadow-ui: none;
+    --shadow-s: none;
+    --shadow-l: none;
+}
 /* --------------------- STYLE SETTINGS ------------------------*/
 
 /* @settings
@@ -2223,6 +2246,11 @@ settings:
         type: heading
         level: 2
         collapsed: true
+    -
+        id: no-shadows
+        title: Turn off shadows
+        type: class-toggle
+        default: false
     -
         id: files-heading
         title: Files
@@ -2636,7 +2664,8 @@ settings:
                 value: var(--color-accent-2)
     -
         id: icon-shadow
-        title: Enable Icon Shadow
+        title: Icon Shadow
+        description: NOTE - will be overriden by the Turn Off Shadows option under the Workspace heading.
         type: variable-select
         allowEmpty: false
         default: var(--shadow-ui) inset, var(--shadow-ui);
