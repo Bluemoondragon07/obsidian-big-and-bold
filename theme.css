@@ -7,10 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Emoji&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=Koh+Santepheap:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Oleo+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Tilt+Warp&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&family=Abril+Fatface&family=Bangers&family=DM+Serif+Display:ital@0;1&family=Fleur+De+Leah&family=Inknut+Antiqua:wght@300;400;500;600;700;800&family=Marko+One&family=Quattrocento:wght@400;700&family=Sail&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 
 body { 
     --font-main: 'Nunito Sans';
@@ -1368,7 +1368,7 @@ body, .headings-medium {
 
 /* colorful headings class */
 
-.colorful-headings {
+.colored-headings {
 --h1-color: var(--color-cyan);
 --h2-color: var(--color-blue);
 --h3-color: var(--color-purple);
@@ -1376,7 +1376,7 @@ body, .headings-medium {
 --h5-color: var(--color-red);
 --h6-color: var(--color-orange);
 }
-.colorful-headings.theme-nord {
+.colored-headings.theme-nord {
     --h1-color: var(--color-purple);
     --h2-color: var(--color-blue);
     --h3-color: var(--color-cyan);
@@ -1384,7 +1384,7 @@ body, .headings-medium {
     --h5-color: var(--color-orange);
     --h6-color: var(--color-red);
 }
-.colorful-headings.theme-spectre {
+.colored-headings.theme-spectre {
 --h1-color: var(--color-red);
 --h2-color: var(--color-orange);
 --h3-color: var(--color-yellow);
@@ -1805,7 +1805,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-size: 0.85em;
     font-weight: 500;
     text-decoration: none;
-    font-family: 'Noto Sans Symbols 2', inherit;
+    font-family: 'Noto Sans Symbols 2',  inherit;
 }
 .is-mobile .internal-link::before, .is-mobile .external-link::before, .is-mobile .cm-underline::before {
     content: "🡭";
@@ -1814,7 +1814,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-size: 0.85em;
     font-weight: 500;
     text-decoration: none;
-    font-family: 'Noto Sans Symbols 2';
+    font-family: 'Noto Sans Symbols 2', inherit;
 }
 .internal-link.is-unresolved::before, .is-unresolved .cm-underline::before {
     content: "＋";
@@ -1822,7 +1822,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     display: inline-block;
     font-weight: 600;
     text-decoration: none;
-    font-family: 'Noto Sans JP';
+    font-family: 'Noto Sans JP', inherit;
 }
 .internal-link:hover::before, .external-link:hover::before {
     font-weight: 900;
@@ -1843,6 +1843,8 @@ text-decoration: underline var(--color-accent-1) 2px;
     background-image: none;
     padding-right: unset;
 }
+
+
 
 /* ------ HIGHLIGHTS ------ */
 .theme-light {
@@ -1974,8 +1976,8 @@ body {
     --img-align: auto;
 }
 .img-adjust .view-content .markdown-rendered img:not([width]) {
-    width: 80%;
-    max-width: 85%;
+    min-width: 50%;
+    max-width: 80%;
  }
 
 .view-content .markdown-rendered img {
@@ -2594,11 +2596,20 @@ settings:
         options:
             - 'Merriweather Sans'
             - 'Merriweather'
+            - 'DM Serif Display'
+            - 'Vollkorn'
             - 'EB Garamond'
+            - 'Abril Fatface'
+            - 'Fleur De Leah'
+            - 'Inknut Antiqua'
+            - 'Marko One'
+            - 'Quattrocento'
             - 'Avenir Next'
             - 'Koh Santepheap'
             - 'Monsterrat'
             - 'Oleo Script'
+            - 'Sail'
+            - 'Bangers'
             - 'Figtree'
             - 'Poppins'
             - 'Roboto'
@@ -2639,7 +2650,7 @@ settings:
                 label: Extra Bold
                 value: 800
     -
-        id: colorful-headings
+        id: colored-headings
         title: Colorful Headings
         addCommand: true
         type: class-toggle
@@ -2703,6 +2714,8 @@ settings:
             - 'Nunito'
             - 'Avenir Next'
             - 'Figtree'
+            - 'Vollkorn'
+            - 'Inknut Antiqua'
             - 'Poppins'
             - 'Roboto'
             - 'Rubik'
@@ -2717,6 +2730,7 @@ settings:
             - 'Merriweather'
             - 'Merriweather Sans'
             - 'EB Garamond'
+            - 'Quattrocento'
             - 'Tilt Warp'
             - 'Inter'
             - 'Source Code Pro'
