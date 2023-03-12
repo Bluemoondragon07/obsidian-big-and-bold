@@ -696,13 +696,20 @@ transition: opacity .1s, max-width .1s !important;
 .workspace-ribbon {
     border: none;
 }
+
+/* unhide workspace ribbon */
+.unhide-ribbon .workspace-ribbon.is-collapsed {
+    opacity: 1;
+    max-width: 5em;
+}
+
 .workspace-leaf-resize-handle {
     border-width: 0px !important;
 }
 
 /* ---------- ULTRA FOCUS ---------- */
 .ultra-focus {
-    --file-line-width: 1150px;
+    --file-line-width: 1150px !important;
 }
 .ultra-focus .workspace-ribbon.is-collapsed {
     display: none;
@@ -722,6 +729,55 @@ transition: opacity .1s, max-width .1s !important;
 display: none;
 }
 
+/* ---------- FLOATING DOCUMENT MODE ----------- */
+body:not(.custom-doc) {
+    --doc-background: var(--doc-bg);
+}
+body {
+    --custom-doc-bg: var(--color-accent-1);
+}
+.custom-doc {
+    --doc-background: var(--custom-doc-bg) !important;
+}
+
+.doc-1 {
+    --custom-doc-bg: var(--color-accent-1);
+}
+.doc-2 {
+    --custom-doc-bg: var(--color-accent-2);
+}
+
+.doc-3 {
+    --custom-doc-bg: var(--color-accent-3);
+}
+
+
+.floating-doc .workspace,
+.floating-doc .workspace > .workspace-split,
+.floating-doc .workspace-ribbon::before {
+    background-color: var(--doc-background) !important;
+}
+
+.floating-doc .workspace-leaf {
+    background-color: transparent !important;
+    margin: 0px 0.5em;
+}
+.floating-doc .workspace-leaf-content[data-type="markdown"] {
+    max-width: var(--file-line-width) !important;
+    margin: auto !important;
+}
+.floating-doc .workspace-leaf-content {
+    border-radius: var(--radius-s) var(--radius-s) 0px 0px;
+    box-shadow: var(--shadow-s);
+}
+
+.floating-doc {
+--ribbon-background-collapsed: transparent;
+--ribbon-background: transparent;
+}
+floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
+    background-color: transparent !important;
+}
 /* --------------- COLOR SCHEMES -------------------- */
 
 /* --------- ORIGINAL -------- */
@@ -734,6 +790,8 @@ display: none;
     --panel-child: var(--background-primary-alt);
 }
 .theme-light, .is-mobile.theme-light {
+    --doc-bg: hsl(181, 20%, 95%);
+    --shadow-color: hsl(0, 0%, 92%);
     --color-red-rgb: 255, 77, 58;
     --color-red: #df6f63;
     --color-green-rgb: 125, 207, 43;
@@ -768,7 +826,11 @@ display: none;
     --color-accent-1: hsl(calc(var(--accent-h) - 4), var(--accent-s), calc(var(--accent-l) - 2%));
     --color-accent-2: hsl(calc(var(--accent-h) + 2), calc(var(--accent-s) + 5%), calc(var(--accent-l) + 4%));
   }
+
+
+
   .theme-dark, .is-mobile.theme-dark {
+    --doc-bg: hsl(200, 29%, 20%);
     color-scheme: dark;
     --highlight-mix-blend-mode: lighten;
     --mono-rgb-0: 0, 0, 0;
@@ -804,8 +866,9 @@ display: none;
               var(--accent-s),
               var(--accent-l);
     --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-    --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 3.8%));
-    --color-accent-2: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 3.8%));
+    --color-accent-3: hsl(calc(var(--accent-h) + 35), var(--accent-s), calc(var(--accent-l) + 12%));
+    --color-accent-1: hsl(calc(var(--accent-h) - 4), var(--accent-s), calc(var(--accent-l) - 2%));
+    --color-accent-2: hsl(calc(var(--accent-h) + 2), calc(var(--accent-s) + 5%), calc(var(--accent-l) + 4%));
     --background-modifier-form-field: var(--color-base-25);
     --background-secondary-alt: var(--color-base-30);
     --interactive-normal: var(--color-base-30);
@@ -848,6 +911,8 @@ display: none;
     --color-pink: #ab618a;
 }
  .theme-matcha.theme-light {
+    --doc-bg: #e4efd9;
+    --shadow-color: #e5ecdb !important;
     --color-base-05: hsl(90, 57%, 97%);
     --color-base-00: hsl(96, 100%, 99%);
     --color-base-10: #e9f3df;
@@ -863,6 +928,7 @@ display: none;
     --panel-child: hsl(90, 80%, 97.5%);
  }
 .theme-matcha.theme-dark {
+    --doc-bg: #2d3428;
     --color-base-00: #20251b;
     --color-base-10: #2e3427;
     --color-base-20: #292f20;
@@ -900,6 +966,7 @@ display: none;
     --color-green: #ab618a;
 }
  .theme-library.theme-light {
+    --doc-bg: hsl(41, 53%, 89%);
     --color-base-00: hsl(43, 58%, 95%);
     --color-base-05: hsl(43, 54%, 93%);
     --color-base-10: hsl(42, 55%, 89%);
@@ -915,6 +982,7 @@ display: none;
     --panel-child: hsl(43, 50%, 94.15%);
  }
 .theme-library.theme-dark {
+    --doc-bg: #443c33;
     --color-base-00: #3b342d;
     --color-base-10: #4a433a;
     --color-base-20: #463c32;
@@ -954,6 +1022,8 @@ display: none;
     --color-green: #ff5b87;
 }
  .theme-tropical.theme-light {
+    --doc-bg: #ffe9cd;
+    --shadow-color: hsla(38, 72%, 61%, 0.176) !important;
     --color-base-05: hsl(44, 100%, 92%);
     --color-base-00: hsl(51, 100%, 95%);
     --color-base-10: #ffe9cd;
@@ -969,6 +1039,7 @@ display: none;
     --panel-child: hsl(42, 100%, 92.5%);
  }
 .theme-tropical.theme-dark {
+    --doc-bg: #3a2d35;
     --color-base-00: #251b1b;
     --color-base-10: #4a353d;
     --color-base-20: #2f202c;
@@ -1007,6 +1078,7 @@ display: none;
     --color-pink: #aa7aa1;
 }
 .theme-nord.theme-light {
+    --doc-bg: hsl(207, 40%, 90%);
     --color-base-00: hsl(208, 44%, 96%);
     --color-base-05: hsl(208, 46%, 95%);
     --color-base-10: hsl(208, 48%, 93%);
@@ -1022,6 +1094,7 @@ display: none;
     --panel-child: hsl(208, 45%, 95.8%);
   }
   .theme-nord.theme-dark {
+    --doc-bg: #374359;
     --color-red-rgb: 191, 97, 106;
     --color-red: #BF616A;
     --color-green-rgb: 163, 190, 140;
@@ -1055,7 +1128,7 @@ display: none;
   }
 
   /* --------- SPECTRE THEME --------- */
- .theme-spectre {
+ .theme-spectre { 
     --vault-icon: '☄️';
     --accent-h: 340 !important;
     --accent-s: 79% !important;
@@ -1079,7 +1152,9 @@ display: none;
   
 }
  .theme-spectre.theme-light {
+    --doc-bg:hsl(251, 11%, 31%);
     color-scheme: dark;
+    --shadow-color: hsl(253, 10%, 20%) !important;
     --highlight-mix-blend-mode: lighten;
     --color-base-00: hsl(253, 10%, 25%);
     --color-base-05: hsl(254, 10%, 27%);
@@ -1101,6 +1176,7 @@ display: none;
     --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
  }
 .theme-spectre.theme-dark {
+    --doc-bg: hsl(277, 15%, 17%);
     --color-base-00: hsl(283, 13%, 10%);
     --color-base-10: hsl(282, 14%, 10.5%);
     --color-base-20: hsl(281, 15%, 11.2%);
@@ -1109,8 +1185,8 @@ display: none;
     --color-base-35: hsl(278, 16%, 13%);
     --color-base-40: hsl(278, 16%, 15%);
     --color-base-50: hsl(278, 12%, 46%);
-    --color-base-60: hsl(278, 11%, 45%);
-    --color-base-70: hsl(277, 11%, 42%);
+    --color-base-60: hsl(278, 11%, 55%);
+    --color-base-70: hsl(277, 11%, 62%);
     --color-base-100: hsl(277, 11%, 80%);
     --panel-child: hsl(278, 16%, 14%);
 }
@@ -1124,6 +1200,44 @@ display: none;
 .theme-library img, .theme-library .page-gallery__image  {
     filter: sepia(15%) contrast(95%);
 }
+
+/* ----- PAGE SHADOW -------- */
+
+.theme-light:not(.theme-default) {
+    --shadow-color: var(--background-secondary);
+}
+.theme-dark {
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+.page-shadow:not(.floating-doc) .workspace,
+.page-shadow:not(.floating-doc) .workspace > .workspace-split,
+.page-shadow:not(.floating-doc) .workspace-ribbon,
+.page-shadow:not(.floating-doc) .workspace-ribbon::before,
+.page-shadow .vertical-tab-content,
+.page-shadow .vertical-tab-header,
+.page-shadow.floating-doc .view-content {
+box-shadow: 0 0 70px var(--shadow-color) inset;
+}
+.page-shadow.is-focused:not(.floating-doc) .workspace-leaf.mod-active .view-header,
+.page-shadow:not(.floating-doc) .view-header, 
+.page-shadow:not(.floating-doc) .workspace-leaf-content, 
+.page-shadow:not(.floating-doc) .workspace-tab-container, 
+.page-shadow:not(.floating-doc) .workspace-leaf.mod-active,
+.page-shadow:not(.floating-doc) .view-content {
+background-color: transparent !important;
+}
+.page-shadow {
+--ribbon-background-collapsed: var(--background-secondary);
+--ribbon-background: transparent;
+}
+
+.page-shadow .workspace-ribbon.mod-left.is-collapsed:before {
+    background-color: var(--background-secondary) !important;
+}
+
+
+
 
   /* -------------- TYPOGRAPHY ------------- */
 
@@ -1660,7 +1774,6 @@ body {
     --link-unresolved-color: var(--text-faint);
     --link-unresolved-decoration-color: var(--background-modifier-border-hover);
 }
-/* --- ALX FOLDER NOTE LINKS --- */
 
 /* style links to look similar to Notion */
 .internal-link, .external-link {
@@ -1812,6 +1925,9 @@ background-color: var(--background-secondary-alt);
  border: 1px solid var(--background-modifier-border);
  border-radius: var(--radius-s);
 }
+.frontmatter-section-label::after {
+   content: ':';
+}
 
 /* DATAVIEW */
 
@@ -1962,20 +2078,19 @@ table > tbody > tr > td:hover {
 }
 
 .ultra-focus.highlight-active-line .cm-contentContainer .cm-line, .ultra-focus.highlight-active-line .cm-contentContainer img {
-   opacity: 0.3;
+   opacity: 0.75;
 }
 
 /* --------------- PLUG-INS AND CODE BLOCKS ------------ */
 
 /* -------- PAGE GALLERY --------- */
-.page-gallery {
-    --gutter-size: var(--custom-gutter-size, 16px);
-    --aspect-ratio: var(--custom-aspect-ratio, 1.618);
-    --image-width: var(--custom-image-width, calc( (var(--fill-line-width, 700px) - (var(--columns) - 1) * var(--gutter-size)) / var(--columns)));
-    --image-height: var(--custom-image-height, calc(var(--aspect-ratio) * var(--image-width)));
-    --image-size: var(--custom-image-size, cover);
-    --image-position: 50% 75%;
+body {
+    --tile-radius: 14px;
+    --tile-img-radius: var(--tile-radius);
+    --tile-padding: 8px;
+    --tile-field-padding: 5px;
 }
+
 .block-language-page-gallery {
     margin: 2em 0px;
     width: 100%;
@@ -1983,6 +2098,7 @@ table > tbody > tr > td:hover {
 .page-gallery__image, .page-gallery__fallback {
     opacity: 1;
     box-shadow: none;
+    border-radius: var(--tile-img-radius);
 }
 .page-gallery__image:hover, .page-gallery__fallback:hover {
 box-shadow: var(--shadow-ui);
@@ -1992,24 +2108,26 @@ box-shadow: var(--shadow-ui);
 }
 .page-gallery__tile {
     border: 1px solid var(--background-modifier-border);
-    border-radius: var(--radius-m);
-    padding: 8px 8px 8px 8px;
-    height: flex;
-    width: fit-content;
-    flex-grow: 1;
-    max-width: 20em;
-    min-width: 12em;
+    border-radius: var(--tile-radius);
+    padding: var(--tile-padding) var(--tile-padding)  var(--tile-padding)  var(--tile-padding) ;
     background-color: var(--background-secondary-alt);
     box-shadow: var(--shadow-ui);
 }
-.page-gallery-flexgrow  .page-gallery__tile {
+.page-gallery-flexgrow .page-gallery__tile {
 max-width: unset;
+flex-grow: 1;
+height: flex;
+width: fit-content;
+min-width: 12em;
 }
 .page-gallery__field {
     text-shadow: none;
     word-wrap: break-word;
     white-space: initial;
     margin-top: 8px;
+}
+.page-gallery__fields {
+    padding: var(--tile-field-padding);
 }
 .page-gallery__field a.tag {
     font-size: 0.85em;
@@ -2234,6 +2352,28 @@ settings:
         level: 2
         collapsed: true
     -
+        id: page-shadow
+        title: Paper Shadow
+        description: Add a paper-like gradient around the edges of each note (inspired by ITS theme).
+        type: class-toggle
+        default: false
+    -
+        id: file-line-width
+        title: Readable Line Length
+        description: Adjust the width of the note when Readable Line Length is turned on.
+        type: variable-number-slider
+        default: 1100
+        format: px
+        min: 650
+        max: 1500
+        step: 50
+    -
+        id: focus-mode-heading
+        title: Focus Mode
+        type: heading
+        level: 3
+        collapsed: true
+    -
         id: highlight-active-line
         title: Highlight Active Line
         type: class-toggle
@@ -2247,6 +2387,42 @@ settings:
         default: false
         addCommand: true
     -
+        id: floating-doc-heading
+        title: Floating Document
+        type: heading
+        level: 4
+        collapsed: true
+    -
+        id: floating-doc
+        title: Floating Document
+        description: Give the note a floating document appearance, like Google Docs or Microsoft Word. Recommeded for use with a low readable line length.
+        type: class-toggle
+        default: false
+    -
+        id: custom-doc
+        title: Use Custom Background Color
+        description: Use a custom background color when Floating Document is enabled.
+        type: class-toggle
+        default: false
+    -
+        id: custom-doc-bg
+        title: Floating Document Background
+        description: Choose the background color that is used when Floating Document is turned on. Requires the setting above to be toggled ON.
+        type: class-select
+        default: color-accent-1
+        allowEmpty: false
+        options:
+            -
+                label: Accent 1
+                value: doc-1
+            -
+                label: Accent 2
+                value: doc-2
+            -
+                label: Accent 3
+                value: doc-3
+            
+    -
         id: workspace-heading
         title: Workspace
         type: heading
@@ -2254,7 +2430,14 @@ settings:
         collapsed: true
     -
         id: no-shadows
-        title: Turn off shadows
+        title: Turn off box shadows
+        description: Turn off box shadows for certain elements (does not apply to the "paper shadow" setting).
+        type: class-toggle
+        default: false
+    -
+        id: unhide-ribbon 
+        title: Unhide Ribbon
+        description: Show the left ribbon, which is hidden by default.
         type: class-toggle
         default: false
     -
@@ -2718,10 +2901,47 @@ settings:
         level: 3
         collapsed: true
     -
+        id: tile-radius
+        title: Tile Radius
+        description: Adjust the border radius for page gallery tiles.
+        type: variable-number-slider
+        default: 14
+        format: px
+        min: 0
+        max: 30
+        step: 1
+    -
+        id: tile-img-radius
+        title: Image Radius
+        description: Adjust the border radius for page gallery images only. By default, this is the same as the tile radius, but you can override it with something like "16px" or "10px 10px 0px 0px".
+        type: variable-text
+        default: var(--tile-radius)
+    -
+        id: tile-padding
+        title: Padding
+        description: Change the padding inside page gallery tiles.
+        type: variable-number-slider
+        default: 8
+        format: px
+        min: 0
+        max: 20
+        step: 1
+    -
+        id: tile-field-padding
+        title: Field Padding
+        description: Change the padding around page gallery fields only.
+        type: variable-number-slider
+        default: 5
+        format: px
+        min: 0
+        max: 20
+        step: 1
+    -
         id: page-gallery-flexgrow
         title: Flexgrow for Tiles
         description: When turned on, tile widths will increase to fill empty gaps.
         type: class-toggle
         default: false
+
 
 */
