@@ -18,12 +18,6 @@ Almost every element in Obsidian has been styled for you. Even **Dataview tables
 
 ![](Screenshots/page-gallery.png)
 
-## Some Components with Special Styles
-* Lists: bulleted lists and numbered lists' markings change colors with every indentation level to help you keep track of ideas in an outline.
-* Tags: `#note`, `#to-do`, `#reminder`, `#important`, and a few other tags automatically gain emoji icons. Keep track of your reminders!
-* Files: Some notes gain special icons depending on what words they have in their file location (`Adventures of Darrel Wiki/Darrel.md` gets a little `🌐` Wiki icon).
-* Checkboxes: Unchecked checkboxes show up as red ❌s. Don't forget to complete those tasks!
-* ...and much more!
 
 ## Other Features
 
