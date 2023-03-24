@@ -9,8 +9,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=Koh+Santepheap:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Oleo+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Tilt+Warp&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&family=Abril+Fatface&family=Bangers&family=DM+Serif+Display:ital@0;1&family=Fleur+De+Leah&family=Inknut+Antiqua:wght@300;400;500;600;700;800&family=Marko+One&family=Quattrocento:wght@400;700&family=Sail&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800;900&family=Koh+Santepheap:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Oleo+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&family=Abril+Fatface&family=Bangers&family=DM+Serif+Display:ital@0;1&family=Inknut+Antiqua:wght@300;400;500;600;700;800&family=Marko+One&family=Quattrocento:wght@400;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Sen:wght@400;700;800&family=Shrikhand&family=Teko:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+
+
 
 body { 
     --font-main: 'Nunito Sans';
@@ -41,6 +43,12 @@ body:not(.native-scrollbars) ::-webkit-scrollbar {
     height: 0px;
 }
 
+/* hide on mac */
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+
 /* remove background */
 .workspace-tabs .workspace-leaf {
     background-color: transparent;
@@ -70,7 +78,7 @@ body {
     content: var(--vault-icon);
     font-size: inherit;
     font-weight: 500;
-    color: var(--color-accent-2);
+    color: var(--color-accent-1);
     font-family: var(--vault-font);
 }
 .remove-vault-icon .nav-folder.mod-root > .nav-folder-title .nav-folder-title-content:before {
@@ -537,6 +545,7 @@ border-bottom: none;
 .modal-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.559), black);
 }
+
 .vertical-tab-header-group-items  {
     background-color: var(--background-secondary-alt);
     border: 1px solid var(--background-modifier-border);
@@ -586,6 +595,7 @@ body {
 .is-phone .community-item {
     box-shadow: none;
 }
+
 
 /* style settings */
 .style-settings-heading[data-id="big-and-bold-theme"] .style-settings-collapse-indicator::after {
@@ -641,6 +651,25 @@ body {
 }
 .folder-custom .style-settings-heading[data-id="custom-folders-heading"] {
     display: block;
+}
+
+
+
+/* ---------- ANIMATIONS -------- */
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+.prompt{
+    animation: slide-down .25s; 
 }
 
 /* ------ HIDE NOTE TITLE HEADER ----- */
@@ -724,10 +753,28 @@ transition: opacity .1s, max-width .1s !important;
        opacity: 1;
       height:var(--header-height);
 }
-/* remove tabs */
-.ultra-focus .workspace-tab-header-container {
+/* different tab style */
+body.ultra-focus:not(.is-mobile) .mod-root .workspace-tab-header-container:not(:has(.workspace-tab-header + .workspace-tab-header)) .workspace-tab-header {
 display: none;
 }
+body.ultra-focus:not(.is-mobile) .mod-root .workspace-tab-header-container:not(:has(.workspace-tab-header + .workspace-tab-header))  {
+    --header-height: 25px;
+    margin-bottom: 0px !important;
+    margin-top: 7px;
+    opacity: 0.5;
+}
+.ultra-focus .workspace-tab-header-container {
+    opacity: 0;
+    transition: 0.15s;
+}
+.ultra-focus .workspace-tab-header-container:not(:hover) {
+    height: 20px;
+}
+.ultra-focus .workspace-tab-header-container:hover {
+opacity: 1;
+}
+
+    
 
 /* ---------- FLOATING DOCUMENT MODE ----------- */
 body:not(.custom-doc) {
@@ -755,7 +802,12 @@ body {
 .floating-doc .workspace,
 .floating-doc .workspace > .workspace-split,
 .floating-doc .workspace-ribbon::before {
-    background-color: var(--doc-background) !important;
+    background: var(--doc-background);
+}
+.floating-doc.enable-bg-img .workspace,
+.floating-doc.enable-bg-img .workspace > .workspace-split,
+.floating-doc.enable-bg-img .workspace-ribbon::before {
+    background: transparent;
 }
 
 .floating-doc .workspace-leaf {
@@ -770,6 +822,9 @@ body {
     border-radius: var(--radius-s) var(--radius-s) 0px 0px;
     box-shadow: var(--shadow-s);
 }
+.floating-doc.enable-bg-img .workspace-leaf-content {
+    background-color: var(--background-primary) !important;
+}
 
 .floating-doc {
 --ribbon-background-collapsed: transparent;
@@ -778,6 +833,62 @@ body {
 floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     background-color: transparent !important;
 }
+
+/* -------------- WORKSPACE BACKGROUND IMAGE ------------ */
+body {
+    --page-transparency: 100%;
+    --img-blur: 3px;
+    --img-sat: 100%
+    --img-position-y: 50%;
+    --img-bg: url('https://images.unsplash.com/photo-1679245883026-adea0f43e6f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80');
+}
+.view-header-title-container:after {
+    background: none !important;
+}
+.enable-bg-img:not(.floating-doc) .workspace-split.mod-horizontal.mod-left-split,
+.enable-bg-img:not(.floating-doc) .workspace-ribbon,
+.enable-bg-img:not(.floating-doc) .workspace-ribbon.is-collapsed,
+.enable-bg-img:not(.floating-doc) .workspace-ribbon::before {
+    background-color: var(--background-primary) !important;
+}
+
+
+/* make ribbon completely invisible. Also effects page shadow */
+.enable-bg-img .workspace-ribbon.is-collapsed, 
+.page-shadow .workspace-ribbon.is-collapsed {
+    padding-right: 0px !important;
+    padding-left: 0.1px !important;
+    z-index: 500;
+}
+.workspace-ribbon::before {
+margin-bottom: 0px;
+padding-bottom: 1px;
+}
+
+.enable-bg-img .horizontal-main-container {
+    background: var(--img-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: var(--img-position-y);
+}
+.enable-bg-img .workspace {
+    background-color: transparent !important;
+    backdrop-filter: blur(var(--img-blur)) saturate(var(--img-sat)) !important;
+}
+.enable-bg-img .workspace-leaf {
+    background-color: transparent !important;
+}
+.enable-bg-img .view-content, .enable-bg-img .view-header {
+    background-color: transparent !important;
+}
+.enable-bg-img {
+    --page-transparency-custom: 75%;
+}
+.enable-bg-img {
+    --page-transparency: var(--page-transparency-custom);
+}
+
+
 /* --------------- COLOR SCHEMES -------------------- */
 
 /* --------- ORIGINAL -------- */
@@ -793,25 +904,25 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --doc-bg: hsl(181, 20%, 95%);
     --shadow-color: hsl(0, 0%, 92%);
     --color-red-rgb: 255, 77, 58;
-    --color-red: #df6f63;
+    --color-red: #d25d50;
     --color-green-rgb: 125, 207, 43;
     --color-green: #7dcf2b;
     --color-orange-rgb: 246, 156, 0;
-    --color-orange: #e69c1c;
+    --color-orange: #ce8506;
     --color-yellow-rgb: 232, 201, 0;
     --color-yellow: #e8c900;
     --color-cyan-rgb: 0, 206, 203;
-    --color-cyan: #1fb1ae;
+    --color-cyan: #149fbb;
     --color-blue-rgb:0, 155, 227;
-    --color-blue: #1592cc;
+    --color-blue: #2797cb;
     --color-purple-rgb: 180, 90, 245;
-    --color-purple: #9d6ac1;
+    --color-purple: #7665c3;
     --color-pink-rgb: 230, 106, 180;
-    --color-pink: #d06fa9;
-    --color-base-00: #ffffff;
+    --color-pink: #c65fc2;
+    --color-base-00: hsla(0, 0%, 100%, var(--page-transparency));
     --color-base-05: #fcfcfc;
     --color-base-10: #fdfdfd;
-    --color-base-20: #f6f6f6;
+    --color-base-20: hsl(0, 0%, 96%);
     --color-base-25: #efefef;
     --color-base-30: #9f9f9f66;
     --color-base-35: #dedede;
@@ -830,7 +941,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
 
 
   .theme-dark, .is-mobile.theme-dark {
-    --doc-bg: hsl(200, 29%, 20%);
+    --doc-bg: hsl(207, 24%, 22%);
     color-scheme: dark;
     --highlight-mix-blend-mode: lighten;
     --mono-rgb-0: 0, 0, 0;
@@ -851,7 +962,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-purple: #b45af5;
     --color-pink-rgb: 230, 106, 180;
     --color-pink: #e66ab4;
-    --color-base-00: hsl(216, 16%, 13%);
+    --color-base-00: hsla(216, 16%, 13%, var(--page-transparency));
     --color-base-10: hsl(216, 17%, 14%);
     --color-base-20: hsl(216, 19%, 16%);
     --color-base-25: hsl(216, 20%, 20%);
@@ -888,7 +999,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
   }
 
  /* --------- MATCHA THEME --------- */
-.theme-matcha {
+.theme-matcha-light.theme-light, .theme-matcha-dark.theme-dark {
     --vault-icon: '🍵';
     --accent-h: 85 !important;
     --accent-s: 55% !important;
@@ -910,11 +1021,11 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-pink-rgb: 189, 144, 169;
     --color-pink: #ab618a;
 }
- .theme-matcha.theme-light {
+ .theme-matcha-light.theme-light {
     --doc-bg: #e4efd9;
     --shadow-color: #e5ecdb !important;
     --color-base-05: hsl(90, 57%, 97%);
-    --color-base-00: hsl(96, 100%, 99%);
+    --color-base-00: hsla(96, 100%, 99%, var(--page-transparency));
     --color-base-10: #e9f3df;
     --color-base-20: #e9f4db;
     --color-base-25: #e1edd3;
@@ -927,9 +1038,9 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-base-100: #272d28;
     --panel-child: hsl(90, 80%, 97.5%);
  }
-.theme-matcha.theme-dark {
+.theme-matcha-dark.theme-dark {
     --doc-bg: #2d3428;
-    --color-base-00: #20251b;
+    --color-base-00: hsla(90, 16%, 13%, var(--page-transparency));
     --color-base-10: #2e3427;
     --color-base-20: #292f20;
     --color-base-25: #494f3b;
@@ -967,7 +1078,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
 }
  .theme-library.theme-light {
     --doc-bg: hsl(41, 53%, 89%);
-    --color-base-00: hsl(43, 58%, 95%);
+    --color-base-00: hsla(43, 58%, 95%, var(--page-transparency));
     --color-base-05: hsl(43, 54%, 93%);
     --color-base-10: hsl(42, 55%, 89%);
     --color-base-20: hsl(42, 54%, 85%);
@@ -981,25 +1092,9 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-base-100: #49392d;
     --panel-child: hsl(43, 50%, 94.15%);
  }
-.theme-library.theme-dark {
-    --doc-bg: #443c33;
-    --color-base-00: #3b342d;
-    --color-base-10: #4a433a;
-    --color-base-20: #463c32;
-    --color-base-25: #5a5246;
-    --color-base-30: #423b32;
-    --color-base-35: #695f51;
-    --color-base-40: #776751;
-    --color-base-50: #c0b4a4;
-    --color-base-60: #dfd2c2;
-    --color-base-70: #eee4d8;
-    --color-base-100: #fdf9f4;
-    --panel-child: #4f4537;
-}
-
 
 /* -------- TROPICAL THEME --------- */
-.theme-tropical {
+.theme-tropical-light.theme-light, .theme-tropical-dark.theme-dark {
     --vault-icon: '🌺';
     --accent-h: 16 !important;
     --accent-s: 100% !important;
@@ -1021,11 +1116,11 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-green-rgb: 255, 91, 135;
     --color-green: #ff5b87;
 }
- .theme-tropical.theme-light {
+ .theme-tropical-light.theme-light {
     --doc-bg: #ffe9cd;
     --shadow-color: hsla(38, 72%, 61%, 0.176) !important;
     --color-base-05: hsl(44, 100%, 92%);
-    --color-base-00: hsl(51, 100%, 95%);
+    --color-base-00: hsla(51, 100%, 95%, var(--page-transparency));
     --color-base-10: #ffe9cd;
     --color-base-20: #ffdcc0;
     --color-base-25: #d3edea;
@@ -1038,9 +1133,9 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-base-100: #43475c;
     --panel-child: hsl(42, 100%, 92.5%);
  }
-.theme-tropical.theme-dark {
+.theme-tropical-dark.theme-dark {
     --doc-bg: #3a2d35;
-    --color-base-00: #251b1b;
+    --color-base-00: hsla(0, 16%, 13%, var(--page-transparency));
     --color-base-10: #4a353d;
     --color-base-20: #2f202c;
     --color-base-25: #4d3b4f;
@@ -1055,7 +1150,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
 
 
 /* ------- NORD THEME --------- */
-.theme-nord {
+.theme-nord-light.theme-light, .theme-nord-dark.theme-dark {
     --vault-icon: '❄️';
     --accent-h: 210 !important;
     --accent-s: 44% !important;
@@ -1077,9 +1172,9 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-pink-rgb: 180, 142, 173;
     --color-pink: #aa7aa1;
 }
-.theme-nord.theme-light {
+.theme-nord-light.theme-light {
     --doc-bg: hsl(207, 40%, 90%);
-    --color-base-00: hsl(208, 44%, 96%);
+    --color-base-00: hsla(208, 44%, 96%, var(--page-transparency));
     --color-base-05: hsl(208, 46%, 95%);
     --color-base-10: hsl(208, 48%, 93%);
     --color-base-20: hsl(208, 48%, 91%);
@@ -1093,7 +1188,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-base-100: hsl(210, 30%, 18%);
     --panel-child: hsl(208, 45%, 95.8%);
   }
-  .theme-nord.theme-dark {
+  .theme-nord-dark.theme-dark {
     --doc-bg: #374359;
     --color-red-rgb: 191, 97, 106;
     --color-red: #BF616A;
@@ -1111,7 +1206,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-purple: #5e81AC;
     --color-pink-rgb: 180, 142, 173;
     --color-pink: #b48ead;
-    --color-base-00: hsl(220, 21%, 22%); 
+    --color-base-00: hsla(220, 21%, 22%, var(--page-transparency)); 
     --color-base-05: hsl(220, 21%, 23%); 
     --color-base-10:hsl(220, 21%, 25%); 
      --color-base-20: hsl(220, 22%, 28%); 
@@ -1128,7 +1223,7 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
   }
 
   /* --------- SPECTRE THEME --------- */
- .theme-spectre { 
+ .theme-spectre.theme-dark {
     --vault-icon: '☄️';
     --accent-h: 340 !important;
     --accent-s: 79% !important;
@@ -1149,35 +1244,28 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-purple: #c170c5;
     --color-pink-rgb: 226, 103, 167;
     --color-pink: #e267a7;
-  
-}
- .theme-spectre.theme-light {
-    --doc-bg:hsl(251, 11%, 31%);
-    color-scheme: dark;
-    --shadow-color: hsl(253, 10%, 20%) !important;
+    --doc-bg:hsl(300, 9%, 15%);
     --highlight-mix-blend-mode: lighten;
-    --color-base-00: hsl(253, 10%, 25%);
-    --color-base-05: hsl(254, 10%, 27%);
-    --color-base-10: hsl(254, 10%, 30%);
-    --color-base-20: hsl(255, 10%, 33%);
-    --color-base-25: hsl(256, 11%, 36%);
-    --color-base-30: hsl(253, 10%, 34%);
-    --color-base-35: hsl(260, 13%, 42%);
-    --color-base-40: hsl(263, 12%, 45%);
-    --color-base-50: hsl(264, 11%, 60%);
-    --color-base-60: hsl(266, 11%, 70%);
-    --color-base-70: hsl(268, 11%, 81%);
-    --color-base-100: hsl(269, 11%, 93%);
-    -background-modifier-form-field: var(--color-base-25);
-    --interactive-normal: var(--color-base-30);
-    --interactive-hover: var(--color-base-35);
-    --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
-    --background-modifier-cover: rgba(10, 10, 10, 0.4);
-    --text-selection: hsla(var(--interactive-accent-hsl), 0.25);
+    --color-base-00: hsla(253, 10%, 10%, var(--page-transparency));
+    --color-base-10: hsl(254, 10%, 17%);
+    --color-base-20: hsl(255, 10%, 20%);
+    --color-base-25: hsl(256, 11%, 22%);
+    --color-base-30: hsl(253, 11%, 13%);
+    --color-base-35: hsl(260, 13%, 29%);
+    --color-base-40: hsl(263, 12%, 32%);
+    --color-base-50: hsl(264, 11%, 47%);
+    --color-base-60: hsl(266, 11%, 57%);
+    --color-base-70: hsl(268, 11%, 68%);
+    --color-base-100: hsl(269, 11%, 80%);
+    --panel-child: hsl(250, 10%, 15%);
  }
+
+ /* old spectre dark theme */
+
+ /*
 .theme-spectre.theme-dark {
     --doc-bg: hsl(277, 15%, 17%);
-    --color-base-00: hsl(283, 13%, 10%);
+    --color-base-00: hsla(283, 13%, 10%, var(--page-transparency));
     --color-base-10: hsl(282, 14%, 10.5%);
     --color-base-20: hsl(281, 15%, 11.2%);
     --color-base-25: hsl(280, 16%, 16%);
@@ -1189,10 +1277,61 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
     --color-base-70: hsl(277, 11%, 62%);
     --color-base-100: hsl(277, 11%, 80%);
     --panel-child: hsl(278, 16%, 14%);
+} */
+
+/* ------ ELECTRIC THEME  ------ */
+
+.theme-electric.theme-dark {
+    --vault-icon: '⚡';
+    --accent-h: 410 !important;
+    --accent-s: 100% !important;
+    --accent-l: 50% !important;
+    --color-red-rgb: 255, 81, 0;
+    --color-red: #ff5100;
+    --color-green-rgb: 176, 228, 55;
+    --color-green: rgb(176, 228, 55);
+    --color-orange-rgb: 225, 124, 23;
+    --color-orange: rgb(255, 124, 23);
+    --color-yellow-rgb: 255, 208, 0;
+    --color-yellow: hsl(49, 100%, 50%);
+    --color-cyan-rgb:38, 227, 192;
+    --color-cyan: rgb(38, 224, 227);
+    --color-blue-rgb: 56, 182, 255;
+    --color-blue: rgb(56, 182, 255);
+    --color-purple-rgb: 197, 135, 255;
+    --color-purple: rgb(197, 135, 255);
+    --color-pink-rgb: 255, 141, 232;
+    --color-pink: rgb(255, 141, 232);
+    --doc-bg:hsl(193, 7%, 25%);
+    --highlight-mix-blend-mode: lighten;
+    --color-base-00: hsla(216, 10%, 10%, var(--page-transparency));
+    --color-base-10: hsl(216, 10%, 14%);
+    --color-base-20: hsl(216, 10%, 15%);
+    --color-base-25: hsl(216, 10%, 19%);
+    --color-base-30: hsl(216, 10%, 11.5%);
+    --color-base-35: hsl(216, 10%, 39%);
+    --color-base-40: hsl(216, 10%, 40%);
+    --color-base-50: hsl(216, 10%, 41%);
+    --color-base-60: hsl(216, 10%, 66%);
+    --color-base-70: hsl(216, 10%, 77%);
+    --color-base-100: hsl(225, 10%, 82%);
+    --panel-child: hsl(216, 10%, 13%);
 }
+.theme-electric.theme-dark.colored-headings {
+    --h1-color: var(--color-yellow);
+    --h2-color: var(--color-green);
+    --h3-color: var(--color-cyan);
+    --h4-color: var(--color-blue);
+    --h5-color: var(--color-purple);
+    --h6-color: var(--color-pink);
+}
+
+
+
+
 /* image filter for dark mode */
 .theme-dark img, .theme-dark .page-gallery__image  {
-    filter: brightness(78%);
+    filter: brightness(90%);
 }
 .theme-light img, .theme-light .page-gallery__image  {
     filter: contrast(104%) saturate(105%);
@@ -1304,6 +1443,20 @@ body {
     --h4-font: var(--heading-font-2);
     --h5-font: var(--heading-font-2);
     --h6-font: var(--heading-font-2);
+    --heading-style: normal;
+    --h1-style: var(--heading-style);
+    --h2-style: var(--heading-style);
+    --h3-style: var(--heading-style);
+    --h4-style: var(--heading-style);
+    --h5-style: var(--heading-style);
+    --h6-style: var(--heading-style);
+    --heading-variant: normal;
+    --h1-variant: var(--heading-variant);
+    --h2-variant: var(--heading-variant);
+    --h3-variant: var(--heading-variant);
+    --h4-variant: var(--heading-variant);
+    --h5-variant: var(--heading-variant);
+    --h6-variant: var(--heading-variant);
     --heading-weight: 700;
     --h1-weight: var(--heading-weight);
     --h2-weight: var(--heading-weight);
@@ -1376,7 +1529,7 @@ body, .headings-medium {
 --h5-color: var(--color-red);
 --h6-color: var(--color-orange);
 }
-.colored-headings.theme-nord {
+.colored-headings.theme-nord-light.theme-light, .colored-headings.theme-nord-dark.theme-dark {
     --h1-color: var(--color-purple);
     --h2-color: var(--color-blue);
     --h3-color: var(--color-cyan);
@@ -1384,7 +1537,7 @@ body, .headings-medium {
     --h5-color: var(--color-orange);
     --h6-color: var(--color-red);
 }
-.colored-headings.theme-spectre {
+.colored-headings.theme-spectre.theme-dark {
 --h1-color: var(--color-red);
 --h2-color: var(--color-orange);
 --h3-color: var(--color-yellow);
@@ -1399,6 +1552,7 @@ body {
     --list-marker-color: var(--color-cyan);
     --list-marker-color-hover: var(--color-yellow);
     --checkbox-border-color: var(--color-red);
+    --indentation-guide-color: transparent;
 }   
 
 /* --- CHECKBOXES --- */
@@ -1504,6 +1658,23 @@ li:hover .list-bullet:after {
     color: var(--text-normal);
   }
 
+
+  /* option to hide inline title */
+
+  .hide-title .inline-title {
+    opacity: 0;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 0px !important;
+  }
+
+  .hide-m .frontmatter-container {
+    opacity: 0 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 0px !important;
+  }
+
   /* --- CUSTOM TITLE ICONS --- */
   body {
     --icon-emoji: 'Noto Color Emoji';
@@ -1591,7 +1762,10 @@ body {
     background-color: var(--background-secondary-alt);
     margin: calc(var(--custom-line-height) * 1.5) auto;
 }
-
+.callout img {
+    margin: 0px !important;
+    border-radius: inherit !important;
+}
 
 .callout-content p {
     margin: auto;
@@ -1599,6 +1773,7 @@ body {
     width: fit-content;
     padding: 1em;
 }
+
 .callout-title-inner {
     display: block;
     margin: auto;
@@ -1680,16 +1855,21 @@ a.tag {
 
 /* CUSTOM TAG ICONS */
 
+
+
 a.tag[href*="#note"]::before {
     content: '📝';
     display: inline;
     padding: 0px 4px 0px 0px;
 }
-a.tag[href*="character"]::before,
 a.tag[href*="person"]::before {
     content: '👤';
     display: inline;
     padding: 0px 4px 0px 0px;
+}
+a.tag[href*="important"],
+a.tag[href*="reminder"] {
+    color: var(--color-red);
 }
 a.tag[href*="important"]::before,
 a.tag[href*="reminder"]::before {
@@ -1732,6 +1912,12 @@ a.tag[href*="plan"]::before
     display: inline;
     padding: 0px 4px 0px 0px;
 }
+a.tag[href*="idea"],
+a.tag[href*="concept"],
+a.tag[href*="plan"]
+ {
+    color: var(--color-green);
+}
 a.tag[href*="trash"]::before,
 a.tag[href*="rubbish"]::before,
 a.tag[href*="scrapped"]::before
@@ -1740,29 +1926,61 @@ a.tag[href*="scrapped"]::before
     display: inline;
     padding: 0px 4px 0px 0px;
 }
-a.tag[href*="place"]::before,
-a.tag[href*="region"]::before,
-a.tag[href*="locale"]::before,
-a.tag[href*="location"]::before
+a.tag[href*="trash"],
+a.tag[href*="rubbish"],
+a.tag[href*="scrapped"]
  {
-    content: '🏞️';
-    display: inline;
-    padding: 0px 4px 0px 0px;
+    color: var(--text-faint);
 }
-a.tag[href*="magic"]::before,
-a.tag[href*="tip"]::before
- {
-    content: '✨';
-    display: inline;
-    padding: 0px 4px 0px 0px;
-}
-
 a.tag[href*="done"]::before,
 a.tag[href*="complete"]::before
  {
     content: '🎉';
     display: inline;
     padding: 0px 4px 0px 0px;
+}
+a.tag[href*="done"],
+a.tag[href*="complete"]
+ {
+    color: var(--color-blue);
+}
+a.tag[href*="scene"]::before
+ {
+    content: '🎬';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="chapter"]::before
+ {
+    content: '🔖';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+
+a.tag[href*="book"]::before {
+    content: '📖';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="series"]::before {
+    content: '📺';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="screenplay"]::before {
+    content: '📇';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="term"]::before,
+a.tag[href*="memorize"]::before {
+    content: '🧠';
+    display: inline;
+    padding: 0px 4px 0px 0px;
+}
+a.tag[href*="term"],
+a.tag[href*="memorize"]{
+    color: var(--color-orange);
 }
 
 .hide-tag-icons a.tag::before {
@@ -1900,7 +2118,7 @@ margin: 1.5em 0px;
 
 /* ----- FRONTMATTER and DATAVIEW ----- */
 .frontmatter-container {
-    transition: .5s;
+    transition: all .15s, background-color 0s;
     border-radius: var(--radius-s);
     border-color: transparent;
 }
@@ -1914,6 +2132,7 @@ margin: 1.5em 0px;
 .frontmatter-container .frontmatter-container-header {
     font-size: 1em;
     border-bottom: none;
+    font-family: var(--h1-font);
 }
 .frontmatter-container:not(.is-collapsed) {
 background-color: var(--background-secondary-alt);
@@ -1929,6 +2148,91 @@ background-color: var(--background-secondary-alt);
 }
 .frontmatter-section-label::after {
    content: ':';
+}
+
+/* minimalistic frontmatter */
+
+/* give frontmatter floating modal appearance */
+.minimal-m .frontmatter-container {
+    background-color: var(--background-secondary-alt);
+    clear: right !important;
+    float: right !important;
+    margin: 0px 0px 0.5em 0.5em !important;
+}
+.minimal-m .frontmatter-container.is-collapsed  {
+   max-width: 120px;
+   background-color: transparent;
+}
+.minimal-m .frontmatter-container .frontmatter-container-header  {
+    border-radius: var(--radius-l);
+    margin: 0px auto;
+    width: fit-content;
+    font-size: var(--font-ui-small);
+}
+.minimal-m .frontmatter-container.is-collapsed .frontmatter-container-header:hover  {
+ color: var(--interactive-accent);
+ background-color: var(--interactive-hover) !important;
+ border-color: var(--background-modifier-border-hover);
+}
+.minimal-m .frontmatter-container.is-collapsed .frontmatter-container-header {
+    background-color: var(--background-primary-alt);
+    color: var(--text-muted);
+}
+.minimal-m .frontmatter-container:not(.is-collapsed) .frontmatter-container-header {
+   color: transparent;
+   max-height: 1px;
+   min-height: 1px;
+   padding: 0px;
+   margin: 0px;
+}
+.minimal-m .frontmatter-container:not(.is-collapsed) .frontmatter-container-header::before {
+    color: var(--text-faint);
+    content: '❌';
+    font-family: 'Noto Emoji';
+    font-size: 0.5em;
+    opacity: 0;
+ }
+ .minimal-m .frontmatter-container:not(.is-collapsed) .frontmatter-container-header:hover::before {
+    color: var(--color-red);
+    content: '❌';
+    opacity: 1;
+ }
+
+
+/* limit width when not collapsed */
+.minimal-m .frontmatter-container:not(.is-collapsed) {
+    max-width: 30%;
+    font-size: var(--font-ui-medium);
+    float: left;
+    margin: 0px 2em 1.5em 0px;
+ }
+
+/* remove ':' */
+.minimal-m .frontmatter-section-label::after {
+    content: none;
+ }
+
+ /* style frontmatter fields */
+ .minimal-m .frontmatter-section-label, 
+ .minimal-m .frontmatter-section {
+    font-size:  var(--font-ui-small);
+    display: block;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+
+}
+.minimal-m .frontmatter-section-label {
+    font-weight: var(--h1-weight);
+    font-family: var(--h1-font);
+    font-size: var(--font-ui-small);
+}
+.minimal-m .frontmatter-section {
+    margin: 5px 0px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: transparent;
 }
 
 /* DATAVIEW */
@@ -2016,6 +2320,60 @@ body {
     max-width: 40%;
     margin-right: 1.5em;
 }
+.markdown-rendered img[alt*="no-shadow"], .excalidraw-svg-no-shadow {
+    box-shadow: none !important;
+}
+
+ /* ---- INPUT FIELDS AND BUTTONS ---- */
+.dropdown {
+    height: 2.65em;
+    border-radius: var(--radius-s);
+}
+
+.view-content input[type="text"] {
+box-shadow: var(--shadow-ui);
+margin: 1em auto;
+display: block;
+min-width: 30%;
+padding: 1.2em 1em;
+font-size: var(--font-ui-medium);
+width: fit-content;
+}
+
+body {
+    --button-background: var(--color-accent-2);
+}
+.view-content input[type="button"], button.button-default {
+    box-shadow: var(--shadow-ui);
+    margin: 2em auto;
+    display: block;
+    border-radius: var(--radius-s);
+    border: var(--background-modifier-border) solid 1px;
+    min-width: 15%;
+    background-color: var(--button-background);
+    color: var(--text-on-accent);
+    font-weight: var(--h1-weight);
+    height: fit-content;
+    font-family: var(--h1-font);
+    padding: 0.8em;
+    font-size: var(--font-large);
+    width: fit-content;
+    }
+
+.view-content input[type="button"], button.button-default:hover {
+        box-shadow: var(--shadow-s);
+        background-color: var(--button-background);
+        color: var(--text-on-accent);
+        filter: brightness(110%) saturate(75%);
+}
+
+.block-language-button {
+        margin: 0px !important;
+        padding: 0px !important;
+}
+
+
+
 
 /* ----- TABLES ------ */
 body {
@@ -2171,6 +2529,23 @@ width: 80%;
     border-radius: var(--radius-s) !important;
 }
 
+/* ------- GALLERY ------- */
+.grid-item img {
+    margin: 0px !important;
+    max-width: 100% !important;
+    width: unset !important;
+    min-width: unset !important;
+}
+.lg-img-wrap img {
+    filter: none !important;
+}
+.lg-thumb-item.active img {
+    filter: none !important;
+}
+.lg-thumb-item.active, .lg-thumb-item:hover {
+    outline: none !important;
+    box-shadow: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 20%), 0.8) 0px 0px 18px;
+}
 /* ----- GENERAL CODE BLOCKS ------ */
 
 .markdown-rendered pre {
@@ -2272,6 +2647,7 @@ box-shadow: var(--background-modifier-box-shadow) 0px 0px 15px 0px;
     border-radius: var(--radius-m);
 }
 
+
 /* hide sidebar button */
 .is-phone .view-header .view-action[aria-label="Expand"] {
     display: none;
@@ -2323,33 +2699,61 @@ name: Big & Bold
 id: big-and-bold-theme
 settings:
     -
-        id: theme-select
-        title: Color Schemes
+        id: color-schemes-heading
+        title: 🎨 Color Schemes
+        type: heading
+        level: 2
+        collapsed: true
+    -
+        id: theme-select-light
+        title: Light Mode Theme
         type: class-select
         allowEmpty: false
-        default: theme-default
+        default: theme-default-light
         options:
             -
                 label: 💎 Default
-                value: theme-default
+                value: theme-default-light
             -
                 label: 🍵 Matcha
-                value: theme-matcha
+                value: theme-matcha-light
             -
                 label: 🌺 Tropical
-                value: theme-tropical
+                value: theme-tropical-light
             -
                 label: ❄️ Nord
-                value: theme-nord
+                value: theme-nord-light
             -
                 label: 📚 Library
                 value: theme-library
+    -
+        id: theme-select-dark
+        title: Dark Mode Theme
+        type: class-select
+        allowEmpty: false
+        default: theme-default-dark
+        options:
+            -
+                label: 💎 Default
+                value: theme-default-dark
+            -
+                label: 🍵 Matcha
+                value: theme-matcha-dark
+            -
+                label: 🌺 Tropical
+                value: theme-tropical-dark
+            -
+                label: ❄️ Nord
+                value: theme-nord-dark
+            -
+                label: ⚡ Electric
+                value: theme-electric
             -
                 label: ☄️ Spectre
                 value: theme-spectre
     -
         id: editor-heading
-        title: Editor
+        title: ⌨️ Editor
         type: heading
         level: 2
         collapsed: true
@@ -2409,7 +2813,7 @@ settings:
     -
         id: custom-doc-bg
         title: Floating Document Background
-        description: Choose the background color that is used when Floating Document is turned on. Requires the setting above to be toggled ON.
+        description: Choose the background color that is used when Floating Document is turned on. Requires the setting above to be toggled ON. NOTE - will be overriden if a background image is set.
         type: class-select
         default: color-accent-1
         allowEmpty: false
@@ -2423,10 +2827,26 @@ settings:
             -
                 label: Accent 3
                 value: doc-3
-            
+    -
+        id: frontmatter-heading
+        title: Frontmatter
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: hide-m
+        title: Hide Frontmatter
+        description: Make frontmatter invisible in reading mode.
+        type: class-toggle
+        default: false
+    -
+        id: minimal-m
+        title: Minimalistic Frontmatter
+        type: class-toggle
+        default: false
     -
         id: workspace-heading
-        title: Workspace
+        title: 🖥️ Workspace
         type: heading
         level: 2
         collapsed: true
@@ -2574,17 +2994,150 @@ settings:
         default: "'😸'"
         type: variable-text
     -
-    
+        id: workspace-background-heading
+        title: Background Image
+        type: heading
+        level: 3
+        collapsed: true
+    -
+        id: enable-bg-img
+        title: Enable Background Image
+        type: class-toggle
+        default: false
+    -
+        id: img-bg
+        title: Background Image
+        type: variable-select
+        default: url('https://images.unsplash.com/photo-1679245883026-adea0f43e6f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
+        options: 
+            -
+                label: 3-D Waves 1
+                value:  url('https://images.unsplash.com/photo-1679245883026-adea0f43e6f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
+            -
+                label: 3-D Waves 2
+                value: url('https://images.unsplash.com/photo-1676513727408-631151da9fc1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
+            -
+                label: Purple Mountains over Water
+                value: url('https://images.unsplash.com/photo-1511300636408-a63a89df3482?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Blue Mountains and Stars
+                value: url('https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2117&q=80')
+            -
+                label: Canyon and Sky
+                value: url('https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Valley
+                value: url('https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Fiery Mountains
+                value: url('https://images.unsplash.com/photo-1509565840034-3c385bbe6451?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
+            -
+                label: Colorful Mist
+                value: url('https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Ominous Crags
+                value: url('https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Snowy Peaks
+                value: url('https://images.unsplash.com/photo-1610128114197-485d933885c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Air Balloons
+                value: url('https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Quiet Mountain Lake
+                value: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Over a Forest at Dawn
+                value: url('https://images.unsplash.com/photo-1512923927402-a9867a68180e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Mountain River
+                value: url('https://images.unsplash.com/photo-1565191999001-551c187427bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHx3YWxscGFwZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60')
+            -
+                label: Starlight Morphos
+                value: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+            -
+                label: Edge of the World
+                value: url('https://cdn.pixabay.com/photo/2019/02/27/22/18/fantasy-4025091_1280.jpg')
+            -
+                label: Wolf in Painted Splashes
+                value: url('https://cdn.pixabay.com/photo/2018/01/08/15/56/wolf-3069636_1280.jpg')
+            -
+                label: Galactic City
+                value: url('https://images.wallpaperscraft.com/image/single/city_futurism_scifi_131831_1280x720.jpg')
+            -
+                label: Dark Dragon
+                value: url('https://images.wallpaperscraft.com/image/single/magician_dragon_art_131303_1280x720.jpg')
+            -
+                label: Fantasy Kingdom
+                value: url('https://images.wallpaperscraft.com/image/single/castle_waterfall_mountains_60065_1280x720.jpg')
+            -  
+                label: Fantasy Kingdom 2
+                value: url('https://images.wallpaperscraft.com/image/single/castle_rock_sea_63055_1280x720.jpg')
+            -
+                label: Floating Islands
+                value: url('https://images.wallpaperscraft.com/image/single/island_sea_sky_62536_1280x720.jpg')
+            -
+                label: Sunrise Valley
+                value: url('https://img5.goodfon.com/wallpaper/nbig/3/57/mountains-valley-river-trees-forest-sunset-creatures-sky-clo.jpg')
+            -
+                label: The Warrior
+                value: url('https://img4.goodfon.com/wallpaper/nbig/c/a5/knight-dragon-horse-banner-spear-sky-clouds-countryside-natu.jpg')
+            -
+                label: Night Fortress
+                value: url('https://img1.goodfon.com/wallpaper/nbig/6/d3/art-paint-painting-castle.jpg')
+    -
+        id: img-blur
+        title: Blur
+        type: variable-number-slider
+        default: 3
+        format: px
+        max: 10
+        min: 0
+        step: 1
+    -
+        id: img-sat 
+        title: Saturation
+        default: 100
+        type: variable-number-slider
+        min: 0
+        format: '%'
+        max: 200
+        step: 5
+    -
+        id: img-position-y
+        title: Vertical Position
+        type: variable-number-slider
+        format: '%'
+        default: 50
+        min: 0
+        max: 100
+        step: 5
+    -
+        id: page-transparency-custom
+        title: Note Transparency
+        default: 75
+        type: variable-number-slider
+        format: '%'
+        min: 0
+        max: 100
+        step: 5
+    -
         id: typography-heading
-        title: Typography
+        title: 🅰️ Typography
         type: heading
         level: 2
         collapsed: true
     -
-        id: headings-heading
+        id: headings-and-titles-heading
         title: Headings and Titles
         type: heading
         level: 3
+        collapsed: true
+    -
+        id: headings-heading 
+        title: Headings
+        type: heading
+        level: 4
         collapsed: true
     -
         id: heading-font
@@ -2600,7 +3153,7 @@ settings:
             - 'Vollkorn'
             - 'EB Garamond'
             - 'Abril Fatface'
-            - 'Fleur De Leah'
+            - 'Playfair Display'
             - 'Inknut Antiqua'
             - 'Marko One'
             - 'Quattrocento'
@@ -2608,15 +3161,21 @@ settings:
             - 'Koh Santepheap'
             - 'Monsterrat'
             - 'Oleo Script'
-            - 'Sail'
+            - 'Shrikhand'
             - 'Bangers'
             - 'Figtree'
+            - 'Lexend'
+            - 'Sen'
+            - 'Prompt'
             - 'Poppins'
             - 'Roboto'
             - 'Rubik'
             - 'Tilt Warp'
             - 'Fira Code'
+            - 'Fira Sans'
             - 'Fira Sans Condensed'
+            - 'Teko'
+            - 'Titilium Web'
             - 'Martian Mono'
             - 'DM Mono'
             - 'Nunito'
@@ -2677,6 +3236,29 @@ settings:
                 label: Huge
                 value: headings-huge
     -
+        id: heading-style
+        title: Heading Style
+        type: variable-select
+        default: normal
+        options:
+            - italic
+            - normal
+    -
+        id: heading-variant
+        title: Heading Variant
+        type: variable-select
+        default: normal
+        options:
+            - normal
+            - small-caps
+            - all-small-caps
+    -
+        id: inline-title-heading
+        title: Inline Titles
+        type: heading
+        level: 4
+        collapsed: true
+    -
         id: inline-title-size
         title: Inline Title Size
         type: variable-select
@@ -2697,6 +3279,101 @@ settings:
                 value: 4.4em
 
     -
+        id: inline-title-weight
+        title: Inline Title Weight
+        default: var(--heading-weight)
+        type: variable-select
+        options: 
+            -
+                label: Heading Weight (Default)
+                value: var(--heading-weight)
+            -
+                label: Light
+                value: 300
+            -
+                label: Normal
+                value: 400
+            -
+                label: Medium
+                value: 500
+            -
+                label: Semi Bold
+                value: 600
+            -
+                label: Bold
+                value: 700
+            -
+                label: Extra Bold
+                value: 800
+
+    -
+        id: inline-title-font
+        title: Inline Title Font Font
+        type: variable-select
+        allowEmpty: false
+        default: var(--heading-font)
+        options:
+            - var(--heading-font)
+            - 'Merriweather Sans'
+            - 'Merriweather'
+            - 'DM Serif Display'
+            - 'Vollkorn'
+            - 'EB Garamond'
+            - 'Abril Fatface'
+            - 'Playfair Display'
+            - 'Inknut Antiqua'
+            - 'Marko One'
+            - 'Quattrocento'
+            - 'Avenir Next'
+            - 'Koh Santepheap'
+            - 'Monsterrat'
+            - 'Oleo Script'
+            - 'Shrikhand'
+            - 'Bangers'
+            - 'Figtree'
+            - 'Lexend'
+            - 'Sen'
+            - 'Prompt'
+            - 'Poppins'
+            - 'Roboto'
+            - 'Rubik'
+            - 'Tilt Warp'
+            - 'Fira Code'
+            - 'Fira Sans'
+            - 'Fira Sans Condensed'
+            - 'Teko'
+            - 'Titilium Web'
+            - 'Martian Mono'
+            - 'DM Mono'
+            - 'Nunito'
+            - 'Nunito Sans'
+            - 'Tajawal'
+            - 'Inter'
+            - 'Source Code Pro'
+    -
+        id: inline-title-style
+        title: Inline Title Style
+        type: variable-select
+        default: normal
+        options:
+            - italic
+            - normal
+    -
+        id: inline-title-variant
+        title: Inline Title Variant
+        type: variable-select
+        default: var(--heading-variant)
+        options:
+            - var(--heading-variant)
+            - normal
+            - small-caps
+            - all-small-caps
+    -
+        id: hide-title
+        title: Hide Inline Title
+        type: class-toggle
+        default: false
+    -
         id: main-text-heading
         title: Main Text
         type: heading
@@ -2714,16 +3391,21 @@ settings:
             - 'Nunito'
             - 'Avenir Next'
             - 'Figtree'
+            - 'Lexend'
             - 'Vollkorn'
             - 'Inknut Antiqua'
             - 'Poppins'
+            - 'Prompt'
             - 'Roboto'
             - 'Rubik'
+            - 'Sen'
             - 'Koh Santepheap'
             - 'Monsterrat'
             - 'Oleo Script'
             - 'Fira Code'
+            - 'Fira Sans'
             - 'Fira Sans Condensed'
+            - 'Titilium Web'
             - 'Martian Mono'
             - 'DM Mono'
             - 'Tajawal'
@@ -2731,7 +3413,6 @@ settings:
             - 'Merriweather Sans'
             - 'EB Garamond'
             - 'Quattrocento'
-            - 'Tilt Warp'
             - 'Inter'
             - 'Source Code Pro'
     -
@@ -2781,7 +3462,7 @@ settings:
         step: 0.1
     -
         id: img-heading
-        title: Images
+        title: 🖼️ Images
         type: heading
         level: 2
         collapsed: true
@@ -2799,7 +3480,7 @@ settings:
         default: true
     -
         id: tags-heading
-        title: Tags
+        title: 🏷️ Tags
         type: heading
         level: 2
         collapsed: true
@@ -2810,7 +3491,7 @@ settings:
         default: false
     -
         id: icons-heading
-        title: Icons
+        title: ℹ️ Icons
         description: Customize note title icons created using the `icon` css class.
         type: heading
         level: 2
@@ -2892,7 +3573,7 @@ settings:
         default: false
     -
         id: modals-heading
-        title: Modals
+        title: 💬 Modals
         type: heading
         level: 2
         collapsed: true
@@ -2904,7 +3585,7 @@ settings:
         default: true
     -
         id: plugins-heading
-        title: Plug-Ins
+        title: 🔌 Plug-Ins
         type: heading
         level: 2
         collapsed: true
