@@ -11,8 +11,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800;900&family=Koh+Santepheap:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&family=Oleo+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&family=Tilt+Warp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans+Condensed:wght@300;400;500;700;800&family=Martian+Mono:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700;900&family=Nunito:wght@300;400;500&family=Tajawal:wght@300;400;500;700;800&family=Abril+Fatface&family=Bangers&family=DM+Serif+Display:ital@0;1&family=Inknut+Antiqua:wght@300;400;500;600;700;800&family=Marko+One&family=Quattrocento:wght@400;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lexend:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Prompt:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Sen:wght@400;700;800&family=Shrikhand&family=Teko:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
-
-
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@500,301,300,601,600,401,501,400,700&f[]=satoshi@900,700,500,301,300,401,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Cutive+Mono&family=Faster+One&family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=Lemon&family=Lilita+One&family=Merienda:wght@300;400;500;600;700;800&family=Nabla&family=Outfit:wght@300;400;500;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playball&family=Quicksand:wght@300;400;500;600;700&family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Rowdies:wght@300;400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Spline+Sans+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Spline+Sans:wght@300;400;500;600;700&family=Vesper+Libre:wght@400;500;700&display=swap');
 
 body { 
     --font-main: 'Nunito Sans';
@@ -151,7 +151,9 @@ padding-right: 8px;
 font-size: 1.2em;
 font-family: var(--file-emoji);
 }
-
+.no-special-files .nav-file-title:before {
+        content: "📄" !important;
+}
 /* -- SPECIAL FILE ICONS -- */
 .nav-file-title[data-path*="home" i]:before,
 .nav-file-title[data-path*="house" i]:before {
@@ -625,15 +627,15 @@ body {
 .style-settings-container {
     border: 1px var(--background-modifier-border) solid;
     border-radius: var(--radius-m);
-    padding: 0px 1em;
+    padding: 0px 7px;
     margin-bottom: 1em;
     margin-top: 0px;
 }
 .style-settings-container .style-settings-container {
-    margin-left: 2em;
+    margin-left: 0.2em;
 }
 .style-settings-container .style-settings-container .style-settings-container {
-    margin-left: 2.7em;
+    margin-left: 0.5em;
 }
 .style-settings-container .setting-item {
     border-top: none;
@@ -838,9 +840,10 @@ floating-doc .workspace-ribbon.mod-left.is-collapsed:before {
 body {
     --page-transparency: 100%;
     --img-blur: 3px;
-    --img-sat: 100%
+    --img-sat: 100%;
     --img-position-y: 50%;
-    --img-bg: url('https://images.unsplash.com/photo-1679245883026-adea0f43e6f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80');
+    --img-position-x: 50%;
+    --img-bg-size: cover;
 }
 .view-header-title-container:after {
     background: none !important;
@@ -849,7 +852,7 @@ body {
 .enable-bg-img:not(.floating-doc) .workspace-ribbon,
 .enable-bg-img:not(.floating-doc) .workspace-ribbon.is-collapsed,
 .enable-bg-img:not(.floating-doc) .workspace-ribbon::before {
-    background-color: var(--background-primary) !important;
+    background-color: var(--background-primary) !important
 }
 
 
@@ -859,20 +862,25 @@ body {
     padding-right: 0px !important;
     padding-left: 0.1px !important;
     z-index: 500;
+    
 }
 .workspace-ribbon::before {
 margin-bottom: 0px;
 padding-bottom: 1px;
+
 }
 
 .enable-bg-img .horizontal-main-container {
     background: var(--img-bg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: var(--img-bg-size);
     background-position-y: var(--img-position-y);
+    background-position-x: var(--img-position-x);
+    
 }
 .enable-bg-img .workspace {
     background-color: transparent !important;
+    
     backdrop-filter: blur(var(--img-blur)) saturate(var(--img-sat)) !important;
 }
 .enable-bg-img .workspace-leaf {
@@ -904,21 +912,21 @@ padding-bottom: 1px;
     --doc-bg: hsl(181, 20%, 95%);
     --shadow-color: hsl(0, 0%, 92%);
     --color-red-rgb: 255, 77, 58;
-    --color-red: #d25d50;
+    --color-red: #c75f54;
     --color-green-rgb: 125, 207, 43;
-    --color-green: #7dcf2b;
+    --color-green: #8fb26b;
     --color-orange-rgb: 246, 156, 0;
-    --color-orange: #ce8506;
+    --color-orange: #d08344;
     --color-yellow-rgb: 232, 201, 0;
-    --color-yellow: #e8c900;
+    --color-yellow: #dca931;
     --color-cyan-rgb: 0, 206, 203;
-    --color-cyan: #149fbb;
+    --color-cyan: #49a7ba;
     --color-blue-rgb:0, 155, 227;
-    --color-blue: #2797cb;
+    --color-blue: #4e8aa6;
     --color-purple-rgb: 180, 90, 245;
-    --color-purple: #7665c3;
+    --color-purple: #8076ad;
     --color-pink-rgb: 230, 106, 180;
-    --color-pink: #c65fc2;
+    --color-pink: #ac7aaa;
     --color-base-00: hsla(0, 0%, 100%, var(--page-transparency));
     --color-base-05: #fcfcfc;
     --color-base-10: #fdfdfd;
@@ -1005,21 +1013,21 @@ padding-bottom: 1px;
     --accent-s: 55% !important;
     --accent-l: 55% !important;
     --color-red-rgb:  211, 130, 101;
-    --color-red: #c56c4b;
+    --color-red: #c57c4b;
     --color-green-rgb: 151, 203, 77;
-    --color-green: #97cb4d;
+    --color-green: #8ab252;
     --color-orange-rgb: 174, 141, 80;
-    --color-orange: #c28e2e;
+    --color-orange: #c2982e;
     --color-yellow-rgb: 202, 204, 67;
-    --color-yellow: #cacc43;
+    --color-yellow: #adad46;
     --color-cyan-rgb: 107, 192, 138;
     --color-cyan: #359c5b;
     --color-blue-rgb:124, 198, 185;
-    --color-blue: #3bb8a1;
+    --color-blue: #399d8b;
     --color-purple-rgb: 130, 159, 181;
-    --color-purple: #5084ad;
+    --color-purple: #5097ad;
     --color-pink-rgb: 189, 144, 169;
-    --color-pink: #ab618a;
+    --color-pink: #7985ab;
 }
  .theme-matcha-light.theme-light {
     --doc-bg: #e4efd9;
@@ -1054,27 +1062,27 @@ padding-bottom: 1px;
 }
 
  /* --------- Library THEME --------- */
- .theme-library {
+ .theme-library.theme-light {
     --vault-icon: '📚';
     --accent-h: 21 !important;
     --accent-s: 43% !important;
     --accent-l: 57% !important;
-    --color-cyan-rgb:  211, 130, 101;
-    --color-cyan: #c56c4b;
-    --color-pink-rgb: 151, 203, 77;
-    --color-pink: #93ab70;
-    --color-blue-rgb: 174, 141, 80;
-    --color-blue: #c2762e;
-    --color-purple-rgb: 202, 204, 67;
-    --color-purple: #cc9c43;
-    --color-red-rgb: 107, 192, 138;
-    --color-red: #61945f;
-    --color-orange-rgb:124, 198, 185;
-    --color-orange: #6eada1;
-    --color-yellow-rgb: 130, 159, 181;
-    --color-yellow: #5084ad;
-    --color-green-rgb: 189, 144, 169;
-    --color-green: #ab618a;
+    --color-red-rgb:  211, 130, 101;
+    --color-red: #c56c4b;
+    --color-green-rgb: 151, 203, 77;
+    --color-green: #93ab70;
+    --color-orange-rgb: 174, 141, 80;
+    --color-orange: #c2762e;
+    --color-yellow-rgb: 202, 204, 67;
+    --color-yellw: #cc9c43;
+    --color-cyan-rgb: 107, 192, 138;
+    --color-cyan: #61945f;
+    --color-blue-rgb:124, 198, 185;
+    --color-blue: #6eada1;
+    --color-purple-rgb: 130, 159, 181;
+    --color-purple: #5084ad;
+    --color-pink-rgb: 189, 144, 169;
+    --color-pink: #ab618a;
 }
  .theme-library.theme-light {
     --doc-bg: hsl(41, 53%, 89%);
@@ -1099,22 +1107,22 @@ padding-bottom: 1px;
     --accent-h: 16 !important;
     --accent-s: 100% !important;
     --accent-l: 66% !important;
-    --color-cyan-rgb:  255, 99, 99;
-    --color-cyan: #ff6363;
-    --color-pink-rgb: 30, 177, 69;
-    --color-pink: #1eb145;
-    --color-blue-rgb: 255, 152, 78;
-    --color-blue: #ee7c2a;
-    --color-purple-rgb: 243, 198, 0;
-    --color-purple: #de9f00;
-    --color-red-rgb: 0, 220, 190;
-    --color-red: #00b59d;
-    --color-orange-rgb:64, 188, 255;
-    --color-orange: #2a9ad6;
-    --color-yellow-rgb: 198, 113, 234;
-    --color-yellow: #c671ea;
-    --color-green-rgb: 255, 91, 135;
-    --color-green: #ff5b87;
+    --color-red-rgb:  255, 99, 99;
+    --color-red: #ff6363;
+    --color-green-rgb: 30, 177, 69;
+    --color-green: #1eb145;
+    --color-orange-rgb: 255, 152, 78;
+    --color-orange: #ee7c2a;
+    --color-yellow-rgb: 243, 198, 0;
+    --color-yellow: #de9f00;
+    --color-cyan-rgb: 0, 220, 190;
+    --color-cyan: #00b59d;
+    --color-blue-rgb:64, 188, 255;
+    --color-blue: #2a9ad6;
+    --color-purple-rgb: 198, 113, 234;
+    --color-purple: #c671ea;
+    --color-pink-rgb: 255, 91, 135;
+    --color-pink: #ff5b87;
 }
  .theme-tropical-light.theme-light {
     --doc-bg: #ffe9cd;
@@ -1155,27 +1163,11 @@ padding-bottom: 1px;
     --accent-h: 210 !important;
     --accent-s: 44% !important;
     --accent-l: 59% !important;
-    --color-red-rgb: 191, 97, 106;
-    --color-red: #bb5a64;
-    --color-green-rgb: 163, 190, 140;
-    --color-green: #90b174;
-    --color-orange-rgb: 208, 135, 112;
-    --color-orange: #cf7b62;
-    --color-yellow-rgb: 235, 203, 139;
-    --color-yellow: #ebcb8b;
-    --color-cyan-rgb: 136, 192, 208;
-    --color-cyan: #67b4c9;
-    --color-blue-rgb: 129, 161, 193;
-    --color-blue: #6997c4;
-    --color-purple-rgb: 94, 129, 172;
-    --color-purple: #5e81AC;
-    --color-pink-rgb: 180, 142, 173;
-    --color-pink: #aa7aa1;
 }
 .theme-nord-light.theme-light {
     --doc-bg: hsl(207, 40%, 90%);
     --color-base-00: hsla(208, 44%, 96%, var(--page-transparency));
-    --color-base-05: hsl(208, 46%, 95%);
+    --color-base-05: hsl(208, 45%, 95%);
     --color-base-10: hsl(208, 48%, 93%);
     --color-base-20: hsl(208, 48%, 91%);
     --color-base-25: hsl(208, 47%, 88%);
@@ -1187,25 +1179,41 @@ padding-bottom: 1px;
     --color-base-70: hsl(210, 22%, 53%);
     --color-base-100: hsl(210, 30%, 18%);
     --panel-child: hsl(208, 45%, 95.8%);
+    --color-red-rgb: 191, 97, 106;
+    --color-red: #bb5a64;
+    --color-green-rgb: 163, 190, 140;
+    --color-green: #8fad76;
+    --color-orange-rgb: 208, 135, 112;
+    --color-orange: #cf7b62;
+    --color-yellow-rgb: 235, 203, 139;
+    --color-yellow: #d3ad61;
+    --color-cyan-rgb: 136, 192, 208;
+    --color-cyan: #6ab0c4;
+    --color-blue-rgb: 129, 161, 193;
+    --color-blue: #6997c4;
+    --color-purple-rgb: 94, 129, 172;
+    --color-purple: #5e81AC;
+    --color-pink-rgb: 180, 142, 173;
+    --color-pink: #aa7aa1;
   }
   .theme-nord-dark.theme-dark {
     --doc-bg: #374359;
     --color-red-rgb: 191, 97, 106;
-    --color-red: #BF616A;
+    --color-red: #d58189;
     --color-green-rgb: 163, 190, 140;
     --color-green: #A3be8c;
     --color-orange-rgb: 208, 135, 112;
-    --color-orange: #d08770;
+    --color-orange: #db947e;
     --color-yellow-rgb: 235, 203, 139;
     --color-yellow: #ebcb8b;
     --color-cyan-rgb: 136, 192, 208;
     --color-cyan: #88c0d0;
     --color-blue-rgb: 129, 161, 193;
-    --color-blue: #81a1c1;
+    --color-blue: #8cb7e2;
     --color-purple-rgb: 94, 129, 172;
-    --color-purple: #5e81AC;
+    --color-purple: #739ed3;
     --color-pink-rgb: 180, 142, 173;
-    --color-pink: #b48ead;
+    --color-pink: rgb(145, 148, 192);
     --color-base-00: hsla(220, 21%, 22%, var(--page-transparency)); 
     --color-base-05: hsl(220, 21%, 23%); 
     --color-base-10:hsl(220, 21%, 25%); 
@@ -1229,21 +1237,21 @@ padding-bottom: 1px;
     --accent-s: 79% !important;
     --accent-l: 65% !important;
     --color-red-rgb: 236, 93, 141;
-    --color-red: #ec5d8d;
+    --color-red: #f8828a;
     --color-green-rgb: 179, 181, 78;
-    --color-green: #b3b54e;
+    --color-green: #d8db60;
     --color-orange-rgb: 226, 102, 86;
-    --color-orange: #e26656;
+    --color-orange: #ff9572;
     --color-yellow-rgb: 233, 142, 67;
-    --color-yellow: #e98e43;
+    --color-yellow: #ff9c4a;
     --color-cyan-rgb:107, 187, 139;
-    --color-cyan: #6fc08f;
+    --color-cyan: #92f0b8;
     --color-blue-rgb: 93, 193, 181;
-    --color-blue: #5dc1b5;
+    --color-blue: #72dace;
     --color-purple-rgb: 193, 112, 197;
     --color-purple: #c170c5;
     --color-pink-rgb: 226, 103, 167;
-    --color-pink: #e267a7;
+    --color-pink: #ff5db1;
     --doc-bg:hsl(300, 9%, 15%);
     --highlight-mix-blend-mode: lighten;
     --color-base-00: hsla(253, 10%, 10%, var(--page-transparency));
@@ -1256,7 +1264,7 @@ padding-bottom: 1px;
     --color-base-50: hsl(264, 11%, 47%);
     --color-base-60: hsl(266, 11%, 57%);
     --color-base-70: hsl(268, 11%, 68%);
-    --color-base-100: hsl(269, 11%, 80%);
+    --color-base-100: hsl(0, 0%, 100%);
     --panel-child: hsl(250, 10%, 15%);
  }
 
@@ -1304,28 +1312,82 @@ padding-bottom: 1px;
     --color-pink: rgb(255, 141, 232);
     --doc-bg:hsl(193, 7%, 25%);
     --highlight-mix-blend-mode: lighten;
-    --color-base-00: hsla(216, 10%, 10%, var(--page-transparency));
-    --color-base-10: hsl(216, 10%, 14%);
-    --color-base-20: hsl(216, 10%, 15%);
-    --color-base-25: hsl(216, 10%, 19%);
-    --color-base-30: hsl(216, 10%, 11.5%);
-    --color-base-35: hsl(216, 10%, 39%);
-    --color-base-40: hsl(216, 10%, 40%);
-    --color-base-50: hsl(216, 10%, 41%);
-    --color-base-60: hsl(216, 10%, 66%);
-    --color-base-70: hsl(216, 10%, 77%);
-    --color-base-100: hsl(225, 10%, 82%);
-    --panel-child: hsl(216, 10%, 13%);
-}
-.theme-electric.theme-dark.colored-headings {
-    --h1-color: var(--color-yellow);
-    --h2-color: var(--color-green);
-    --h3-color: var(--color-cyan);
-    --h4-color: var(--color-blue);
-    --h5-color: var(--color-purple);
-    --h6-color: var(--color-pink);
+    --color-base-00: hsla(43, 1%, 10%, var(--page-transparency));
+    --color-base-10: hsl(43, 1%, 14%);
+    --color-base-20: hsl(43, 1%, 15%);
+    --color-base-25: hsl(43, 1%, 19%);
+    --color-base-30: hsl(43, 1%, 11.5%);
+    --color-base-35: hsl(43, 1%, 39%);
+    --color-base-40: hsl(43, 1%, 40%);
+    --color-base-50: hsl(43, 1%, 56%);
+    --color-base-60: hsl(43, 1%, 66%);
+    --color-base-70: hsl(43, 1%, 77%);
+    --color-base-100: hsl(43, 1%, 87%);
+    --panel-child: hsl(43, 1%, 13%);
 }
 
+
+
+/* ------- JET BLACK THEME --------- */
+.theme-black.theme-dark {
+    --vault-icon: '🌙';
+    --accent-h: 0 !important;
+    --accent-s: 0% !important;
+    --accent-l: 73% !important;
+    --doc-bg:hsl(193, 0%, 8%);
+    --highlight-mix-blend-mode: lighten;
+    --color-base-00: hsla(216, 0%, 0%, var(--page-transparency));
+    --color-base-10: hsl(216, 0%, 5%);
+    --color-base-20: hsl(216, 10%, 9%);
+    --color-base-25: hsl(216, 10%, 16%);
+    --color-base-30: hsl(216, 10%, 6%);
+    --color-base-35: hsl(216, 10%, 13%);
+    --color-base-40: hsl(216, 10%, 15%);
+    --color-base-50: hsl(216, 12%, 69%);
+    --color-base-60: hsl(216, 13%, 78%);
+    --color-base-70: hsl(218, 14%, 85%);
+    --color-base-100: hsl(0, 0%, 100%);
+    --panel-child: hsl(216, 10%, 9%);
+}
+
+/* -------- GLEAM THEME --------- */
+.theme-gleam.theme-light {
+    --vault-icon: '✨';
+    --accent-h: 232 !important;
+    --accent-s: 75% !important;
+    --accent-l: 70% !important;
+    --doc-bg: hsl(229, 13%, 83%);
+    --shadow-color: hsl(0, 0%, 92%);
+    --color-red-rgb: 255, 114, 114;
+    --color-red: rgb(255, 114, 114);
+    --color-green-rgb: 132, 204, 124;
+    --color-green: rgb(132, 204, 124);
+    --color-orange-rgb: 255, 160, 88;
+    --color-orange: rgb(255, 160, 88);
+    --color-yellow-rgb: 219, 202, 103;
+    --color-yellow: rgb(219, 202, 103);
+    --color-cyan-rgb: 84, 186, 182;
+    --color-cyan: rgb(84, 186, 182);
+    --color-blue-rgb:131, 145, 237;
+    --color-blue: rgb(131, 145, 237);
+    --color-purple-rgb: 183, 140, 218;
+    --color-purple: rgb(183, 140, 218);
+    --color-pink-rgb: 233, 145, 196;
+    --color-pink: rgb(233, 145, 196);
+    --color-base-00: hsla(229, 10%, 90%, var(--page-transparency));
+    --color-base-05: hsl(229, 10%, 89%);
+    --color-base-10: hsl(229, 10%, 89.5%);
+    --color-base-20: hsl(229, 14%, 86%);
+    --color-base-25: #bfc3cf;
+    --color-base-30: #9496ac66;
+    --color-base-35: hsl(249, 6%, 78%);
+    --color-base-40: hsl(242, 19%, 72%);
+    --color-base-50: #787689;
+    --color-base-60: #7f7d8f;
+    --color-base-70: #6d6b78;
+    --color-base-100: #3e3a4f;
+
+}
 
 
 
@@ -1407,6 +1469,7 @@ background-color: transparent !important;
     padding-right: 8px;
     display: block;
   }
+
 
 /* make exception for database plug-in and links regarding text indent */
 .database-plugin__tbody * {
@@ -1520,30 +1583,23 @@ body, .headings-medium {
 }
 
 /* colorful headings class */
+body {
+    --h1-color-custom: var(--color-cyan);
+    --h2-color-custom: var(--color-blue);
+    --h3-color-custom: var(--color-purple);
+    --h4-color-custom: var(--color-pink);
+    --h5-color-custom: var(--color-red);
+    --h6-color-custom: var(--color-orange);
+    
+}
 
 .colored-headings {
---h1-color: var(--color-cyan);
---h2-color: var(--color-blue);
---h3-color: var(--color-purple);
---h4-color: var(--color-pink);
---h5-color: var(--color-red);
---h6-color: var(--color-orange);
-}
-.colored-headings.theme-nord-light.theme-light, .colored-headings.theme-nord-dark.theme-dark {
-    --h1-color: var(--color-purple);
-    --h2-color: var(--color-blue);
-    --h3-color: var(--color-cyan);
-    --h4-color: var(--color-green);
-    --h5-color: var(--color-orange);
-    --h6-color: var(--color-red);
-}
-.colored-headings.theme-spectre.theme-dark {
---h1-color: var(--color-red);
---h2-color: var(--color-orange);
---h3-color: var(--color-yellow);
---h4-color: var(--color-green);
---h5-color: var(--color-cyan);
---h6-color: var(--color-blue);
+--h1-color: var(--h1-color-custom);
+--h2-color: var(--h2-color-custom);
+--h3-color: var(--h3-color-custom);
+--h4-color: var(--h4-color-custom);
+--h5-color: var(--h5-color-custom);
+--h6-color: var(--h6-color-custom);
 }
 
 /* ---------- LISTS ---------- */
@@ -1651,13 +1707,29 @@ li:hover .list-bullet:after {
   /* ----- INLINE TITLE ----- */
   body {
     --inline-title-size: 2.5em;
+    --inline-title-color: var(--text-normal);
   }
+
+
   .inline-title {
     text-align: center;
     font-size: var(--inline-title-size);
-    color: var(--text-normal);
   }
 
+   /* inline title/heading shadows */
+
+  .title-shadow .inline-title {
+    text-shadow:  rgba(0, 0, 0, 0.153) 0.01em 0.02em 0.03em, rgba(0, 0, 0, 0.171) 0.05em 0.02em 0.05em;
+  }
+
+  .header-shadow .cm-header-1, .header-shadow h1,
+  .header-shadow .cm-header-2, .header-shadow h2,
+  .header-shadow .cm-header-3, .header-shadow h3,
+  .header-shadow .cm-header-4, .header-shadow h4,
+  .header-shadow .cm-header-5, .header-shadow h5,
+  .header-shadow .cm-header-6, .header-shadow h6 {
+    text-shadow:  rgba(0, 0, 0, 0.155) 0.0em 0.04em 0.05em;
+  }
 
   /* option to hide inline title */
 
@@ -1815,6 +1887,7 @@ body {
     --callout-color: var(--callout-quote);
     --callout-icon: message-square;
     float: right;
+    clear: right;
     width: fit-content;
     margin: 1em;
     min-width: 20%;
@@ -2032,7 +2105,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     font-size: 0.85em;
     font-weight: 500;
     text-decoration: none;
-    font-family: 'Noto Sans Symbols 2', inherit;
+    font-family: 'Noto Sans Symbols 2' !important;
 }
 .internal-link.is-unresolved::before, .is-unresolved .cm-underline::before {
     content: "＋";
@@ -2070,7 +2143,7 @@ text-decoration: underline var(--color-accent-1) 2px;
     --highlight-text: var(--text-normal);
 }
 .theme-dark {
-    --text-highlight-bg: rgba(var(--color-cyan-rgb), 0.725);
+    --text-highlight-bg: hsla(var(--color-accent-hsl), 0.475);
     --highlight-text: white;
 }
 .cm-s-obsidian span.cm-formatting-highlight,
@@ -2272,6 +2345,17 @@ body {
     margin-bottom: 2em;
 }
 
+/* make embed title look like a heading 1 */
+.embed-title {
+    font-size: var(--h1-size);
+    font-family: var(--h1-font);
+    color: var(--h1-color);
+    text-align: center !important;
+    font-weight: var(--h1-weight);
+    width: fit-content;
+    margin: var(--custom-line-height) auto calc(var(--custom-line-height) * 0.4) auto;
+}
+
 /* ------ IMAGES ------ */
 body {
     --img-align: 0px;
@@ -2312,6 +2396,7 @@ body {
     clear:right;
     max-width: 40%;
     margin-left: 1.5em;
+    margin-right: 0px;
 }
 .markdown-rendered img[alt*="left"] {
     display: flexbox;
@@ -2319,6 +2404,7 @@ body {
     clear:left;
     max-width: 40%;
     margin-right: 1.5em;
+    margin-left: 0px;
 }
 .markdown-rendered img[alt*="no-shadow"], .excalidraw-svg-no-shadow {
     box-shadow: none !important;
@@ -2432,13 +2518,15 @@ table > tbody > tr > td:hover {
     opacity: 1 !important;
     max-height: unset;
     min-height: 2em;
+    filter: none !important;
 }
 .highlight-active-line .cm-active.cm-line:not(.HyperMD-list-line) {
     padding: 5px 0px 0px 10px !important;
+
 }
 
 .ultra-focus.highlight-active-line .cm-contentContainer .cm-line, .ultra-focus.highlight-active-line .cm-contentContainer img {
-   opacity: 0.75;
+   opacity: 0.6;
 }
 
 /* --------------- PLUG-INS AND CODE BLOCKS ------------ */
@@ -2472,6 +2560,10 @@ box-shadow: var(--shadow-ui);
     padding: var(--tile-padding) var(--tile-padding)  var(--tile-padding)  var(--tile-padding) ;
     background-color: var(--background-secondary-alt);
     box-shadow: var(--shadow-ui);
+    transition: 0.25s;
+}
+.page-gallery__tile:hover {
+    transform: scale(1.03);
 }
 .page-gallery-flexgrow .page-gallery__tile {
 max-width: unset;
@@ -2514,6 +2606,25 @@ width: 80%;
     color: var(--text-normal);
     text-decoration: none;
 }
+.page-gallery__views-header-item {
+    background: var(--background-secondary-alt);
+    border: 1px var(--background-modifier-border) solid;
+    border-radius: var(--radius-s);
+    padding: 0.2em 0.5em;
+    transition: 77ms;
+    font-size: var(--font-ui-medium);
+    height: fit-content;
+    margin-bottom: 2em;
+}
+.page-gallery__views-header-item:hover {
+    background: var(--background-modifier-hover);
+}
+.page-gallery__views-header-item.selected {
+    background: var(--background-secondary);
+    box-shadow: var(--shadow-s);
+    height: fit-content;
+    font-size: calc(var(--font-ui-medium) + 1px);
+}
 
 /* ------ FOLDER NOTE OVERVIEW -------- */
 .theme-light .alx-folderv .ant-card-bordered, .theme-dark .alx-folderv .ant-card-bordered {
@@ -2546,6 +2657,160 @@ width: 80%;
     outline: none !important;
     box-shadow: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 20%), 0.8) 0px 0px 18px;
 }
+
+/* ----------- LONGFORM and FOUNTAIN ------------ */
+
+/* ---------- Make fountain code look more like standard screenplay format when used inside a longform scene ------- */
+
+/* Fountain Code Mirror */
+
+.longform-leaf .fountain-source-view>.CodeMirror-wrap>.CodeMirror-scroll {
+    padding: 20px !important;
+    position: unset;
+}
+
+.longform-leaf .screenplay {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    overflow-y: hidden;
+    vertical-align: baseline;
+}
+
+.longform-leaf .screenplay {
+    display: block;
+}
+
+
+/* Styles for Screenplain */
+
+
+.screenplay {
+    margin: auto !important;
+    text-align: left !important;
+    font-size: 12pt !important;
+    font-family: 'Courier Final Draft', 'Courier Screenplay', 'Courier Prime', var(--font-monospace), Courier;
+    padding: 1in 1in 1in 1.5in !important;
+    width: 8in !important;
+    max-width: 8in !important;
+    min-width: 8in !important;
+    line-height: 1 !important;
+
+}
+.screenplay > * {
+    text-indent: 0px !important;
+}
+
+.screenplay>header {
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.screenplay .italic {
+    font-style: italic !important;
+}
+
+.screenplay>p .bold {
+    font-weight: bold !important;
+}
+
+
+.screenplay>br {
+    clear: both;
+}
+
+.screenplay>div.action p {
+    margin-top: 1em;
+}
+
+.screenplay .dual-dialogue {
+    display: flex;
+    gap: 1.5in;
+}
+.screenplay .dual-dialogue h4 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--h2-color) !important;
+    font-weight: 600 !important;
+    font-size: 12pt !important;
+    margin-left: 0.5in !important;
+    padding: 0px !important;
+    font-family: inherit !important
+}
+
+/* Dialogue */
+
+ .screenplay>.dialogue h4 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--h2-color) !important;
+    font-weight: 600 !important;
+    font-size: 12pt !important;
+    margin-left: 0.5in !important;
+    padding: 0px !important;
+    font-family: inherit !important;
+}
+
+ .screenplay>.dialogue p {
+    text-align: left;
+    margin-left: 1in !important;
+    padding: 0px !important;
+}
+
+.longform-leaf .underline {
+    text-decoration: underline;
+}
+
+ .screenplay>.dialogue .parenthetical {
+    margin-left: 1in !important;
+    padding: 0px !important;
+    text-align: center;
+}
+
+
+/* Headers */
+
+.screenplay>h3 {
+    padding: 0px !important;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    font-size: 12pt !important;
+    text-align: left !important;
+    color: var(--h1-color) !important;
+    font-family: inherit !important;
+}
+.screenplay>h2 {
+padding: 0px !important;
+text-transform: uppercase;
+color: var(--h3-color) !important;
+font-weight: 600 !important;
+font-size: 12pt !important;
+text-align: right !important;
+font-family: inherit !important;
+}
+.longform-leaf .markdown-reading-view:has(.screenplay) {
+    --file-line-width: 100% !important;
+}
+.longform-leaf .HyperMD-codeblock {
+    text-align: left !important;
+    font-size: 12pt !important;
+    padding: 5px 1in 5px 1.5in !important;
+    position: relative;
+    word-wrap: break-word;
+    white-space:initial;
+    display: block;
+    width: 8in !important;
+    min-width: 8in !important;
+    max-width: 8in !important;
+    line-height: 1.3 !important;
+}
+.longform-leaf  .cm-hmd-codeblock {
+    letter-spacing: normal !important;
+    font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
 /* ----- GENERAL CODE BLOCKS ------ */
 
 .markdown-rendered pre {
@@ -2726,6 +2991,9 @@ settings:
             -
                 label: 📚 Library
                 value: theme-library
+            -
+                label: 💍 Gleam
+                value: theme-gleam
     -
         id: theme-select-dark
         title: Dark Mode Theme
@@ -2751,6 +3019,9 @@ settings:
             -
                 label: ☄️ Spectre
                 value: theme-spectre
+            -
+                label: 🌑 Jet Black
+                value: theme-black
     -
         id: editor-heading
         title: ⌨️ Editor
@@ -2793,17 +3064,18 @@ settings:
         default: false
         addCommand: true
     -
-        id: floating-doc-heading
-        title: Floating Document
-        type: heading
-        level: 4
-        collapsed: true
-    -
         id: floating-doc
         title: Floating Document
         description: Give the note a floating document appearance, like Google Docs or Microsoft Word. Recommeded for use with a low readable line length.
         type: class-toggle
         default: false
+        addCommand: true
+    -
+        id: floating-doc-heading
+        title: Floating Document Settings
+        type: heading
+        level: 4
+        collapsed: true
     -
         id: custom-doc
         title: Use Custom Background Color
@@ -2872,6 +3144,12 @@ settings:
         id: remove-file-icons
         title: Remove File Icons
         description: Remove the note icons in the file explorer.
+        type: class-toggle
+        default: false
+    -
+        id: no-special-files 
+        title: Remove Special File Icons
+        description: Force all notes to use the default note icon rather than prefixing special icons based on the file path.
         type: class-toggle
         default: false
     -
@@ -3017,6 +3295,30 @@ settings:
                 label: 3-D Waves 2
                 value: url('https://images.unsplash.com/photo-1676513727408-631151da9fc1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
             -
+                label: 3-D Waves 3
+                value: url(https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80)
+            -
+                label: 3-D Waves 4
+                value: url('https://images.unsplash.com/photo-1585854467604-cf2080ccef31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80')
+            -
+                label: 3-D Waves 5
+                value: url('https://images.unsplash.com/photo-1637611331620-51149c7ceb94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Gradient 1
+                value: url(https://images.unsplash.com/photo-1554034483-04fda0d3507b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80)
+            -
+                label: Gradient 2
+                value: url(https://images.unsplash.com/photo-1557682260-96773eb01377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2029&q=80)
+            -
+                label: Colorful Mist 1
+                value: url('https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Colorful Mist 2
+                value: url('https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
+                label: Stars in the Sand
+                value: url('https://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
+            -
                 label: Purple Mountains over Water
                 value: url('https://images.unsplash.com/photo-1511300636408-a63a89df3482?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
             -
@@ -3031,9 +3333,6 @@ settings:
             -
                 label: Fiery Mountains
                 value: url('https://images.unsplash.com/photo-1509565840034-3c385bbe6451?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80')
-            -
-                label: Colorful Mist
-                value: url('https://images.unsplash.com/photo-1533109721025-d1ae7ee7c1e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
             -
                 label: Ominous Crags
                 value: url('https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
@@ -3050,11 +3349,38 @@ settings:
                 label: Over a Forest at Dawn
                 value: url('https://images.unsplash.com/photo-1512923927402-a9867a68180e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')
             -
+                label: Jungle Plants
+                value: url('https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+            -
                 label: Mountain River
                 value: url('https://images.unsplash.com/photo-1565191999001-551c187427bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA4fHx3YWxscGFwZXJ8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60')
             -
                 label: Starlight Morphos
                 value: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+            -
+                label: Above the Clouds
+                value: url(https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80)
+            -
+                label: Serene White Mountain
+                value: url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80)
+            -
+                label: City at Dawn
+                value: url(https://images.unsplash.com/flagged/photo-1559717865-a99cac1c95d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80)
+            -
+                label: Morning Coast
+                value: url(https://images.unsplash.com/photo-1555117746-a7c449e5d0ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80)
+            -
+                label: Dramatic Woods
+                value: url(https://images.unsplash.com/photo-1562627952-f52a76c3c823?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80)
+            -
+                label: Snowy Sunrise
+                value: url(https://images.unsplash.com/photo-1487349703519-90c8e4f426a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2906&q=80)
+            - 
+                label: Sakura Blossoms
+                value: url(https://images.unsplash.com/photo-1560719613-9f0bdc469ca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80)
+            -
+                label: Neon City 
+                value: url(https://images.unsplash.com/photo-1531931477284-7e16215c9540?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80)
             -
                 label: Edge of the World
                 value: url('https://cdn.pixabay.com/photo/2019/02/27/22/18/fantasy-4025091_1280.jpg')
@@ -3085,6 +3411,24 @@ settings:
             -
                 label: Night Fortress
                 value: url('https://img1.goodfon.com/wallpaper/nbig/6/d3/art-paint-painting-castle.jpg')
+            -
+                label: Medieval Parchment
+                value: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')
+    -
+        id: page-transparency-custom
+        title: Note Transparency
+        default: 75
+        type: variable-number-slider
+        format: '%'
+        min: 0
+        max: 100
+        step: 5
+    -
+        id: filter-heading
+        title: Filters
+        type: heading
+        level: 4
+        collapsed: true
     -
         id: img-blur
         title: Blur
@@ -3103,6 +3447,12 @@ settings:
         format: '%'
         max: 200
         step: 5
+    -   
+        id: position-heading
+        title: Size and Position
+        type: heading
+        level: 4
+        collapsed: true
     -
         id: img-position-y
         title: Vertical Position
@@ -3113,13 +3463,34 @@ settings:
         max: 100
         step: 5
     -
-        id: page-transparency-custom
-        title: Note Transparency
-        default: 75
+        id: img-position-x
+        title: Horizontal Position
         type: variable-number-slider
         format: '%'
+        default: 50
         min: 0
         max: 100
+        step: 5
+    -
+        id: img-bg-size
+        title: Size
+        type: variable-select
+        default: cover
+        options:
+            -
+                label: Cover
+                value: cover
+            -
+                label: Custom Zoom
+                value: var(--img-bg-size-custom)
+    -
+        id: img-bg-size-custom
+        title: Zoom
+        type: variable-number-slider
+        format: '%'
+        default: 100
+        min: 100
+        max: 200
         step: 5
     -
         id: typography-heading
@@ -3158,30 +3529,56 @@ settings:
             - 'Marko One'
             - 'Quattrocento'
             - 'Avenir Next'
+            - 'Crimson Text'
+            - 'Fraunces'
+            - 'Gentium Book Plus'
             - 'Koh Santepheap'
-            - 'Monsterrat'
+            - 'PT Serif'
+            - 'Tajawal'
+            - 'Vesper Libre'
+            - 'Montserrat'
+            - 'Faster One'
             - 'Oleo Script'
+            - 'Lemon'
+            - 'Lilita One'
+            - 'Merienda'
+            - 'Playball'
+            - 'Rowdies'
+            - 'Nabla'
             - 'Shrikhand'
+            - 'Aboreto'
             - 'Bangers'
             - 'Figtree'
+            - 'Albert Sans'
+            - 'General Sans'
+            - 'Outfit'
             - 'Lexend'
+            - 'Red Hat Text'
+            - 'Satoshi'
             - 'Sen'
+            - 'Spline Sans'
+            - 'Inter'
             - 'Prompt'
             - 'Poppins'
             - 'Roboto'
+            - 'Roboto Condensed'
             - 'Rubik'
+            - 'Nunito'
+            - 'Nunito Sans'
+            - 'Quicksand'
             - 'Tilt Warp'
             - 'Fira Code'
             - 'Fira Sans'
             - 'Fira Sans Condensed'
             - 'Teko'
-            - 'Titilium Web'
+            - 'Cutive Mono'
+            - 'IBM Plex Mono'
+            - 'Jetbrains Mono'
+            - 'Spline Sans Mono'
+            - 'Space Mono'
+            - 'Titillium Web'
             - 'Martian Mono'
             - 'DM Mono'
-            - 'Nunito'
-            - 'Nunito Sans'
-            - 'Tajawal'
-            - 'Inter'
             - 'Source Code Pro'
     -
         id: heading-weight
@@ -3208,12 +3605,6 @@ settings:
             -
                 label: Extra Bold
                 value: 800
-    -
-        id: colored-headings
-        title: Colorful Headings
-        addCommand: true
-        type: class-toggle
-        default: false
     -
         id: headings-size
         title: Heading Size
@@ -3252,6 +3643,258 @@ settings:
             - normal
             - small-caps
             - all-small-caps
+    -
+        id: header-shadow
+        title: Heading Text Shadow
+        type: class-toggle
+        default: false
+    -
+        id: colored-headings
+        title: Colorful Headings
+        addCommand: true
+        type: class-toggle
+        default: false
+    -
+        id: colored-headings-heading
+        title: Colorful Headings
+        type: heading
+        collapsed: true
+        level: 5
+    -
+        id: h1-color-custom
+        title: Heading 1 Color
+        type: variable-select
+        default: var(--color-cyan)
+        options:
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+    -
+        id: h2-color-custom
+        title: Heading 2 Color
+        type: variable-select
+        default: var(--color-blue)
+        options:
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+    -
+        id: h3-color-custom
+        title: Heading 3 Color
+        type: variable-select
+        default: var(--color-purple)
+        options:
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+    -
+        id: h4-color-custom
+        title: Heading 4 Color
+        type: variable-select
+        default: var(--color-pink)
+        options:
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+    -
+        id: h5-color-custom
+        title: Heading 5 Color
+        type: variable-select
+        default: var(--color-red)
+        options:
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+    -
+        id: h6-color-custom
+        title: Heading 6 Color
+        type: variable-select
+        default: var(--color-orange)
+        options:
+            -
+            
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
     -
         id: inline-title-heading
         title: Inline Titles
@@ -3325,30 +3968,56 @@ settings:
             - 'Marko One'
             - 'Quattrocento'
             - 'Avenir Next'
+            - 'Crimson Text'
+            - 'Fraunces'
+            - 'Gentium Book Plus'
             - 'Koh Santepheap'
-            - 'Monsterrat'
+            - 'PT Serif'
+            - 'Tajawal'
+            - 'Vesper Libre'
+            - 'Montserrat'
+            - 'Faster One'
             - 'Oleo Script'
+            - 'Lemon'
+            - 'Lilita One'
+            - 'Merienda'
+            - 'Playball'
+            - 'Rowdies'
+            - 'Nabla'
             - 'Shrikhand'
+            - 'Aboreto'
             - 'Bangers'
             - 'Figtree'
+            - 'Albert Sans'
+            - 'General Sans'
+            - 'Outfit'
             - 'Lexend'
+            - 'Red Hat Text'
+            - 'Satoshi'
             - 'Sen'
+            - 'Spline Sans'
+            - 'Inter'
             - 'Prompt'
             - 'Poppins'
             - 'Roboto'
+            - 'Roboto Condensed'
             - 'Rubik'
+            - 'Nunito'
+            - 'Nunito Sans'
+            - 'Quicksand'
             - 'Tilt Warp'
             - 'Fira Code'
             - 'Fira Sans'
             - 'Fira Sans Condensed'
             - 'Teko'
-            - 'Titilium Web'
+            - 'Cutive Mono'
+            - 'IBM Plex Mono'
+            - 'Jetbrains Mono'
+            - 'Spline Sans Mono'
+            - 'Space Mono'
+            - 'Titillium Web'
             - 'Martian Mono'
             - 'DM Mono'
-            - 'Nunito'
-            - 'Nunito Sans'
-            - 'Tajawal'
-            - 'Inter'
             - 'Source Code Pro'
     -
         id: inline-title-style
@@ -3368,6 +4037,53 @@ settings:
             - normal
             - small-caps
             - all-small-caps
+    -
+        id: inline-title-color 
+        title: Inline Title Color
+        type: variable-select 
+        default: var(--text-normal) 
+        options: 
+            -
+                label: Default 
+                value: var(--text-normal) 
+            -
+                label: Accent 1
+                value: var(--color-accent-1)
+            -
+                label: Accent 2
+                value: var(--color-accent-2) 
+            -
+                label: Accent 3
+                value: var(--color-accent-3)
+            -
+                label: Red
+                value: var(--color-red)
+            -
+                label: Orange 
+                value: var(--color-orange)
+            -
+                label: Yellow 
+                value: var(--color-yellow)
+            -
+                label: Green 
+                value: var(--color-green) 
+            -
+                label: Cyan 
+                value: var(--color-cyan) 
+            -
+                label: Blue 
+                value: var(--color-blue) 
+            -
+                label: Purple 
+                value: var(--color-purple) 
+            -
+                label: Pink 
+                value: var(--color-pink)
+    -
+        id: title-shadow 
+        title: Inline Title Text Shadow
+        type: class-toggle
+        default: false
     -
         id: hide-title
         title: Hide Inline Title
@@ -3389,31 +4105,51 @@ settings:
         options: 
             - 'Nunito Sans'
             - 'Nunito'
+            - 'Quicksand'
+            - 'Albert Sans'
             - 'Avenir Next'
+            - 'Red Hat Text'
             - 'Figtree'
+            - 'Inter'
             - 'Lexend'
-            - 'Vollkorn'
-            - 'Inknut Antiqua'
+            - 'Outfit'
             - 'Poppins'
             - 'Prompt'
             - 'Roboto'
+            - 'Roboto Condensed'
             - 'Rubik'
+            - 'General Sans'
+            - 'Satoshi'
             - 'Sen'
+            - 'Spline Sans'
+            - 'Merriweather Sans'
+            - 'Merriweather'
+            - 'Crimson Text'
+            - 'Fraunces'
+            - 'Gentium Book Plus'
+            - 'Vesper Libre'
+            - 'PT Serif'
             - 'Koh Santepheap'
-            - 'Monsterrat'
+            - 'Tajawal'
+            - 'EB Garamond'
+            - 'Quattrocento'
+            - 'Vollkorn'
+            - 'Inknut Antiqua'
+            - 'Montserrat'
             - 'Oleo Script'
+            - 'Playball'
+            - 'Merienda'
             - 'Fira Code'
             - 'Fira Sans'
             - 'Fira Sans Condensed'
-            - 'Titilium Web'
+            - 'Titillium Web'
+            - 'Cutive Mono'
             - 'Martian Mono'
+            - 'Space Mono'
+            - 'Spline Sans Mono'
             - 'DM Mono'
-            - 'Tajawal'
-            - 'Merriweather'
-            - 'Merriweather Sans'
-            - 'EB Garamond'
-            - 'Quattrocento'
-            - 'Inter'
+            - 'IBM Plex Mono'
+            - 'Jetbrains Mono'
             - 'Source Code Pro'
     -
         id: font-normal
